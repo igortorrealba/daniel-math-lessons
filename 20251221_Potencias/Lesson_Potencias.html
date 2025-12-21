@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Lección: Potencias (Potęgi)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .visual-example {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .power-notation {
+            font-size: 3em;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .base {
+            color: #f5576c;
+        }
+
+        .exponent {
+            color: #667eea;
+            font-size: 0.6em;
+            vertical-align: super;
+        }
+
+        .multiplication-chain {
+            font-size: 1.5em;
+            color: #333;
+            margin: 15px 0;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+        }
+
+        .animation-box {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .cube-visual {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            margin: 5px;
+            border-radius: 5px;
+            animation: popIn 0.5s ease-out;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .interactive-example {
+            background: #fff8e1;
+            border: 3px dashed #ff9800;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .hint-box, .solution-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .solution-box {
+            background: #d4edda;
+            border-left: 4px solid #155724;
+        }
+
+        .practice-problem {
+            background: white;
+            border: 3px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .problem-text {
+            font-size: 1.5em;
+            color: #333;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .key-terms {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .term strong {
+            color: #d63031;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .summary-item {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .summary-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .real-world {
+            background: #e8f5e9;
+            border: 3px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-visual {
+            display: inline-grid;
+            gap: 3px;
+            margin: 10px;
+        }
+
+        .grid-cell {
+            width: 30px;
+            height: 30px;
+            background: #f5576c;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 ¡Bienvenido a la Clase de Potencias!</h1>
+        <div class="subtitle">Potęgi - Una forma mágica de multiplicar 🌟</div>
+
+        <!-- SECTION 1: INTRODUCTION -->
+        <div class="section">
+            <div class="section-title">📚 1. Introducción - ¿Qué aprenderemos hoy?</div>
+            <p style="font-size: 1.2em; line-height: 1.8;">
+                ¡Hola Daniel! 👋 Hoy vamos a aprender sobre las <strong>Potencias (Potęgi)</strong>,
+                que son una forma súper rápida y elegante de escribir multiplicaciones repetidas.
+                ¡Es como tener un superpoder matemático! 💪
+            </p>
+            <div class="concept-box">
+                <strong>🎯 Objetivo de hoy:</strong><br>
+                Al final de esta clase, podrás:<br>
+                ✓ Entender qué son las potencias (potęgi)<br>
+                ✓ Identificar la base (podstawa) y el exponente (wykładnik)<br>
+                ✓ Calcular potencias simples como 2³, 5², 10⁴<br>
+                ✓ Usar potencias para resolver problemas del mundo real
+            </div>
+        </div>
+
+        <!-- SECTION 2: CONCEPT EXPLANATION -->
+        <div class="section">
+            <div class="section-title">🧠 2. Explicación del Concepto</div>
+
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Imagina que tienes que escribir: 2 × 2 × 2 × 2 × 2<br>
+                ¡Es largo! Pero las potencias nos dan un atajo mágico ✨
+            </p>
+
+            <div class="visual-example">
+                <div class="power-notation">
+                    <span class="base">2</span><span class="exponent">5</span>
+                </div>
+                <p style="font-size: 1.2em; margin: 20px 0;">
+                    Se lee: "2 elevado a la quinta potencia" o "2 a la 5"
+                </p>
+                <div class="multiplication-chain">
+                    2 × 2 × 2 × 2 × 2 = 32
+                </div>
+            </div>
+
+            <div class="key-terms">
+                <h3 style="margin-bottom: 15px;">📖 Términos Clave (Kluczowe terminy):</h3>
+                <div class="term">
+                    <strong>Base (Podstawa):</strong> El número que multiplicamos. En 2⁵, el número <span style="color: #f5576c; font-weight: bold;">2</span> es la base.
+                </div>
+                <div class="term">
+                    <strong>Exponente (Wykładnik):</strong> El numerito arriba que nos dice CUÁNTAS VECES multiplicamos. En 2⁵, el número <span style="color: #667eea; font-weight: bold;">5</span> es el exponente.
+                </div>
+                <div class="term">
+                    <strong>Potencia (Potęga):</strong> El resultado de la operación. 2⁵ = 32, entonces 32 es la potencia.
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: VISUAL AIDS -->
+        <div class="section">
+            <div class="section-title">🎨 3. Ayudas Visuales</div>
+
+            <h3 style="margin: 20px 0;">Ejemplo 1: 3² (3 al cuadrado / 3 do kwadratu)</h3>
+            <div class="animation-box">
+                <p style="font-size: 1.2em; margin-bottom: 15px;">
+                    3² significa 3 × 3 = 9
+                </p>
+                <p style="margin: 15px 0;">¡Mira! Un cuadrado de 3 × 3:</p>
+                <div class="grid-visual" style="grid-template-columns: repeat(3, 30px);">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <p style="font-size: 1.1em; margin-top: 15px; color: #666;">
+                    ¡9 cuadritos en total! Por eso se llama "al cuadrado" 📐
+                </p>
+            </div>
+
+            <h3 style="margin: 20px 0;">Ejemplo 2: 2³ (2 al cubo / 2 do sześcianu)</h3>
+            <div class="animation-box">
+                <p style="font-size: 1.2em; margin-bottom: 15px;">
+                    2³ significa 2 × 2 × 2 = 8
+                </p>
+                <p style="margin: 15px 0;">Imagina un cubo de 2 × 2 × 2:</p>
+                <div id="cubes-container"></div>
+                <button onclick="showCubes()">¡Mostrar los 8 cubitos! 🎁</button>
+                <p style="font-size: 1.1em; margin-top: 15px; color: #666;">
+                    ¡8 cubitos en total! Por eso se llama "al cubo" 🧊
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: INTERACTIVE EXAMPLES -->
+        <div class="section">
+            <div class="section-title">🎮 4. Ejemplos Interactivos</div>
+
+            <div class="interactive-example">
+                <h3>Ejemplo Paso a Paso: Calcular 4³</h3>
+                <div class="problem-text">4³ = ?</div>
+
+                <button onclick="showStep1()">Paso 1: ¿Qué significa?</button>
+                <div id="step1" style="display: none; margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                    <p style="font-size: 1.1em;">
+                        4³ significa: "Multiplica el 4 por sí mismo 3 veces"<br>
+                        <strong>4 × 4 × 4</strong>
+                    </p>
+                </div>
+
+                <button onclick="showStep2()">Paso 2: Primera multiplicación</button>
+                <div id="step2" style="display: none; margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                    <p style="font-size: 1.1em;">
+                        Primero: 4 × 4 = <strong style="color: #f5576c;">16</strong><br>
+                        Nos queda: <strong style="color: #f5576c;">16</strong> × 4
+                    </p>
+                </div>
+
+                <button onclick="showStep3()">Paso 3: Segunda multiplicación</button>
+                <div id="step3" style="display: none; margin: 15px 0; padding: 15px; background: white; border-radius: 8px;">
+                    <p style="font-size: 1.1em;">
+                        Ahora: 16 × 4 = <strong style="color: #28a745; font-size: 1.3em;">64</strong><br>
+                        ¡Respuesta final! 4³ = 64 🎉
+                    </p>
+                </div>
+            </div>
+
+            <div class="real-world">
+                <h3 style="color: #2d6a4f; margin-bottom: 15px;">🌍 Ejemplo del Mundo Real:</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Daniel tiene una caja de Lego en forma de cubo. Cada lado del cubo tiene 5 bloques de largo.<br>
+                    ¿Cuántos bloques Lego pequeños caben en total en el cubo?<br><br>
+                    <strong>Solución:</strong> 5 × 5 × 5 = 5³ = <span style="color: #2d6a4f; font-size: 1.3em;">125 bloques</span> 🧱
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: TRY IT TOGETHER -->
+        <div class="section">
+            <div class="section-title">🤝 5. ¡Intentemos Juntos!</div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 1:</h3>
+                <div class="problem-text">Calcula: 5²</div>
+
+                <button onclick="toggleHint1()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint1">
+                    <strong>Pista:</strong> Recuerda, 5² significa "5 al cuadrado", que es 5 × 5.
+                    ¿Cuánto es 5 veces 5?
+                </div>
+
+                <button onclick="toggleSolution1()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution1">
+                    <strong>Solución:</strong><br>
+                    5² = 5 × 5 = <strong style="font-size: 1.3em; color: #155724;">25</strong><br>
+                    ¡Excelente! 🌟
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 2:</h3>
+                <div class="problem-text">Calcula: 10³</div>
+
+                <button onclick="toggleHint2()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint2">
+                    <strong>Pista:</strong> 10³ = 10 × 10 × 10.
+                    Empieza con 10 × 10 = 100, luego multiplica por 10 otra vez.
+                </div>
+
+                <button onclick="toggleSolution2()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution2">
+                    <strong>Solución:</strong><br>
+                    10³ = 10 × 10 × 10<br>
+                    = 100 × 10<br>
+                    = <strong style="font-size: 1.3em; color: #155724;">1,000</strong><br>
+                    ¡Increíble! 🎉
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 3:</h3>
+                <div class="problem-text">Calcula: 6²</div>
+
+                <button onclick="toggleHint3()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint3">
+                    <strong>Pista:</strong> Piensa en un cuadrado de 6 × 6. ¿Cuántos cuadritos tendría?
+                </div>
+
+                <button onclick="toggleSolution3()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution3">
+                    <strong>Solución:</strong><br>
+                    6² = 6 × 6 = <strong style="font-size: 1.3em; color: #155724;">36</strong><br>
+                    ¡Perfecto! ⭐
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: VIDEO RESOURCE -->
+        <div class="section">
+            <div class="section-title">🎬 6. Video Educativo (Opcional)</div>
+            <p style="margin-bottom: 15px; font-size: 1.1em;">
+                Si quieres ver más ejemplos visuales, aquí hay un video corto que explica las potencias:
+            </p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/X2t7ru5Qqy0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- SECTION 7: SUMMARY -->
+        <div class="section">
+            <div class="section-title">📝 7. Resumen - ¡Lo que aprendimos hoy!</div>
+
+            <div class="summary-box">
+                <h3 style="margin-bottom: 20px; font-size: 1.5em;">🎯 Puntos Clave (Kluczowe punkty):</h3>
+
+                <div class="summary-item">
+                    Las <strong>potencias (potęgi)</strong> son una forma corta de escribir multiplicaciones repetidas.
+                </div>
+
+                <div class="summary-item">
+                    La <strong>base (podstawa)</strong> es el número que multiplicamos.
+                </div>
+
+                <div class="summary-item">
+                    El <strong>exponente (wykładnik)</strong> nos dice cuántas veces multiplicamos la base.
+                </div>
+
+                <div class="summary-item">
+                    <strong>Al cuadrado (do kwadratu)</strong> significa exponente 2: 5² = 5 × 5 = 25
+                </div>
+
+                <div class="summary-item">
+                    <strong>Al cubo (do sześcianu)</strong> significa exponente 3: 2³ = 2 × 2 × 2 = 8
+                </div>
+
+                <div class="summary-item">
+                    Las potencias son útiles en la vida real: volumen de cubos, área de cuadrados, ¡y mucho más!
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px;">
+                <h2 style="color: #856404;">🎉 ¡Felicitaciones, Daniel!</h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">
+                    Ahora estás listo para practicar con el juego interactivo y la hoja de ejercicios. 💪
+                </p>
+                <p style="font-size: 1.1em; margin-top: 15px; color: #666;">
+                    Recuerda: Las potencias son como un superpoder matemático.<br>
+                    ¡Mientras más practiques, más fuerte te harás! 🦸‍♂️
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showCubes() {
+            const container = document.getElementById('cubes-container');
+            container.innerHTML = '';
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const cube = document.createElement('div');
+                    cube.className = 'cube-visual';
+                    container.appendChild(cube);
+                }, i * 200);
+            }
+        }
+
+        function showStep1() {
+            document.getElementById('step1').style.display = 'block';
+        }
+
+        function showStep2() {
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function showStep3() {
+            document.getElementById('step3').style.display = 'block';
+        }
+
+        function toggleHint1() {
+            const hint = document.getElementById('hint1');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution1() {
+            const solution = document.getElementById('solution1');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHint2() {
+            const hint = document.getElementById('hint2');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution2() {
+            const solution = document.getElementById('solution2');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHint3() {
+            const hint = document.getElementById('hint3');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution3() {
+            const solution = document.getElementById('solution3');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

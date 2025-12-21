@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Lecciones de Matemáticas de Daniel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .lesson-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .lesson-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .lesson-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .lesson-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .lesson-link:hover {
+            transform: translateX(5px);
+        }
+
+        .link-lesson {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .link-lesson:hover {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .link-app {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .link-app:hover {
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .link-worksheet {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .link-worksheet:hover {
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .icon {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        footer p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Lecciones de Matemáticas</h1>
+            <div class="subtitle">Matemáticas de Daniel | Grado 4</div>
+            <p class="intro">
+                ¡Bienvenido al portal de aprendizaje de Daniel! 🌟<br>
+                Aquí encontrarás todas las lecciones interactivas, juegos educativos y hojas de trabajo.<br>
+                <strong>Creado con amor por tu Equipo de AI 🤖</strong>
+            </p>
+        </header>
+
+        <div class="lessons-grid">
+            <!-- Lesson: Potencias -->
+            <div class="lesson-card">
+                <div class="lesson-date">📅 21 de Diciembre, 2025</div>
+                <div class="lesson-title">Potencias (Potęgi)</div>
+                <p style="color: #666; margin-top: 10px; line-height: 1.6;">
+                    Aprende sobre exponentes, base, y cómo calcular potencias al cuadrado y al cubo.
+                </p>
+                <div class="lesson-links">
+                    <a href="20251221_Potencias/Lesson_Potencias.html" class="lesson-link link-lesson">
+                        <span class="icon">🎓</span>
+                        <span>Clase Interactiva</span>
+                    </a>
+                    <a href="20251221_Potencias/App_Potencias.html" class="lesson-link link-app">
+                        <span class="icon">🎮</span>
+                        <span>Juego de Práctica</span>
+                    </a>
+                    <a href="20251221_Potencias/Worksheet_Potencias.html" class="lesson-link link-worksheet">
+                        <span class="icon">📄</span>
+                        <span>Hoja de Trabajo</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Future lessons will be added here automatically -->
+        </div>
+
+        <footer>
+            <h2 style="color: #667eea; margin-bottom: 15px;">📊 Progreso de Daniel</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="lesson-count">1</div>
+                    <div class="stat-label">Lecciones Completadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">🎯</div>
+                    <div class="stat-label">Siguiente: Fracciones</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">⭐</div>
+                    <div class="stat-label">¡Sigue así!</div>
+                </div>
+            </div>
+            <p style="margin-top: 25px; color: #999; font-size: 0.9em;">
+                Última actualización: <span id="last-update">21 de Diciembre, 2025</span>
+            </p>
+            <p style="color: #667eea; font-weight: bold; margin-top: 10px;">
+                💪 "Las matemáticas son el gimnasio de la mente" 💪
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Auto-update lesson count based on lesson cards
+        const lessonCards = document.querySelectorAll('.lesson-card');
+        document.getElementById('lesson-count').textContent = lessonCards.length;
+
+        // Update last update date to today
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('last-update').textContent = today.toLocaleDateString('es-ES', options);
+    </script>
+</body>
+</html>
