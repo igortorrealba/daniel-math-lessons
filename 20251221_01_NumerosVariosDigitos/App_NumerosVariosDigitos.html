@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Juego: Números de Varios Dígitos</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .score {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .question-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .number-display {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #764ba2;
+            text-align: center;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+        }
+
+        .word-display {
+            font-size: 1.8em;
+            color: #667eea;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #e8ecff;
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.5em;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: none;
+        }
+
+        .correct {
+            background: #d4edda;
+            border: 3px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border: 3px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+
+        .celebration {
+            font-size: 4em;
+            text-align: center;
+            display: none;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: #856404;
+        }
+
+        .game-mode-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 10px;
+            background: #e8ecff;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .place-value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .place-value-box {
+            background: #e8ecff;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        .place-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .place-digit {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Juego de Números</h1>
+        <p class="subtitle">Czytanie i pisanie liczb (Lectura y escritura de números)</p>
+
+        <div class="score-board">
+            <div class="score">
+                ⭐ Correctas: <span id="correct">0</span>
+            </div>
+            <div class="score">
+                📊 Total: <span id="total">0</span>
+            </div>
+        </div>
+
+        <div class="game-mode-selector">
+            <div class="mode-btn active" onclick="setMode('numberToWord')" id="mode1">
+                Número → Palabras
+            </div>
+            <div class="mode-btn" onclick="setMode('wordToNumber')" id="mode2">
+                Palabras → Número
+            </div>
+        </div>
+
+        <div class="question-box" id="questionBox">
+            <p class="question-text" id="questionText">¿Cómo se escribe este número en palabras?</p>
+
+            <div id="numberDisplay" class="number-display">12,345</div>
+            <div id="wordDisplay" class="word-display" style="display: none;"></div>
+
+            <div id="placeValueHint" class="place-value-grid" style="display: none;">
+                <!-- Dinamically populated -->
+            </div>
+
+            <input type="text" id="answerInput" placeholder="Escribe tu respuesta aquí...">
+
+            <div class="hint">
+                💡 Consejo: En español usamos coma (,) para miles y punto (.) para decimales
+            </div>
+
+            <button onclick="checkAnswer()">✓ Verificar Respuesta</button>
+            <button onclick="showHint()" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); color: #333; margin-top: 10px;">
+                💡 Ver Pista
+            </button>
+            <button onclick="nextQuestion()" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); margin-top: 10px;">
+                ➡️ Siguiente Pregunta
+            </button>
+        </div>
+
+        <div class="celebration" id="celebration">🎉🎊✨</div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        let score = 0;
+        let total = 0;
+        let currentMode = 'numberToWord';
+        let currentNumber = 0;
+        let currentAnswer = '';
+
+        const numberWords = {
+            0: 'cero', 1: 'uno', 2: 'dos', 3: 'tres', 4: 'cuatro',
+            5: 'cinco', 6: 'seis', 7: 'siete', 8: 'ocho', 9: 'nueve',
+            10: 'diez', 11: 'once', 12: 'doce', 13: 'trece', 14: 'catorce',
+            15: 'quince', 16: 'dieciséis', 17: 'diecisiete', 18: 'dieciocho', 19: 'diecinueve',
+            20: 'veinte', 30: 'treinta', 40: 'cuarenta', 50: 'cincuenta',
+            60: 'sesenta', 70: 'setenta', 80: 'ochenta', 90: 'noventa',
+            100: 'cien', 200: 'doscientos', 300: 'trescientos', 400: 'cuatrocientos',
+            500: 'quinientos', 600: 'seiscientos', 700: 'setecientos', 800: 'ochocientos', 900: 'novecientos'
+        };
+
+        function numberToWords(num) {
+            if (num === 0) return 'cero';
+
+            if (num < 20) return numberWords[num];
+            if (num < 100) {
+                const tens = Math.floor(num / 10) * 10;
+                const ones = num % 10;
+                if (ones === 0) return numberWords[tens];
+                if (num < 30) return numberWords[tens] + ' y ' + numberWords[ones];
+                return numberWords[tens] + ' y ' + numberWords[ones];
+            }
+            if (num < 1000) {
+                const hundreds = Math.floor(num / 100) * 100;
+                const remainder = num % 100;
+                if (hundreds === 100 && remainder !== 0) {
+                    return 'ciento ' + numberToWords(remainder);
+                }
+                if (remainder === 0) return numberWords[hundreds];
+                return numberWords[hundreds] + ' ' + numberToWords(remainder);
+            }
+            if (num < 1000000) {
+                const thousands = Math.floor(num / 1000);
+                const remainder = num % 1000;
+                let result = thousands === 1 ? 'mil' : numberToWords(thousands) + ' mil';
+                if (remainder !== 0) result += ' ' + numberToWords(remainder);
+                return result;
+            }
+            return num.toString();
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+
+            if (mode === 'numberToWord') {
+                document.getElementById('mode1').classList.add('active');
+                document.getElementById('questionText').textContent = '¿Cómo se escribe este número en palabras?';
+                document.getElementById('answerInput').type = 'text';
+            } else {
+                document.getElementById('mode2').classList.add('active');
+                document.getElementById('questionText').textContent = '¿Qué número representan estas palabras?';
+                document.getElementById('answerInput').type = 'number';
+            }
+
+            nextQuestion();
+        }
+
+        function generateNumber() {
+            const ranges = [
+                [10, 99],      // 2 dígitos
+                [100, 999],    // 3 dígitos
+                [1000, 9999],  // 4 dígitos
+                [10000, 99999] // 5 dígitos
+            ];
+
+            const range = ranges[Math.floor(Math.random() * ranges.length)];
+            return Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
+        }
+
+        function displayPlaceValue(num) {
+            const numStr = num.toString();
+            const places = ['Unidades (Jedności)', 'Decenas (Dziesiątki)', 'Centenas (Setki)', 'Unidades de mil (Tysiące)', 'Decenas de mil (Dziesiątki tysięcy)'];
+            const placeLabels = places.slice(0, numStr.length).reverse();
+
+            let html = '';
+            for (let i = 0; i < numStr.length; i++) {
+                html += `
+                    <div class="place-value-box">
+                        <div class="place-label">${placeLabels[i]}</div>
+                        <div class="place-digit">${numStr[i]}</div>
+                    </div>
+                `;
+            }
+
+            return html;
+        }
+
+        function showHint() {
+            const hint = document.getElementById('placeValueHint');
+            hint.innerHTML = displayPlaceValue(currentNumber);
+            hint.style.display = 'grid';
+
+            setTimeout(() => {
+                hint.style.display = 'none';
+            }, 5000);
+        }
+
+        function nextQuestion() {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('celebration').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+            document.getElementById('placeValueHint').style.display = 'none';
+
+            currentNumber = generateNumber();
+
+            if (currentMode === 'numberToWord') {
+                document.getElementById('numberDisplay').textContent = currentNumber.toLocaleString('es-ES');
+                document.getElementById('numberDisplay').style.display = 'block';
+                document.getElementById('wordDisplay').style.display = 'none';
+                currentAnswer = numberToWords(currentNumber);
+            } else {
+                currentAnswer = currentNumber.toString();
+                document.getElementById('wordDisplay').textContent = numberToWords(currentNumber);
+                document.getElementById('numberDisplay').style.display = 'none';
+                document.getElementById('wordDisplay').style.display = 'block';
+            }
+        }
+
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .replace(/\s+/g, ' ')
+                .trim()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answerInput').value.trim();
+            const feedback = document.getElementById('feedback');
+            const celebration = document.getElementById('celebration');
+
+            total++;
+            document.getElementById('total').textContent = total;
+
+            let isCorrect = false;
+
+            if (currentMode === 'numberToWord') {
+                isCorrect = normalizeText(userAnswer) === normalizeText(currentAnswer);
+            } else {
+                isCorrect = parseInt(userAnswer) === currentNumber;
+            }
+
+            if (isCorrect) {
+                score++;
+                document.getElementById('correct').textContent = score;
+                feedback.className = 'feedback correct';
+                feedback.textContent = '🎉 ¡Excelente! ¡Muy bien, Daniel!';
+                celebration.style.display = 'block';
+
+                setTimeout(() => {
+                    celebration.style.display = 'none';
+                }, 2000);
+            } else {
+                feedback.className = 'feedback incorrect';
+                if (currentMode === 'numberToWord') {
+                    feedback.innerHTML = `❌ No exactamente. La respuesta correcta es:<br><strong>${currentAnswer}</strong>`;
+                } else {
+                    feedback.innerHTML = `❌ No exactamente. La respuesta correcta es:<br><strong>${currentNumber.toLocaleString('es-ES')}</strong>`;
+                }
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        // Inicializar
+        nextQuestion();
+    </script>
+</body>
+</html>

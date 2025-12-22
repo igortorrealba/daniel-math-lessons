@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo - Números de Varios Dígitos</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 3px solid black;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .student-info {
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .student-info span {
+            border-bottom: 2px solid black;
+            display: inline-block;
+            min-width: 250px;
+            margin-left: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28pt;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14pt;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .instructions {
+            background-color: #f5f5f5;
+            border: 2px solid black;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 12pt;
+        }
+
+        .section {
+            margin: 40px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid black;
+        }
+
+        .problem {
+            margin: 25px 0;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .problem-number {
+            font-weight: bold;
+            font-size: 14pt;
+            margin-bottom: 10px;
+        }
+
+        .number-display {
+            font-family: 'Courier New', monospace;
+            font-size: 24pt;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .answer-line {
+            border-bottom: 2px solid black;
+            display: inline-block;
+            min-width: 500px;
+            margin: 10px 0;
+        }
+
+        .place-value-chart {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .place-value-chart th,
+        .place-value-chart td {
+            border: 2px solid black;
+            padding: 15px;
+            text-align: center;
+            font-size: 12pt;
+        }
+
+        .place-value-chart th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-item {
+            border: 1px solid #ccc;
+            padding: 15px;
+            min-height: 80px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid black;
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14pt;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Hoja de Trabajo</h1>
+        <p class="subtitle">Números de Varios Dígitos (Liczby wielocyfrowe)</p>
+
+        <div class="student-info">
+            Nombre / Imię: <span></span>
+        </div>
+        <div class="student-info">
+            Fecha / Data: <span></span>
+        </div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-bottom: 20px;">
+        <button onclick="window.print()">🖨️ Imprimir Hoja de Trabajo</button>
+        <button onclick="showAnswers()">👁️ Mostrar Respuestas</button>
+        <button onclick="hideAnswers()">🙈 Ocultar Respuestas</button>
+    </div>
+
+    <div class="instructions">
+        <strong>📋 Instrucciones / Instrukcje:</strong><br>
+        Lee cada pregunta cuidadosamente. Escribe los números en palabras o en cifras según se pida.
+        Recuerda usar comas (,) para separar los miles.
+    </div>
+
+    <!-- PARTE 1: Números a Palabras -->
+    <div class="section">
+        <div class="section-title">Parte 1: Escribe estos números en palabras (Napisz te liczby słowami)</div>
+
+        <div class="problem">
+            <div class="problem-number">1.</div>
+            <div class="number-display">45</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>cuarenta y cinco</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">2.</div>
+            <div class="number-display">128</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>ciento veintiocho</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">3.</div>
+            <div class="number-display">1,500</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>mil quinientos</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">4.</div>
+            <div class="number-display">3,247</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>tres mil doscientos cuarenta y siete</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">5.</div>
+            <div class="number-display">15,892</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>quince mil ochocientos noventa y dos</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">6.</div>
+            <div class="number-display">50,000</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>cincuenta mil</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTE 2: Palabras a Números -->
+    <div class="section">
+        <div class="section-title">Parte 2: Escribe estos números en cifras (Napisz te liczby cyframi)</div>
+
+        <div class="problem">
+            <div class="problem-number">7.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Noventa y tres</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>93</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">8.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Doscientos cuarenta y seis</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>246</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">9.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Dos mil trescientos</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>2,300</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">10.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Ocho mil quinientos sesenta y uno</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>8,561</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">11.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Veinticinco mil cuatrocientos</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>25,400</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">12.</div>
+            <div style="font-size: 14pt; margin: 15px 0;"><em>Noventa y nueve mil novecientos noventa y nueve</em></div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>99,999</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTE 3: Valor Posicional -->
+    <div class="section">
+        <div class="section-title">Parte 3: Valor Posicional (Wartość pozycyjna)</div>
+
+        <div class="problem">
+            <div class="problem-number">13.</div>
+            <p>Completa la tabla con el valor posicional del número <strong>5,824</strong>:</p>
+
+            <table class="place-value-chart">
+                <tr>
+                    <th>Unidades de mil<br>(Tysiące)</th>
+                    <th>Centenas<br>(Setki)</th>
+                    <th>Decenas<br>(Dziesiątki)</th>
+                    <th>Unidades<br>(Jedności)</th>
+                </tr>
+                <tr>
+                    <td style="height: 60px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>5 | 8 | 2 | 4</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">14.</div>
+            <p>En el número <strong>37,651</strong>, ¿cuál es el valor del dígito <strong>7</strong>?</p>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>7,000 (siete mil) - está en el lugar de las unidades de mil</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">15.</div>
+            <p>¿Qué número tiene 4 unidades de mil, 5 centenas, 2 decenas y 8 unidades?</p>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>4,528</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- PARTE 4: Desafío -->
+    <div class="section">
+        <div class="section-title">Parte 4: ¡Desafío! (Wyzwanie!)</div>
+
+        <div class="problem">
+            <div class="problem-number">16.</div>
+            <p>Escribe el número más grande que puedas formar usando estos dígitos <strong>UNA SOLA VEZ</strong>:</p>
+            <p style="text-align: center; font-size: 24pt; font-weight: bold; margin: 20px 0;">
+                3, 7, 1, 9, 5
+            </p>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>97,531</strong>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">17.</div>
+            <p>Escribe el número más pequeño que puedas formar usando estos dígitos <strong>UNA SOLA VEZ</strong>:</p>
+            <p style="text-align: center; font-size: 24pt; font-weight: bold; margin: 20px 0;">
+                8, 2, 6, 4, 0
+            </p>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>20,468</strong> (el cero no puede ir al principio)
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">18.</div>
+            <p>Daniel tiene 15,342 puntos en su videojuego favorito. Escribe este número en palabras:</p>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea; margin-top: 10px;">
+                ✓ <strong>quince mil trescientos cuarenta y dos</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>🎓 ¡Excelente trabajo, Daniel! / Świetna robota!</p>
+        <p>Creado con ❤️ para aprender matemáticas</p>
+    </div>
+
+    <script>
+        function showAnswers() {
+            document.querySelectorAll('.answer').forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+
+        function hideAnswers() {
+            document.querySelectorAll('.answer').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
