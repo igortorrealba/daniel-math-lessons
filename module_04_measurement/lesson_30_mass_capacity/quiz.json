@@ -1,0 +1,66 @@
+{
+  "lesson": "30",
+  "title": "Mass and Capacity Quiz",
+  "description": "Test your knowledge of mass and capacity measurements",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "How many grams are in 1 kilogram?",
+      "options": [
+        "10 grams",
+        "100 grams",
+        "1000 grams",
+        "10000 grams"
+      ],
+      "correct_answer": 2,
+      "explanation": "1 kilogram = 1000 grams. This is a fundamental metric conversion."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "What unit would you use to measure a spoonful of medicine?",
+      "options": [
+        "kilograms",
+        "liters",
+        "milliliters",
+        "grams"
+      ],
+      "correct_answer": 2,
+      "explanation": "Milliliters (mL) are used for small amounts of liquid like medicine. A spoon is about 5 mL."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Convert 3 liters to milliliters.",
+      "options": [
+        "30 milliliters",
+        "300 milliliters",
+        "3000 milliliters",
+        "30000 milliliters"
+      ],
+      "correct_answer": 2,
+      "explanation": "1 liter = 1000 milliliters, so 3 L = 3 × 1000 = 3000 mL."
+    },
+    {
+      "id": 4,
+      "type": "true_false",
+      "question": "2 kilograms and 2000 grams are the same mass.",
+      "correct_answer": true,
+      "explanation": "Yes! Since 1 kilogram = 1000 grams, 2 kg = 2000 g."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "A water bottle holds 1.5 liters. How many milliliters is that?",
+      "options": [
+        "15 milliliters",
+        "150 milliliters",
+        "1500 milliliters",
+        "15000 milliliters"
+      ],
+      "correct_answer": 2,
+      "explanation": "1 liter = 1000 milliliters, so 1.5 L = 1.5 × 1000 = 1500 mL."
+    }
+  ]
+}

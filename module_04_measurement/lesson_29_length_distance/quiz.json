@@ -1,0 +1,66 @@
+{
+  "lesson": "29",
+  "title": "Length and Distance Quiz",
+  "description": "Test your knowledge of metric measurements and conversions",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "How many centimeters are in 1 meter?",
+      "options": [
+        "10 cm",
+        "100 cm",
+        "1000 cm",
+        "10000 cm"
+      ],
+      "correct_answer": 1,
+      "explanation": "1 meter = 100 centimeters. This is a basic metric conversion."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "What unit would you use to measure the height of a person?",
+      "options": [
+        "millimeters",
+        "centimeters",
+        "meters",
+        "kilometers"
+      ],
+      "correct_answer": 2,
+      "explanation": "A person is usually 1-2 meters tall. Meters is the appropriate unit. Centimeters would also be acceptable (like 150 cm)."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Convert 5 kilometers to meters.",
+      "options": [
+        "5000 meters",
+        "500 meters",
+        "50000 meters",
+        "50 meters"
+      ],
+      "correct_answer": 0,
+      "explanation": "1 kilometer = 1000 meters, so 5 km = 5 × 1000 = 5000 meters."
+    },
+    {
+      "id": 4,
+      "type": "true_false",
+      "question": "2 meters and 200 centimeters are the same length.",
+      "correct_answer": true,
+      "explanation": "Yes! Since 1 meter = 100 centimeters, 2 meters = 200 centimeters."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Convert 30 millimeters to centimeters.",
+      "options": [
+        "0.3 cm",
+        "3 cm",
+        "300 cm",
+        "0.03 cm"
+      ],
+      "correct_answer": 1,
+      "explanation": "10 millimeters = 1 centimeter, so 30 mm = 30 ÷ 10 = 3 cm."
+    }
+  ]
+}

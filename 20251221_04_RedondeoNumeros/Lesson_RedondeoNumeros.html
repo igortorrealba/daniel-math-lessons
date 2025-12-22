@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 04: Redondeo de Números</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.4em;
+        }
+
+        .rule-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #ffd700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .rule-text {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .number-line {
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .line {
+            height: 4px;
+            background: #667eea;
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .tick {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: #333;
+            top: -8px;
+        }
+
+        .tick-label {
+            position: absolute;
+            top: 20px;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .number-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            top: -8px;
+            transform: translateX(-50%);
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+            }
+        }
+
+        .example-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #2196f3;
+        }
+
+        .example-title {
+            color: #1976d2;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #4caf50;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .visual-demo {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .demo-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .big-number {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #4caf50;
+            margin: 0 10px;
+        }
+
+        .practice-section {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .interactive-example {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px dashed #667eea;
+        }
+
+        .think-bubble {
+            background: #fffacd;
+            padding: 15px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+            border: 2px solid #ffd700;
+        }
+
+        .think-bubble:before {
+            content: "💭";
+            position: absolute;
+            left: -30px;
+            top: 10px;
+            font-size: 2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        td {
+            font-size: 1.1em;
+        }
+
+        tr:nth-child(even) {
+            background: #f5f7fa;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .number-cell {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: 2px solid #ddd;
+        }
+
+        .number-cell.highlighted {
+            background: #ffeb3b;
+            border-color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Redondeo de Números</h1>
+        <div class="subtitle">Zaokrąglanie liczb (Rounding Numbers)</div>
+
+        <div class="section">
+            <h2>📚 ¿Qué es el Redondeo?</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; margin: 15px 0;">
+                <strong>Redondear</strong> (zaokrąglać) significa aproximar un número a otro más simple y fácil de usar.
+                Es como encontrar el número "más cercano" que termina en 0.
+            </p>
+
+            <div class="think-bubble" style="margin-left: 40px;">
+                Por ejemplo, si tienes 47 manzanas y alguien pregunta cuántas tienes, puedes decir "aproximadamente 50"
+                en lugar de contar exactamente. ¡Es más rápido!
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Ejemplo de la vida real:</div>
+                <p style="font-size: 1.1em; line-height: 1.6;">
+                    En una tienda, un juguete cuesta 48 złoty. Si le dices a tu mamá que cuesta "alrededor de 50 złoty",
+                    estás redondeando. Es más fácil recordar 50 que 48.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📏 La Regla de Oro del Redondeo</h2>
+            <div class="rule-box">
+                <div class="rule-text">
+                    <strong style="color: #667eea; font-size: 1.3em;">Regla Principal:</strong><br><br>
+                    🔹 Si el dígito es <span class="highlight">5, 6, 7, 8, o 9</span> → Redondea HACIA ARRIBA ⬆️<br>
+                    🔹 Si el dígito es <span class="highlight">0, 1, 2, 3, o 4</span> → Redondea HACIA ABAJO ⬇️
+                </div>
+            </div>
+
+            <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="color: #2e7d32;">💡 Truco para Recordar:</h3>
+                <p style="font-size: 1.2em; line-height: 1.6;">
+                    Piensa en 5 como la "mitad del camino":<br>
+                    • 0, 1, 2, 3, 4 están en la "primera mitad" → van hacia abajo<br>
+                    • 5, 6, 7, 8, 9 están en la "segunda mitad" → van hacia arriba
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Redondeo a la Decena Más Cercana (Dziesiątki)</h2>
+
+            <h3>Visualización con Recta Numérica:</h3>
+            <div class="number-line">
+                <p style="text-align: center; font-weight: bold; margin-bottom: 20px; font-size: 1.2em;">
+                    Redondear 47 a la decena más cercana:
+                </p>
+                <div class="line-container">
+                    <div class="line">
+                        <div class="tick" style="left: 0%;"></div>
+                        <div class="tick-label" style="left: 0%;">40</div>
+
+                        <div class="tick" style="left: 10%;"></div>
+                        <div class="tick-label" style="left: 10%;">41</div>
+
+                        <div class="tick" style="left: 20%;"></div>
+                        <div class="tick-label" style="left: 20%;">42</div>
+
+                        <div class="tick" style="left: 30%;"></div>
+                        <div class="tick-label" style="left: 30%;">43</div>
+
+                        <div class="tick" style="left: 40%;"></div>
+                        <div class="tick-label" style="left: 40%;">44</div>
+
+                        <div class="tick" style="left: 50%; background: red; height: 30px; top: -13px;"></div>
+                        <div class="tick-label" style="left: 50%; color: red;">45<br>(mitad)</div>
+
+                        <div class="tick" style="left: 60%;"></div>
+                        <div class="tick-label" style="left: 60%;">46</div>
+
+                        <div class="tick" style="left: 70%;"></div>
+                        <div class="tick-label" style="left: 70%; color: #ff6b6b; font-size: 1.3em;">47</div>
+                        <div class="number-marker" style="left: 70%;"></div>
+
+                        <div class="tick" style="left: 80%;"></div>
+                        <div class="tick-label" style="left: 80%;">48</div>
+
+                        <div class="tick" style="left: 90%;"></div>
+                        <div class="tick-label" style="left: 90%;">49</div>
+
+                        <div class="tick" style="left: 100%;"></div>
+                        <div class="tick-label" style="left: 100%;">50</div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-weight: bold; margin-top: 80px; font-size: 1.3em; color: #4caf50;">
+                    47 está después del 45 (mitad), entonces redondea ARRIBA → <span style="font-size: 1.5em;">50</span>
+                </p>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Ejemplo Paso a Paso: 47 → ?</div>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    Identifica las decenas cercanas: 47 está entre <strong>40</strong> y <strong>50</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    Mira el dígito de las unidades: 4<span class="highlight">7</span> → el 7 está en las unidades
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    Aplica la regla: 7 es ≥ 5, entonces redondea <strong>ARRIBA</strong> ⬆️
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    Resultado: 47 → <span style="font-size: 1.5em; color: #4caf50;">50</span>
+                </div>
+            </div>
+
+            <h3>Más Ejemplos de Decenas:</h3>
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number">23</div>
+                    <div style="color: #666;">unidades: 3 (< 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e8f5e9;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #4caf50;">20</div>
+                    <div style="color: #2e7d32;">Hacia abajo ⬇️</div>
+                </div>
+            </div>
+
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number">68</div>
+                    <div style="color: #666;">unidades: 8 (≥ 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e3f2fd;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #2196f3;">70</div>
+                    <div style="color: #1976d2;">Hacia arriba ⬆️</div>
+                </div>
+            </div>
+
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number">85</div>
+                    <div style="color: #666;">unidades: 5 (= 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e3f2fd;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #2196f3;">90</div>
+                    <div style="color: #1976d2;">Hacia arriba ⬆️</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💯 Redondeo a la Centena Más Cercana (Setki)</h2>
+
+            <div class="rule-box">
+                <div class="rule-text">
+                    Para redondear a las centenas, miramos el dígito de las <span class="highlight">DECENAS</span>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Ejemplo: 347 → ?</div>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    Identifica las centenas cercanas: 347 está entre <strong>300</strong> y <strong>400</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    Mira el dígito de las decenas: 3<span class="highlight">4</span>7 → el 4 está en las decenas
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    Aplica la regla: 4 es < 5, entonces redondea <strong>ABAJO</strong> ⬇️
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    Resultado: 347 → <span style="font-size: 1.5em; color: #4caf50;">300</span>
+                </div>
+            </div>
+
+            <h3>Tabla de Ejemplos de Centenas:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Dígito de Decenas</th>
+                        <th>Dirección</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-size: 1.3em;">234</td>
+                        <td><span class="highlight">3</span> (< 5)</td>
+                        <td>⬇️ Abajo</td>
+                        <td style="color: #4caf50; font-weight: bold;">200</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 1.3em;">678</td>
+                        <td><span class="highlight">7</span> (≥ 5)</td>
+                        <td>⬆️ Arriba</td>
+                        <td style="color: #2196f3; font-weight: bold;">700</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 1.3em;">450</td>
+                        <td><span class="highlight">5</span> (= 5)</td>
+                        <td>⬆️ Arriba</td>
+                        <td style="color: #2196f3; font-weight: bold;">500</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 1.3em;">812</td>
+                        <td><span class="highlight">1</span> (< 5)</td>
+                        <td>⬇️ Abajo</td>
+                        <td style="color: #4caf50; font-weight: bold;">800</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Redondeo a la Millar Más Cercana (Tysiące)</h2>
+
+            <div class="rule-box">
+                <div class="rule-text">
+                    Para redondear a los millares, miramos el dígito de las <span class="highlight">CENTENAS</span>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <div class="example-title">Ejemplo: 3,742 → ?</div>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    Identifica los millares cercanos: 3,742 está entre <strong>3,000</strong> y <strong>4,000</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    Mira el dígito de las centenas: 3,<span class="highlight">7</span>42 → el 7 está en las centenas
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    Aplica la regla: 7 es ≥ 5, entonces redondea <strong>ARRIBA</strong> ⬆️
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    Resultado: 3,742 → <span style="font-size: 1.5em; color: #2196f3;">4,000</span>
+                </div>
+            </div>
+
+            <h3>Ejemplos Variados de Millares:</h3>
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number" style="font-size: 2em;">2,345</div>
+                    <div style="color: #666;">centenas: 3 (< 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e8f5e9;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #4caf50; font-size: 2em;">2,000</div>
+                    <div style="color: #2e7d32;">Hacia abajo ⬇️</div>
+                </div>
+            </div>
+
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number" style="font-size: 2em;">5,678</div>
+                    <div style="color: #666;">centenas: 6 (≥ 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e3f2fd;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #2196f3; font-size: 2em;">6,000</div>
+                    <div style="color: #1976d2;">Hacia arriba ⬆️</div>
+                </div>
+            </div>
+
+            <div class="visual-demo">
+                <div class="demo-card">
+                    <div>Número Original</div>
+                    <div class="big-number" style="font-size: 2em;">8,500</div>
+                    <div style="color: #666;">centenas: 5 (= 5)</div>
+                </div>
+                <div class="arrow">→</div>
+                <div class="demo-card" style="background: #e3f2fd;">
+                    <div>Redondeado</div>
+                    <div class="big-number" style="color: #2196f3; font-size: 2em;">9,000</div>
+                    <div style="color: #1976d2;">Hacia arriba ⬆️</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Tabla Resumen: ¿Qué Dígito Mirar?</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Redondear a...</th>
+                        <th>Mira el dígito de...</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold;">Decenas (Dziesiątki)</td>
+                        <td><span class="highlight">Unidades</span></td>
+                        <td>4<span style="color: red; font-weight: bold;">7</span> → 50</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Centenas (Setki)</td>
+                        <td><span class="highlight">Decenas</span></td>
+                        <td>3<span style="color: red; font-weight: bold;">4</span>7 → 300</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Millares (Tysiące)</td>
+                        <td><span class="highlight">Centenas</span></td>
+                        <td>3,<span style="color: red; font-weight: bold;">7</span>42 → 4,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="practice-section">
+            <h2 style="color: #e65100; text-align: center;">🎮 Práctica Guiada</h2>
+            <p style="text-align: center; font-size: 1.2em; margin: 15px 0;">
+                ¡Intenta resolver estos problemas mentalmente antes de ver la respuesta!
+            </p>
+
+            <div class="interactive-example">
+                <h3 style="color: #667eea;">Problema 1: Redondea 73 a la decena más cercana</h3>
+                <div class="think-bubble" style="margin-left: 40px;">
+                    Piensa: ¿El 3 está antes o después del 5?
+                </div>
+                <details style="margin-top: 20px;">
+                    <summary style="cursor: pointer; font-weight: bold; font-size: 1.2em; color: #4caf50;">
+                        👉 Ver Respuesta
+                    </summary>
+                    <div style="margin-top: 15px; padding: 15px; background: #e8f5e9; border-radius: 8px;">
+                        <p style="font-size: 1.1em;"><strong>Respuesta:</strong> 70</p>
+                        <p><strong>Razón:</strong> Miramos las unidades → 7<span class="highlight">3</span></p>
+                        <p>3 < 5, entonces redondeamos hacia ABAJO ⬇️ → <strong>70</strong></p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="interactive-example">
+                <h3 style="color: #667eea;">Problema 2: Redondea 456 a la centena más cercana</h3>
+                <div class="think-bubble" style="margin-left: 40px;">
+                    Piensa: ¿Qué dígito miro para centenas?
+                </div>
+                <details style="margin-top: 20px;">
+                    <summary style="cursor: pointer; font-weight: bold; font-size: 1.2em; color: #4caf50;">
+                        👉 Ver Respuesta
+                    </summary>
+                    <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 8px;">
+                        <p style="font-size: 1.1em;"><strong>Respuesta:</strong> 500</p>
+                        <p><strong>Razón:</strong> Miramos las decenas → 4<span class="highlight">5</span>6</p>
+                        <p>5 = 5, entonces redondeamos hacia ARRIBA ⬆️ → <strong>500</strong></p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="interactive-example">
+                <h3 style="color: #667eea;">Problema 3: Redondea 7,234 a la millar más cercana</h3>
+                <div class="think-bubble" style="margin-left: 40px;">
+                    Piensa: ¿Está 7,234 más cerca de 7,000 o de 8,000?
+                </div>
+                <details style="margin-top: 20px;">
+                    <summary style="cursor: pointer; font-weight: bold; font-size: 1.2em; color: #4caf50;">
+                        👉 Ver Respuesta
+                    </summary>
+                    <div style="margin-top: 15px; padding: 15px; background: #e8f5e9; border-radius: 8px;">
+                        <p style="font-size: 1.1em;"><strong>Respuesta:</strong> 7,000</p>
+                        <p><strong>Razón:</strong> Miramos las centenas → 7,<span class="highlight">2</span>34</p>
+                        <p>2 < 5, entonces redondeamos hacia ABAJO ⬇️ → <strong>7,000</strong></p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>🎉 ¡Excelente Trabajo, Daniel!</h2>
+            <p style="margin-top: 10px;">
+                Ahora comprendes el redondeo de números. Recuerda la regla de oro:
+                <strong>5 o más → arriba, menos de 5 → abajo</strong>
+            </p>
+            <p style="margin-top: 15px;">
+                💪 Continúa practicando con la aplicación interactiva y la hoja de ejercicios.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

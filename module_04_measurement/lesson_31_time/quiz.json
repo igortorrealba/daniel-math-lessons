@@ -1,0 +1,66 @@
+{
+  "lesson": "31",
+  "title": "Time Quiz",
+  "description": "Test your knowledge of telling time and calculating elapsed time",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What time is shown when the hour hand points to 3 and the minute hand points to 6?",
+      "options": [
+        "3:06",
+        "3:30",
+        "6:15",
+        "3:36"
+      ],
+      "correct_answer": 1,
+      "explanation": "The minute hand pointing to 6 means 30 minutes. The hour hand pointing to 3 means 3 o'clock. So the time is 3:30."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "How many seconds are in 4 minutes?",
+      "options": [
+        "240 seconds",
+        "40 seconds",
+        "400 seconds",
+        "64 seconds"
+      ],
+      "correct_answer": 0,
+      "explanation": "60 seconds = 1 minute, so 4 minutes = 4 × 60 = 240 seconds."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "If it's 2:45, what is the time called?",
+      "options": [
+        "Quarter past 2",
+        "Quarter to 3",
+        "Half past 2",
+        "Twenty minutes to 3"
+      ],
+      "correct_answer": 1,
+      "explanation": "2:45 means 45 minutes after 2, which is 15 minutes before 3. This is called quarter to 3 (or quarter before 3)."
+    },
+    {
+      "id": 4,
+      "type": "true_false",
+      "question": "180 seconds equals 3 minutes.",
+      "correct_answer": true,
+      "explanation": "Yes! 180 ÷ 60 = 3 minutes."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "A class starts at 10:15 AM and lasts 50 minutes. What time does it end?",
+      "options": [
+        "10:50 AM",
+        "11:05 AM",
+        "11:00 AM",
+        "10:65 AM"
+      ],
+      "correct_answer": 1,
+      "explanation": "Start at 10:15, add 50 minutes: 10:15 + 45 minutes = 11:00, plus 5 more minutes = 11:05 AM."
+    }
+  ]
+}

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Lección: Conversión entre Sistemas (Konwersja systemów liczbowych)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5576c;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #f093fb;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #f5576c;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #f5576c;
+            margin-bottom: 15px;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tr:hover {
+            background: #fff3e0;
+        }
+
+        .roman-number {
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        .decimal-number {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        .rules-box {
+            background: #fff8e1;
+            border: 3px solid #ffc107;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .rule-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .rule-title {
+            font-size: 1.2em;
+            color: #ff6f00;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .visual-example {
+            background: white;
+            border: 3px solid #f5576c;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .step-by-step {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .step {
+            background: white;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .step-number {
+            background: #2196f3;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .interactive-example {
+            background: #f3e5f5;
+            border: 3px dashed #9c27b0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .hint-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .solution-box {
+            background: #d4edda;
+            border-left: 4px solid #155724;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .practice-problem {
+            background: white;
+            border: 3px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .problem-text {
+            font-size: 1.5em;
+            color: #333;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .key-terms {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .term {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .term strong {
+            color: #d63031;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .summary-item {
+            font-size: 1.2em;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .summary-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .symbol-card {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .symbol-card .symbol {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .symbol-card .value {
+            font-size: 1.2em;
+        }
+
+        .conversion-flow {
+            background: white;
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 2em;
+            color: #f5576c;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 ¡Bienvenido a la Clase de Conversión de Sistemas!</h1>
+        <div class="subtitle">Konwersja systemów liczbowych - Del Romano al Decimal y viceversa 🔄</div>
+
+        <!-- SECTION 1: INTRODUCTION -->
+        <div class="section">
+            <div class="section-title">📚 1. Introducción - ¿Qué son los sistemas numéricos?</div>
+            <p style="font-size: 1.2em; line-height: 1.8;">
+                ¡Hola Daniel! 👋 Hoy vamos a aprender algo muy interesante: cómo convertir números entre dos sistemas diferentes.
+                Es como aprender a traducir entre dos idiomas matemáticos. 🌍
+            </p>
+            <div class="concept-box">
+                <strong>🎯 Objetivo de hoy:</strong><br>
+                Al final de esta clase, podrás:<br>
+                ✓ Entender la diferencia entre el sistema romano y el decimal<br>
+                ✓ Convertir números romanos a decimales (XXVII → 27)<br>
+                ✓ Convertir números decimales a romanos (42 → XLII)<br>
+                ✓ Aplicar las reglas de suma y resta en números romanos
+            </div>
+        </div>
+
+        <!-- SECTION 2: THE TWO SYSTEMS -->
+        <div class="section">
+            <div class="section-title">🔢 2. Los Dos Sistemas - Romano vs Decimal</div>
+
+            <h3 style="margin: 20px 0;">Sistema Decimal (System dziesiętny):</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Es el sistema que usamos todos los días: <strong>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</strong><br>
+                Usamos 10 símbolos diferentes y la posición importa mucho.<br>
+                Ejemplo: 234 significa (2 × 100) + (3 × 10) + (4 × 1)
+            </p>
+
+            <h3 style="margin: 20px 0;">Sistema Romano (System rzymski):</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Los antiguos romanos usaban letras como números: <strong>I, V, X, L, C, D, M</strong><br>
+                Cada letra tiene un valor fijo y se combinan siguiendo reglas especiales.
+            </p>
+
+            <h3 style="margin: 20px 0; text-align: center;">📖 Símbolos Romanos Básicos:</h3>
+            <div style="text-align: center;">
+                <div class="symbol-card">
+                    <div class="symbol">I</div>
+                    <div class="value">= 1</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">V</div>
+                    <div class="value">= 5</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">X</div>
+                    <div class="value">= 10</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">L</div>
+                    <div class="value">= 50</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">C</div>
+                    <div class="value">= 100</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">D</div>
+                    <div class="value">= 500</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol">M</div>
+                    <div class="value">= 1000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: COMPARISON TABLE -->
+        <div class="section">
+            <div class="section-title">📊 3. Tabla de Comparación</div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Decimal</th>
+                        <th>Romano</th>
+                        <th>Explicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="decimal-number">1</td>
+                        <td class="roman-number">I</td>
+                        <td>Un palito</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">2</td>
+                        <td class="roman-number">II</td>
+                        <td>Dos palitos</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">3</td>
+                        <td class="roman-number">III</td>
+                        <td>Tres palitos</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">4</td>
+                        <td class="roman-number">IV</td>
+                        <td>1 antes de 5 = 5 - 1</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">5</td>
+                        <td class="roman-number">V</td>
+                        <td>Una V</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">6</td>
+                        <td class="roman-number">VI</td>
+                        <td>5 + 1</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">9</td>
+                        <td class="roman-number">IX</td>
+                        <td>1 antes de 10 = 10 - 1</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">10</td>
+                        <td class="roman-number">X</td>
+                        <td>Una X</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">14</td>
+                        <td class="roman-number">XIV</td>
+                        <td>10 + 4</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">20</td>
+                        <td class="roman-number">XX</td>
+                        <td>Dos X's</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">40</td>
+                        <td class="roman-number">XL</td>
+                        <td>10 antes de 50 = 50 - 10</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">50</td>
+                        <td class="roman-number">L</td>
+                        <td>Una L</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">90</td>
+                        <td class="roman-number">XC</td>
+                        <td>10 antes de 100 = 100 - 10</td>
+                    </tr>
+                    <tr>
+                        <td class="decimal-number">100</td>
+                        <td class="roman-number">C</td>
+                        <td>Una C (de Centum)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 4: RULES -->
+        <div class="section">
+            <div class="section-title">📏 4. Reglas Importantes del Sistema Romano</div>
+
+            <div class="rules-box">
+                <div class="rule-item">
+                    <div class="rule-title">Regla 1: Suma (Dodawanie)</div>
+                    <p style="font-size: 1.1em;">
+                        Cuando un símbolo pequeño está DESPUÉS de uno grande, se <strong>SUMAN</strong>.<br>
+                        Ejemplo: VI = V + I = 5 + 1 = <span class="highlight">6</span><br>
+                        Ejemplo: XII = X + I + I = 10 + 1 + 1 = <span class="highlight">12</span>
+                    </p>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-title">Regla 2: Resta (Odejmowanie)</div>
+                    <p style="font-size: 1.1em;">
+                        Cuando un símbolo pequeño está ANTES de uno grande, se <strong>RESTA</strong>.<br>
+                        Ejemplo: IV = V - I = 5 - 1 = <span class="highlight">4</span><br>
+                        Ejemplo: IX = X - I = 10 - 1 = <span class="highlight">9</span><br>
+                        Ejemplo: XL = L - X = 50 - 10 = <span class="highlight">40</span>
+                    </p>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-title">Regla 3: Repetición (Powtarzanie)</div>
+                    <p style="font-size: 1.1em;">
+                        Puedes repetir I, X, C, M hasta 3 veces seguidas.<br>
+                        Ejemplo: III = 1 + 1 + 1 = <span class="highlight">3</span><br>
+                        Ejemplo: XXX = 10 + 10 + 10 = <span class="highlight">30</span><br>
+                        ⚠️ Nunca se repiten V, L, D (no puedes escribir VV o LL)
+                    </p>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-title">Regla 4: De Mayor a Menor (Od największego do najmniejszego)</div>
+                    <p style="font-size: 1.1em;">
+                        Generalmente se escriben de mayor a menor (de izquierda a derecha).<br>
+                        Ejemplo: MDCLXVI = 1000 + 500 + 100 + 50 + 10 + 5 + 1 = <span class="highlight">1666</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: CONVERSION - ROMAN TO DECIMAL -->
+        <div class="section">
+            <div class="section-title">🔄 5. Conversión: Romano → Decimal</div>
+
+            <h3 style="margin: 20px 0;">Método Paso a Paso:</h3>
+
+            <div class="step-by-step">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Lee de izquierda a derecha</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Compara cada símbolo con el siguiente</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Si el símbolo actual es menor que el siguiente → RESTA</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Si el símbolo actual es igual o mayor que el siguiente → SUMA</strong>
+                </div>
+            </div>
+
+            <h3 style="margin: 30px 0;">Ejemplo Detallado: XXVII → ?</h3>
+
+            <div class="conversion-flow">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                    <span class="roman-number">XXVII</span>
+                </p>
+
+                <div class="step-by-step">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        X (10) comparado con X (10) → igual, así que <strong>+10</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        X (10) comparado con V (5) → mayor, así que <strong>+10</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        V (5) comparado con I (1) → mayor, así que <strong>+5</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        I (1) comparado con I (1) → igual, así que <strong>+1</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        I (1) - último símbolo, así que <strong>+1</strong>
+                    </div>
+                </div>
+
+                <div class="arrow">⬇</div>
+
+                <p style="font-size: 1.5em; text-align: center; background: #d4edda; padding: 15px; border-radius: 10px;">
+                    <strong>Total: 10 + 10 + 5 + 1 + 1 = <span class="decimal-number">27</span></strong>
+                </p>
+            </div>
+
+            <h3 style="margin: 30px 0;">Ejemplo con Resta: XIV → ?</h3>
+
+            <div class="conversion-flow">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                    <span class="roman-number">XIV</span>
+                </p>
+
+                <div class="step-by-step">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        X (10) comparado con I (1) → mayor, así que <strong>+10</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        I (1) comparado con V (5) → menor, así que <strong>-1</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        V (5) - último símbolo, así que <strong>+5</strong>
+                    </div>
+                </div>
+
+                <div class="arrow">⬇</div>
+
+                <p style="font-size: 1.5em; text-align: center; background: #d4edda; padding: 15px; border-radius: 10px;">
+                    <strong>Total: 10 - 1 + 5 = <span class="decimal-number">14</span></strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 6: CONVERSION - DECIMAL TO ROMAN -->
+        <div class="section">
+            <div class="section-title">🔄 6. Conversión: Decimal → Romano</div>
+
+            <h3 style="margin: 20px 0;">Método Paso a Paso:</h3>
+
+            <div class="step-by-step">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Empieza con el número decimal</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Encuentra el símbolo romano más grande que puedas usar</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Resta ese valor y escribe el símbolo</strong>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Repite hasta llegar a cero</strong>
+                </div>
+            </div>
+
+            <h3 style="margin: 30px 0;">Ejemplo Detallado: 23 → ?</h3>
+
+            <div class="conversion-flow">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                    Convertir <span class="decimal-number">23</span> a Romano
+                </p>
+
+                <div class="step-by-step">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        Empezamos con <strong>23</strong>. El símbolo más grande que cabe es X (10).<br>
+                        23 - 10 = 13, escribimos <span class="roman-number">X</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        Ahora tenemos <strong>13</strong>. El símbolo más grande que cabe es X (10).<br>
+                        13 - 10 = 3, escribimos <span class="roman-number">XX</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        Ahora tenemos <strong>3</strong>. Usamos I tres veces.<br>
+                        3 - 1 - 1 - 1 = 0, escribimos <span class="roman-number">XXIII</span>
+                    </div>
+                </div>
+
+                <div class="arrow">⬇</div>
+
+                <p style="font-size: 1.5em; text-align: center; background: #d4edda; padding: 15px; border-radius: 10px;">
+                    <strong>Respuesta: <span class="roman-number">XXIII</span></strong>
+                </p>
+            </div>
+
+            <h3 style="margin: 30px 0;">Ejemplo con Casos Especiales: 49 → ?</h3>
+
+            <div class="conversion-flow">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">
+                    Convertir <span class="decimal-number">49</span> a Romano
+                </p>
+
+                <div class="step-by-step">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        Empezamos con <strong>49</strong>. El símbolo más grande que cabe es XL (40).<br>
+                        49 - 40 = 9, escribimos <span class="roman-number">XL</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        Ahora tenemos <strong>9</strong>. Usamos IX (9).<br>
+                        9 - 9 = 0, escribimos <span class="roman-number">XLIX</span>
+                    </div>
+                </div>
+
+                <div class="arrow">⬇</div>
+
+                <p style="font-size: 1.5em; text-align: center; background: #d4edda; padding: 15px; border-radius: 10px;">
+                    <strong>Respuesta: <span class="roman-number">XLIX</span></strong>
+                </p>
+
+                <p style="margin-top: 15px; font-size: 1.1em; color: #666;">
+                    💡 Truco: Recuerda que 4, 9, 40, 90 usan resta (IV, IX, XL, XC)
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 7: PRACTICE PROBLEMS -->
+        <div class="section">
+            <div class="section-title">🤝 7. ¡Intentemos Juntos!</div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 1: Romano → Decimal</h3>
+                <div class="problem-text">Convierte: <span class="roman-number">XVI</span> → ?</div>
+
+                <button onclick="toggleHint1()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint1">
+                    <strong>Pista:</strong> XVI tiene tres símbolos: X (10), V (5), I (1).<br>
+                    Lee de izquierda a derecha y compara cada símbolo con el siguiente.
+                </div>
+
+                <button onclick="toggleSolution1()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution1">
+                    <strong>Solución paso a paso:</strong><br>
+                    • X (10) es mayor que V (5) → +10<br>
+                    • V (5) es mayor que I (1) → +5<br>
+                    • I (1) es el último → +1<br>
+                    <strong style="font-size: 1.3em; color: #155724;">Total: 10 + 5 + 1 = 16</strong> ✓
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 2: Romano → Decimal</h3>
+                <div class="problem-text">Convierte: <span class="roman-number">XL</span> → ?</div>
+
+                <button onclick="toggleHint2()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint2">
+                    <strong>Pista:</strong> X (10) está ANTES de L (50). ¿Qué significa eso?<br>
+                    Recuerda la regla de resta.
+                </div>
+
+                <button onclick="toggleSolution2()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution2">
+                    <strong>Solución paso a paso:</strong><br>
+                    • X (10) es menor que L (50) → aplicamos resta<br>
+                    • L - X = 50 - 10<br>
+                    <strong style="font-size: 1.3em; color: #155724;">Total: 40</strong> ✓
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 3: Decimal → Romano</h3>
+                <div class="problem-text">Convierte: <span class="decimal-number">18</span> → ?</div>
+
+                <button onclick="toggleHint3()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint3">
+                    <strong>Pista:</strong> 18 = 10 + 8. Primero convierte el 10, luego el 8.<br>
+                    ¿Cuál es el símbolo romano para 10? ¿Y cómo escribes 8?
+                </div>
+
+                <button onclick="toggleSolution3()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution3">
+                    <strong>Solución paso a paso:</strong><br>
+                    • Empezamos con 18<br>
+                    • El símbolo más grande que cabe es X (10): 18 - 10 = 8 → escribimos X<br>
+                    • Ahora tenemos 8. Usamos V (5): 8 - 5 = 3 → escribimos XV<br>
+                    • Ahora tenemos 3. Usamos III: 3 - 3 = 0 → escribimos XVIII<br>
+                    <strong style="font-size: 1.3em; color: #155724;">Respuesta: XVIII</strong> ✓
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h3 style="color: #28a745;">Problema de Práctica 4: Decimal → Romano</h3>
+                <div class="problem-text">Convierte: <span class="decimal-number">44</span> → ?</div>
+
+                <button onclick="toggleHint4()">💡 Mostrar Pista</button>
+                <div class="hint-box" id="hint4">
+                    <strong>Pista:</strong> 44 = 40 + 4. Ambos números usan la regla de resta.<br>
+                    40 se escribe XL (50 - 10) y 4 se escribe IV (5 - 1).
+                </div>
+
+                <button onclick="toggleSolution4()">✅ Mostrar Solución</button>
+                <div class="solution-box" id="solution4">
+                    <strong>Solución paso a paso:</strong><br>
+                    • Empezamos con 44<br>
+                    • El símbolo más grande que cabe es XL (40): 44 - 40 = 4 → escribimos XL<br>
+                    • Ahora tenemos 4. Usamos IV: 4 - 4 = 0 → escribimos XLIV<br>
+                    <strong style="font-size: 1.3em; color: #155724;">Respuesta: XLIV</strong> ✓
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 8: SUMMARY -->
+        <div class="section">
+            <div class="section-title">📝 8. Resumen - ¡Lo que aprendimos hoy!</div>
+
+            <div class="summary-box">
+                <h3 style="margin-bottom: 20px; font-size: 1.5em;">🎯 Puntos Clave (Kluczowe punkty):</h3>
+
+                <div class="summary-item">
+                    El <strong>sistema romano</strong> usa letras (I, V, X, L, C, D, M) y el <strong>sistema decimal</strong> usa números (0-9).
+                </div>
+
+                <div class="summary-item">
+                    Regla de <strong>suma</strong>: Si un símbolo pequeño está DESPUÉS de uno grande → SUMA.
+                </div>
+
+                <div class="summary-item">
+                    Regla de <strong>resta</strong>: Si un símbolo pequeño está ANTES de uno grande → RESTA.
+                </div>
+
+                <div class="summary-item">
+                    Para convertir <strong>Romano → Decimal</strong>: Lee de izquierda a derecha comparando símbolos.
+                </div>
+
+                <div class="summary-item">
+                    Para convertir <strong>Decimal → Romano</strong>: Usa los símbolos más grandes primero y resta del total.
+                </div>
+
+                <div class="summary-item">
+                    Casos especiales: 4 (IV), 9 (IX), 40 (XL), 90 (XC) usan la regla de resta.
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px;">
+                <h2 style="color: #856404;">🎉 ¡Felicitaciones, Daniel!</h2>
+                <p style="font-size: 1.2em; margin-top: 10px;">
+                    Ahora puedes convertir entre dos sistemas numéricos diferentes. ¡Eres como un traductor matemático! 🔄
+                </p>
+                <p style="font-size: 1.1em; margin-top: 15px; color: #666;">
+                    Los números romanos se usan hoy en relojes, capítulos de libros, y en películas.<br>
+                    ¡Es una habilidad muy útil! 📚
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHint1() {
+            const hint = document.getElementById('hint1');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution1() {
+            const solution = document.getElementById('solution1');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHint2() {
+            const hint = document.getElementById('hint2');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution2() {
+            const solution = document.getElementById('solution2');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHint3() {
+            const hint = document.getElementById('hint3');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution3() {
+            const solution = document.getElementById('solution3');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleHint4() {
+            const hint = document.getElementById('hint4');
+            hint.style.display = hint.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleSolution4() {
+            const solution = document.getElementById('solution4');
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

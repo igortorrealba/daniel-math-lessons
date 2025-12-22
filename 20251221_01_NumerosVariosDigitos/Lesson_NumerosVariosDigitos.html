@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 Lectura y Escritura de Números de Varios Dígitos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .section {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #fdcb6e;
+        }
+
+        .example-box {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .place-value-chart {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .place-value-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .place-value-cell {
+            background: #e8ecff;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .number-example {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8ecff 0%, #f8f9ff 100%);
+            border-radius: 15px;
+        }
+
+        .interactive-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .interactive-section h3 {
+            color: #2d3436;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .practice-question {
+            font-size: 1.2em;
+            color: #2d3436;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .answer {
+            display: none;
+            background: #d5f4e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #00b894;
+            font-size: 1.1em;
+            color: #2d3436;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #e17055;
+        }
+
+        .fun-fact h3 {
+            color: #d63031;
+            margin-bottom: 10px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e8ecff;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #667eea;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background: #f8f9ff;
+            font-size: 1.1em;
+        }
+
+        .emoji-large {
+            font-size: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .place-value-chart {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .number-example {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Lectura y Escritura de Números de Varios Dígitos</h1>
+        <div class="subtitle">Liczby wielocyfrowe (Reading and Writing Multi-digit Numbers)</div>
+
+        <!-- Introduction -->
+        <div class="section">
+            <h2>📚 ¿Qué son los números de varios dígitos?</h2>
+            <p>
+                <strong>¡Hola Daniel!</strong> 👋 Hoy vamos a explorar el fascinante mundo de los números grandes.
+                Los números de varios dígitos son aquellos que tienen más de un dígito (más de una cifra).
+            </p>
+            <div class="highlight">
+                <strong>🇪🇸 Español:</strong> Números de varios dígitos<br>
+                <strong>🇵🇱 Polski:</strong> Liczby wielocyfrowe
+            </div>
+            <p>
+                Por ejemplo: <span style="color: #667eea; font-weight: bold;">52</span> tiene 2 dígitos,
+                <span style="color: #667eea; font-weight: bold;">347</span> tiene 3 dígitos, y
+                <span style="color: #667eea; font-weight: bold;">8,456</span> tiene 4 dígitos.
+            </p>
+        </div>
+
+        <!-- Place Value Section -->
+        <div class="section">
+            <h2>🎯 Valor Posicional (Wartość pozycyjna)</h2>
+            <p>
+                El <strong>valor posicional</strong> es muy importante. Nos dice cuánto vale cada dígito según su posición en el número.
+                En español usamos el punto (.) para separar miles, y en polaco se usa el espacio.
+            </p>
+
+            <h3>Ejemplo: El número 53,284</h3>
+            <div class="place-value-chart">
+                <div class="place-value-header">
+                    Decenas de Mil<br>
+                    <small>(Dziesiątki tysięcy)</small>
+                </div>
+                <div class="place-value-header">
+                    Unidades de Mil<br>
+                    <small>(Tysiące)</small>
+                </div>
+                <div class="place-value-header">
+                    Centenas<br>
+                    <small>(Setki)</small>
+                </div>
+                <div class="place-value-header">
+                    Decenas<br>
+                    <small>(Dziesiątki)</small>
+                </div>
+                <div class="place-value-header">
+                    Unidades<br>
+                    <small>(Jedności)</small>
+                </div>
+
+                <div class="place-value-cell">5</div>
+                <div class="place-value-cell">3</div>
+                <div class="place-value-cell">2</div>
+                <div class="place-value-cell">8</div>
+                <div class="place-value-cell">4</div>
+
+                <div style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                    50,000
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                    3,000
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                    200
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                    80
+                </div>
+                <div style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9em;">
+                    4
+                </div>
+            </div>
+
+            <div class="example-box">
+                <p style="text-align: center; font-size: 1.2em; margin-bottom: 15px;">
+                    <strong>Entonces:</strong>
+                </p>
+                <div class="number-example">
+                    53,284 = 50,000 + 3,000 + 200 + 80 + 4
+                </div>
+            </div>
+        </div>
+
+        <!-- Reading Numbers -->
+        <div class="section">
+            <h2>📖 Cómo Leer Números Grandes</h2>
+            <p>
+                Para leer números grandes, separamos el número en grupos de tres dígitos desde la derecha.
+                Cada grupo tiene un nombre especial.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Se lee</th>
+                        <th>Po polsku</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1,234</strong></td>
+                        <td>Mil doscientos treinta y cuatro</td>
+                        <td>Tysiąc dwieście trzydzieści cztery</td>
+                    </tr>
+                    <tr>
+                        <td><strong>45,678</strong></td>
+                        <td>Cuarenta y cinco mil seiscientos setenta y ocho</td>
+                        <td>Czterdzieści pięć tysięcy sześćset siedemdziesiąt osiem</td>
+                    </tr>
+                    <tr>
+                        <td><strong>100,000</strong></td>
+                        <td>Cien mil</td>
+                        <td>Sto tysięcy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Writing Numbers -->
+        <div class="section">
+            <h2>✍️ Cómo Escribir Números</h2>
+            <p>
+                Cuando escribimos números en forma estándar, debemos recordar:
+            </p>
+            <ul style="margin-left: 30px; line-height: 2;">
+                <li><strong>Usar comas o espacios</strong> para separar los miles (53,284 o 53 284)</li>
+                <li><strong>Cada dígito tiene su lugar</strong> y no podemos cambiarlos</li>
+                <li><strong>Cuidado con los ceros</strong> - ¡son muy importantes! 5,003 es diferente de 503</li>
+            </ul>
+
+            <div class="example-box">
+                <h3>Ejemplos paso a paso:</h3>
+                <p><strong>1.</strong> "Ochenta mil quinientos doce"</p>
+                <p style="margin-left: 30px;">
+                    → Ochenta mil = 80,000<br>
+                    → Quinientos = 500<br>
+                    → Doce = 12<br>
+                    → <span style="font-size: 1.5em; color: #667eea; font-weight: bold;">80,512</span>
+                </p>
+
+                <p style="margin-top: 20px;"><strong>2.</strong> "Quince mil trescientos"</p>
+                <p style="margin-left: 30px;">
+                    → Quince mil = 15,000<br>
+                    → Trescientos = 300<br>
+                    → <span style="font-size: 1.5em; color: #667eea; font-weight: bold;">15,300</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Interactive Practice -->
+        <div class="interactive-section">
+            <h2 style="color: #2d3436; margin-bottom: 20px;">🎮 Práctica Interactiva</h2>
+            <p style="color: #2d3436;"><strong>¡Intenta resolver estos ejercicios y luego revela las respuestas!</strong></p>
+
+            <div class="practice-item">
+                <div class="practice-question">
+                    <span class="emoji-large">1️⃣</span> ¿Qué número es este? "Sesenta y siete mil novecientos cuarenta y tres"
+                </div>
+                <button class="reveal-button" onclick="toggleAnswer('answer1')">Ver Respuesta 👁️</button>
+                <div class="answer" id="answer1">
+                    <strong>✅ Respuesta:</strong> 67,943<br>
+                    <em>Explicación:</em> 67,000 + 900 + 40 + 3 = 67,943
+                </div>
+            </div>
+
+            <div class="practice-item">
+                <div class="practice-question">
+                    <span class="emoji-large">2️⃣</span> ¿Cuál es el valor del dígito 7 en el número 47,325?
+                </div>
+                <button class="reveal-button" onclick="toggleAnswer('answer2')">Ver Respuesta 👁️</button>
+                <div class="answer" id="answer2">
+                    <strong>✅ Respuesta:</strong> 7,000 (siete mil)<br>
+                    <em>Explicación:</em> El 7 está en la posición de los miles, por lo tanto vale 7,000
+                </div>
+            </div>
+
+            <div class="practice-item">
+                <div class="practice-question">
+                    <span class="emoji-large">3️⃣</span> Escribe en forma numérica: "Noventa y dos mil seiscientos uno"
+                </div>
+                <button class="reveal-button" onclick="toggleAnswer('answer3')">Ver Respuesta 👁️</button>
+                <div class="answer" id="answer3">
+                    <strong>✅ Respuesta:</strong> 92,601<br>
+                    <em>Explicación:</em> 90,000 + 2,000 + 600 + 0 + 1 = 92,601 (¡Nota el cero en las decenas!)
+                </div>
+            </div>
+
+            <div class="practice-item">
+                <div class="practice-question">
+                    <span class="emoji-large">4️⃣</span> ¿Cómo se lee el número 50,007?
+                </div>
+                <button class="reveal-button" onclick="toggleAnswer('answer4')">Ver Respuesta 👁️</button>
+                <div class="answer" id="answer4">
+                    <strong>✅ Respuesta:</strong> Cincuenta mil siete<br>
+                    <em>Explicación:</em> No decimos los ceros en centenas y decenas, solo "cincuenta mil siete"
+                </div>
+            </div>
+
+            <div class="practice-item">
+                <div class="practice-question">
+                    <span class="emoji-large">5️⃣</span> ¿Qué número es 8,000 más que 34,567?
+                </div>
+                <button class="reveal-button" onclick="toggleAnswer('answer5')">Ver Respuesta 👁️</button>
+                <div class="answer" id="answer5">
+                    <strong>✅ Respuesta:</strong> 42,567<br>
+                    <em>Explicación:</em> 34,567 + 8,000 = 42,567 (solo sumamos en la posición de los miles)
+                </div>
+            </div>
+        </div>
+
+        <!-- Fun Fact -->
+        <div class="fun-fact">
+            <h3>🌟 ¿Sabías que...?</h3>
+            <p>
+                El número más grande que puedes hacer con 5 dígitos es <strong>99,999</strong>.
+                ¿Y sabes qué pasa si le sumas 1? ¡Obtienes 100,000, que tiene 6 dígitos!
+                Esto es como "subir de nivel" en los números. ¡Es como en los videojuegos! 🎮
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>Dato curioso de Polonia:</strong> En Polonia, la población de Cracovia (Kraków) es
+                aproximadamente 800,000 personas. ¿Puedes leer ese número?
+                ¡Ochocientos mil! (Osiemset tysięcy!) 🏰
+            </p>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h2>📝 Resumen de la Lección</h2>
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                <p><strong>✅ Hoy aprendiste:</strong></p>
+                <ul style="margin-left: 30px; line-height: 2.5;">
+                    <li>Qué son los números de varios dígitos (liczby wielocyfrowe)</li>
+                    <li>El valor posicional (wartość pozycyjna) de cada dígito</li>
+                    <li>Cómo leer números hasta cinco dígitos</li>
+                    <li>Cómo escribir números en forma numérica</li>
+                    <li>La importancia de la posición de cada dígito</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 1.2em; color: #667eea;">
+                    <strong>💪 ¡Excelente trabajo, Daniel! ¡Estás dominando los números grandes!</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">
+                <strong>¿Listo para más práctica?</strong>
+            </p>
+            <a href="App_NumerosVariosDigitos.html" class="nav-button">
+                🎮 Ir al Juego de Práctica
+            </a>
+            <a href="Worksheet_NumerosVariosDigitos.html" class="nav-button" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                📄 Hoja de Trabajo
+            </a>
+            <a href="../index.html" class="nav-button" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                🏠 Volver al Inicio
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+            } else {
+                answer.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

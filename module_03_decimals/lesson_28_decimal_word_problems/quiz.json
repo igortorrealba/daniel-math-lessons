@@ -1,0 +1,66 @@
+{
+  "lesson": "28",
+  "title": "Decimal Word Problems Quiz",
+  "description": "Test your ability to solve real-world decimal problems",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Maria has $7.50 and her friend gives her $3.25. How much money does she have now?",
+      "options": [
+        "$4.25",
+        "$10.75",
+        "$11.75",
+        "$10.25"
+      ],
+      "correct_answer": 1,
+      "explanation": "This is an addition problem: $7.50 + $3.25 = $10.75. Always line up the decimal points when adding."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "You have $20.00 and buy a book for $12.50. How much change do you get?",
+      "options": [
+        "$7.50",
+        "$8.50",
+        "$32.50",
+        "$12.50"
+      ],
+      "correct_answer": 0,
+      "explanation": "Subtract the cost from the money you have: $20.00 - $12.50 = $7.50."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "A rope is 5.8 meters long. You cut off 2.3 meters. How much rope is left?",
+      "options": [
+        "8.1 meters",
+        "3.5 meters",
+        "2.3 meters",
+        "5.8 meters"
+      ],
+      "correct_answer": 1,
+      "explanation": "Subtract the amount cut off: 5.8 - 2.3 = 3.5 meters."
+    },
+    {
+      "id": 4,
+      "type": "true_false",
+      "question": "To estimate 4.8 + 3.2, you can round to 5 + 3 = 8.",
+      "correct_answer": true,
+      "explanation": "Yes! Rounding 4.8 to 5 and 3.2 to 3 gives a good estimate. The actual answer is 8.0."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "Emma buys a sandwich ($6.50) and juice ($2.25). She pays with $20.00. What change does she get?",
+      "options": [
+        "$8.75",
+        "$11.25",
+        "$17.75",
+        "$8.25"
+      ],
+      "correct_answer": 1,
+      "explanation": "This is a multi-step problem. First add: $6.50 + $2.25 = $8.75. Then subtract from the payment: $20.00 - $8.75 = $11.25."
+    }
+  ]
+}

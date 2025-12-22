@@ -1,0 +1,66 @@
+{
+  "lesson": "27",
+  "title": "Fraction and Decimal Connection Quiz",
+  "description": "Test your understanding of fractions and decimals",
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "What decimal equals 7/10?",
+      "options": [
+        "0.07",
+        "0.7",
+        "0.17",
+        "7.0"
+      ],
+      "correct_answer": 1,
+      "explanation": "7/10 means 7 tenths, which is written as 0.7. The 7 is in the tenths place."
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "What fraction equals 0.45?",
+      "options": [
+        "45/10",
+        "45/1000",
+        "45/100",
+        "4/5"
+      ],
+      "correct_answer": 2,
+      "explanation": "0.45 has two decimal places, so it's hundredths. That means 45/100. This can simplify to 9/20."
+    },
+    {
+      "id": 3,
+      "type": "multiple_choice",
+      "question": "Which decimal is the largest?",
+      "options": [
+        "0.23",
+        "0.32",
+        "0.203",
+        "0.302"
+      ],
+      "correct_answer": 1,
+      "explanation": "0.32 is larger than 0.23 because 32 hundredths > 23 hundredths. Line up the decimal points to compare!"
+    },
+    {
+      "id": 4,
+      "type": "true_false",
+      "question": "0.5 and 5/10 are the same value.",
+      "correct_answer": true,
+      "explanation": "Yes! 0.5 = 5/10. Both equal five tenths or one half."
+    },
+    {
+      "id": 5,
+      "type": "multiple_choice",
+      "question": "What does 0.09 represent?",
+      "options": [
+        "9 tenths",
+        "9 hundredths",
+        "90 hundredths",
+        "0 tenths and 9 ones"
+      ],
+      "correct_answer": 1,
+      "explanation": "0.09 has a 0 in the tenths place and 9 in the hundredths place, so it's 9 hundredths or 9/100."
+    }
+  ]
+}
