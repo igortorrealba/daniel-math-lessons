@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Juego: Recta Numérica</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .score {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .question-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .number-line-container {
+            background: white;
+            padding: 60px 40px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 3px solid #667eea;
+        }
+
+        .number-line {
+            position: relative;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 60px 20px;
+            border-radius: 3px;
+        }
+
+        .tick {
+            position: absolute;
+            width: 3px;
+            height: 40px;
+            background: #764ba2;
+            top: -17px;
+        }
+
+        .tick-label {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .arrow {
+            position: absolute;
+            font-size: 3em;
+            top: -80px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.8em;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: none;
+        }
+
+        .correct {
+            background: #d4edda;
+            border: 3px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+
+        .incorrect {
+            background: #f8d7da;
+            border: 3px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+
+        .celebration {
+            font-size: 4em;
+            text-align: center;
+            display: none;
+            animation: bounce 0.5s;
+        }
+
+        .hint {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 La Recta Numérica</h1>
+        <p class="subtitle">Oś liczbowa - ¡Encuentra el número!</p>
+
+        <div class="score-board">
+            <div class="score">
+                ⭐ Correctas: <span id="correct">0</span>
+            </div>
+            <div class="score">
+                📊 Total: <span id="total">0</span>
+            </div>
+        </div>
+
+        <div class="question-box">
+            <p class="question-text" id="questionText">¿Qué número está marcado con la flecha?</p>
+
+            <div class="number-line-container">
+                <div class="number-line" id="numberLine">
+                    <!-- Dinamically populated -->
+                </div>
+            </div>
+
+            <input type="number" id="answerInput" placeholder="Escribe el número aquí...">
+
+            <div class="hint">
+                💡 Consejo: Cuenta de marca en marca. Cada marca puede valer 1, 10, 100...
+            </div>
+
+            <button onclick="checkAnswer()">✓ Verificar Respuesta</button>
+            <button onclick="nextQuestion()" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); margin-top: 10px;">
+                ➡️ Siguiente Pregunta
+            </button>
+        </div>
+
+        <div class="celebration" id="celebration">🎉🎊✨</div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        let score = 0;
+        let total = 0;
+        let currentAnswer = 0;
+
+        function generateNumberLine() {
+            const configs = [
+                { min: 0, max: 10, step: 1, showAll: true },
+                { min: 0, max: 20, step: 2, showAll: true },
+                { min: 0, max: 50, step: 5, showAll: true },
+                { min: 0, max: 100, step: 10, showAll: true },
+                { min: 0, max: 100, step: 10, showAll: false },
+                { min: 100, max: 200, step: 10, showAll: false },
+                { min: 0, max: 1000, step: 100, showAll: true },
+            ];
+
+            const config = configs[Math.floor(Math.random() * configs.length)];
+            const { min, max, step, showAll } = config;
+
+            const values = [];
+            for (let i = min; i <= max; i += step) {
+                values.push(i);
+            }
+
+            const targetIndex = Math.floor(Math.random() * values.length);
+            currentAnswer = values[targetIndex];
+
+            const numberLine = document.getElementById('numberLine');
+            numberLine.innerHTML = '';
+
+            values.forEach((value, index) => {
+                const tick = document.createElement('div');
+                tick.className = 'tick';
+                tick.style.left = (index / (values.length - 1)) * 100 + '%';
+
+                if (showAll || index === 0 || index === values.length - 1) {
+                    const label = document.createElement('div');
+                    label.className = 'tick-label';
+                    label.textContent = value;
+                    tick.appendChild(label);
+                }
+
+                if (index === targetIndex) {
+                    const arrow = document.createElement('div');
+                    arrow.className = 'arrow';
+                    arrow.textContent = '⬇️';
+                    arrow.style.left = '50%';
+                    tick.appendChild(arrow);
+                }
+
+                numberLine.appendChild(tick);
+            });
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answerInput').value);
+            const feedback = document.getElementById('feedback');
+            const celebration = document.getElementById('celebration');
+
+            total++;
+            document.getElementById('total').textContent = total;
+
+            if (userAnswer === currentAnswer) {
+                score++;
+                document.getElementById('correct').textContent = score;
+                feedback.className = 'feedback correct';
+                feedback.textContent = '🎉 ¡Perfecto! ¡Muy bien, Daniel!';
+                celebration.style.display = 'block';
+
+                setTimeout(() => {
+                    celebration.style.display = 'none';
+                }, 2000);
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `❌ No exactamente. La respuesta correcta es: <strong>${currentAnswer}</strong>`;
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('celebration').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+
+            generateNumberLine();
+        }
+
+        // Inicializar
+        generateNumberLine();
+    </script>
+</body>
+</html>

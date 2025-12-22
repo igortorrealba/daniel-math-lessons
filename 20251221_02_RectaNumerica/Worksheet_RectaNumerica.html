@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo - Recta Numérica</title>
+    <style>
+        @media print {
+            body { margin: 0; padding: 20px; }
+            .no-print { display: none; }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 3px solid black;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .student-info {
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .student-info span {
+            border-bottom: 2px solid black;
+            display: inline-block;
+            min-width: 250px;
+            margin-left: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28pt;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14pt;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .instructions {
+            background-color: #f5f5f5;
+            border: 2px solid black;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 12pt;
+        }
+
+        .section {
+            margin: 40px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid black;
+        }
+
+        .problem {
+            margin: 25px 0;
+            padding: 20px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .problem-number {
+            font-weight: bold;
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .number-line {
+            position: relative;
+            height: 4px;
+            background: black;
+            margin: 80px 40px 60px 40px;
+        }
+
+        .tick {
+            position: absolute;
+            width: 2px;
+            height: 25px;
+            background: black;
+            top: -10px;
+        }
+
+        .tick-label {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        .arrow {
+            position: absolute;
+            font-size: 24pt;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .answer-line {
+            border-bottom: 2px solid black;
+            display: inline-block;
+            min-width: 150px;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14pt;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Hoja de Trabajo</h1>
+        <p class="subtitle">La Recta Numérica (Oś liczbowa)</p>
+
+        <div class="student-info">
+            Nombre / Imię: <span></span>
+        </div>
+        <div class="student-info">
+            Fecha / Data: <span></span>
+        </div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-bottom: 20px;">
+        <button onclick="window.print()">🖨️ Imprimir</button>
+        <button onclick="showAnswers()">👁️ Mostrar Respuestas</button>
+        <button onclick="hideAnswers()">🙈 Ocultar Respuestas</button>
+    </div>
+
+    <div class="instructions">
+        <strong>📋 Instrucciones:</strong><br>
+        Mira cada recta numérica. La flecha (⬇) señala un número. Escribe qué número es.
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Rectas de 0 a 10</div>
+
+        <div class="problem">
+            <div class="problem-number">1. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">0</div></div>
+                    <div class="tick" style="left: 20%;"><div class="tick-label">2</div></div>
+                    <div class="tick" style="left: 40%;"><div class="tick-label">4</div><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 60%;"><div class="tick-label">6</div></div>
+                    <div class="tick" style="left: 80%;"><div class="tick-label">8</div></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">10</div></div>
+                </div>
+            </div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>4</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">2. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">0</div></div>
+                    <div class="tick" style="left: 12.5%;"><div class="tick-label">1</div></div>
+                    <div class="tick" style="left: 25%;"><div class="tick-label">2</div></div>
+                    <div class="tick" style="left: 37.5%;"><div class="tick-label">3</div></div>
+                    <div class="tick" style="left: 50%;"><div class="tick-label">4</div></div>
+                    <div class="tick" style="left: 62.5%;"><div class="tick-label">5</div></div>
+                    <div class="tick" style="left: 75%;"><div class="tick-label">6</div><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 87.5%;"><div class="tick-label">7</div></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">8</div></div>
+                </div>
+            </div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>6</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Rectas de 0 a 100</div>
+
+        <div class="problem">
+            <div class="problem-number">3. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">0</div></div>
+                    <div class="tick" style="left: 20%;"><div class="tick-label">20</div></div>
+                    <div class="tick" style="left: 40%;"><div class="tick-label">40</div></div>
+                    <div class="tick" style="left: 60%;"><div class="tick-label">60</div><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 80%;"><div class="tick-label">80</div></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">100</div></div>
+                </div>
+            </div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>60</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">4. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">0</div></div>
+                    <div class="tick" style="left: 25%;"><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 50%;"></div>
+                    <div class="tick" style="left: 75%;"></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">100</div></div>
+                </div>
+            </div>
+            <div>Pista: Hay 4 espacios iguales entre 0 y 100</div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>25</strong> (100÷4=25)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Rectas mayores</div>
+
+        <div class="problem">
+            <div class="problem-number">5. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">0</div></div>
+                    <div class="tick" style="left: 10%;"></div>
+                    <div class="tick" style="left: 20%;"></div>
+                    <div class="tick" style="left: 30%;"></div>
+                    <div class="tick" style="left: 40%;"><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 50%;"><div class="tick-label">500</div></div>
+                    <div class="tick" style="left: 60%;"></div>
+                    <div class="tick" style="left: 70%;"></div>
+                    <div class="tick" style="left: 80%;"></div>
+                    <div class="tick" style="left: 90%;"></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">1000</div></div>
+                </div>
+            </div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>400</strong> (cada marca = 100)</div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">6. ¿Qué número señala la flecha?</div>
+            <div style="position: relative; height: 150px;">
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">100</div></div>
+                    <div class="tick" style="left: 25%;"><div class="tick-label">150</div></div>
+                    <div class="tick" style="left: 50%;"><div class="tick-label">200</div></div>
+                    <div class="tick" style="left: 75%;"><div class="tick-label">250</div><div class="arrow">⬇</div></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">300</div></div>
+                </div>
+            </div>
+            <div>Respuesta: <span class="answer-line"></span></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>250</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: ¡Desafío! Dibuja tú</div>
+
+        <div class="problem">
+            <div class="problem-number">7. Dibuja una recta de 0 a 20 y marca con una flecha el número 15</div>
+            <div style="height: 120px; border: 1px dashed #ccc; margin: 20px 0;"></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">8. Dibuja una recta de 0 a 100 y marca con una flecha el número 75</div>
+            <div style="height: 120px; border: 1px dashed #ccc; margin: 20px 0;"></div>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid black; text-align: center; font-size: 10pt; color: #666;">
+        <p>🎓 ¡Excelente trabajo, Daniel! / Świetna robota!</p>
+        <p>Creado con ❤️ para aprender matemáticas</p>
+    </div>
+
+    <script>
+        function showAnswers() {
+            document.querySelectorAll('.answer').forEach(el => el.style.display = 'block');
+        }
+
+        function hideAnswers() {
+            document.querySelectorAll('.answer').forEach(el => el.style.display = 'none');
+        }
+    </script>
+</body>
+</html>
