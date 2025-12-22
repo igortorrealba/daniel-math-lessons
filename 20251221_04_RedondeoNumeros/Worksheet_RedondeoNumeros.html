@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja - Redondeo</title>
+    <style>
+        @media print { body { margin: 0; padding: 20px; } .no-print { display: none; } }
+        body { font-family: Arial; background: white; color: black; max-width: 800px; margin: 0 auto; padding: 40px; }
+        .header { border-bottom: 3px solid black; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { text-align: center; font-size: 28pt; margin: 20px 0; }
+        .subtitle { text-align: center; font-size: 14pt; margin-bottom: 30px; }
+        .student-info { font-size: 14pt; margin-bottom: 15px; }
+        .student-info span { border-bottom: 2px solid black; display: inline-block; min-width: 250px; margin-left: 10px; }
+        .section { margin: 40px 0; }
+        .section-title { font-size: 18pt; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid black; padding-bottom: 10px; }
+        .problem { margin: 20px 0; padding: 15px 0; border-bottom: 1px dashed #ccc; }
+        .problem-number { font-weight: bold; font-size: 14pt; margin-bottom: 10px; }
+        .answer-line { border-bottom: 2px solid black; display: inline-block; min-width: 150px; margin: 10px; }
+        button { background: #667eea; color: white; border: none; padding: 10px 20px; font-size: 14pt; border-radius: 5px; cursor: pointer; margin: 10px 5px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Redondeo de Números</h1>
+        <p class="subtitle">Zaokrąglanie liczb</p>
+        <div class="student-info">Nombre: <span></span></div>
+        <div class="student-info">Fecha: <span></span></div>
+    </div>
+
+    <div class="no-print" style="text-align: center;">
+        <button onclick="window.print()">🖨️ Imprimir</button>
+        <button onclick="showAnswers()">👁️ Mostrar</button>
+        <button onclick="hideAnswers()">🙈 Ocultar</button>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Redondea a la decena</div>
+        <div class="problem"><div class="problem-number">1. 23 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>20</strong></div></div>
+        <div class="problem"><div class="problem-number">2. 47 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>50</strong></div></div>
+        <div class="problem"><div class="problem-number">3. 35 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>40</strong></div></div>
+        <div class="problem"><div class="problem-number">4. 81 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>80</strong></div></div>
+        <div class="problem"><div class="problem-number">5. 96 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>100</strong></div></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Redondea a la centena</div>
+        <div class="problem"><div class="problem-number">6. 234 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>200</strong></div></div>
+        <div class="problem"><div class="problem-number">7. 567 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>600</strong></div></div>
+        <div class="problem"><div class="problem-number">8. 450 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>500</strong></div></div>
+        <div class="problem"><div class="problem-number">9. 789 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>800</strong></div></div>
+        <div class="problem"><div class="problem-number">10. 950 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>1,000</strong></div></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Redondea al millar</div>
+        <div class="problem"><div class="problem-number">11. 1,234 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>1,000</strong></div></div>
+        <div class="problem"><div class="problem-number">12. 3,678 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>4,000</strong></div></div>
+        <div class="problem"><div class="problem-number">13. 5,500 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>6,000</strong></div></div>
+        <div class="problem"><div class="problem-number">14. 8,290 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>8,000</strong></div></div>
+        <div class="problem"><div class="problem-number">15. 9,999 →</div><span class="answer-line"></span><div class="answer" style="display:none; color: #667eea;">✓ <strong>10,000</strong></div></div>
+    </div>
+
+    <script>
+        function showAnswers() { document.querySelectorAll('.answer').forEach(el => el.style.display = 'block'); }
+        function hideAnswers() { document.querySelectorAll('.answer').forEach(el => el.style.display = 'none'); }
+    </script>
+</body>
+</html>

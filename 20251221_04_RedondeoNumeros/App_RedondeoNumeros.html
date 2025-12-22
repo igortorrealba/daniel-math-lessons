@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Juego: Redondeo de Números</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0; padding: 20px; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { background: white; border-radius: 20px; padding: 40px; max-width: 700px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 100%; }
+        h1 { color: #667eea; text-align: center; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .score-board { display: flex; justify-content: space-around; margin-bottom: 30px; }
+        .score { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px 25px; border-radius: 10px; text-align: center; font-size: 1.3em; font-weight: bold; flex: 1; margin: 0 10px; }
+        .question-box { background: #f8f9fa; border-left: 5px solid #667eea; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .number-display { font-size: 4em; text-align: center; margin: 30px 0; font-weight: bold; color: #764ba2; font-family: 'Courier New'; }
+        .round-to { font-size: 1.5em; text-align: center; color: #667eea; margin: 20px 0; }
+        input[type="number"] { width: 100%; padding: 15px; font-size: 1.8em; border: 3px solid #667eea; border-radius: 10px; text-align: center; margin: 20px 0; box-sizing: border-box; }
+        button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 40px; font-size: 1.3em; border-radius: 10px; cursor: pointer; width: 100%; margin-top: 15px; font-weight: bold; transition: transform 0.2s; }
+        button:hover { transform: scale(1.05); }
+        .feedback { margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center; font-size: 1.3em; font-weight: bold; display: none; }
+        .correct { background: #d4edda; border: 3px solid #28a745; color: #155724; display: block; }
+        .incorrect { background: #f8d7da; border: 3px solid #dc3545; color: #721c24; display: block; }
+        .celebration { font-size: 4em; text-align: center; display: none; animation: bounce 0.5s; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .hint { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; font-size: 1.1em; color: #856404; }
+        .number-line { position: relative; height: 4px; background: #667eea; margin: 40px 20px; }
+        .tick { position: absolute; width: 2px; height: 20px; background: #764ba2; top: -8px; }
+        .tick-label { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); font-size: 0.9em; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Redondeo de Números</h1>
+        <p class="subtitle">Zaokrąglanie liczb</p>
+
+        <div class="score-board">
+            <div class="score">⭐ Correctas: <span id="correct">0</span></div>
+            <div class="score">📊 Total: <span id="total">0</span></div>
+        </div>
+
+        <div class="question-box">
+            <div class="number-display" id="numberDisplay">0</div>
+            <div class="round-to" id="roundTo">Redondea a la decena más cercana</div>
+
+            <div id="numberLine" style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0; display: none;">
+                <!-- Dynamic number line -->
+            </div>
+
+            <input type="number" id="answerInput" placeholder="Tu respuesta...">
+
+            <div class="hint">
+                💡 Recuerda: Si el dígito es 5 o más, redondea hacia arriba ⬆️
+            </div>
+
+            <button onclick="checkAnswer()">✓ Verificar</button>
+            <button onclick="showHint()" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); color: #333;">💡 Ver Pista</button>
+            <button onclick="nextQuestion()" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">➡️ Siguiente</button>
+        </div>
+
+        <div class="celebration" id="celebration">🎉🎊✨</div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        let score = 0, total = 0, currentNumber = 0, currentRoundTo = 10, currentAnswer = 0;
+
+        function roundToNearest(num, nearest) {
+            return Math.round(num / nearest) * nearest;
+        }
+
+        function generateQuestion() {
+            const types = [
+                { max: 100, roundTo: 10, label: 'decena (dziesiątki)' },
+                { max: 500, roundTo: 10, label: 'decena' },
+                { max: 1000, roundTo: 100, label: 'centena (setki)' },
+                { max: 5000, roundTo: 100, label: 'centena' },
+                { max: 10000, roundTo: 1000, label: 'millar (tysiące)' }
+            ];
+
+            const type = types[Math.floor(Math.random() * types.length)];
+            currentNumber = Math.floor(Math.random() * type.max) + 1;
+            currentRoundTo = type.roundTo;
+            currentAnswer = roundToNearest(currentNumber, currentRoundTo);
+
+            document.getElementById('numberDisplay').textContent = currentNumber.toLocaleString('es-ES');
+            document.getElementById('roundTo').textContent = `Redondea a la ${type.label} más cercana`;
+            document.getElementById('numberLine').style.display = 'none';
+        }
+
+        function showHint() {
+            const lower = Math.floor(currentNumber / currentRoundTo) * currentRoundTo;
+            const upper = lower + currentRoundTo;
+            const mid = lower + currentRoundTo / 2;
+
+            const lineHtml = `
+                <div class="number-line">
+                    <div class="tick" style="left: 0%;"><div class="tick-label">${lower}</div></div>
+                    <div class="tick" style="left: 50%;"><div class="tick-label">${mid}</div></div>
+                    <div class="tick" style="left: 100%;"><div class="tick-label">${upper}</div></div>
+                    <div style="position: absolute; left: ${((currentNumber - lower) / currentRoundTo) * 100}%; top: -35px; font-size: 2em;">⬇️</div>
+                </div>
+            `;
+
+            document.getElementById('numberLine').innerHTML = lineHtml;
+            document.getElementById('numberLine').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('numberLine').style.display = 'none';
+            }, 5000);
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(document.getElementById('answerInput').value);
+            const feedback = document.getElementById('feedback');
+            const celebration = document.getElementById('celebration');
+
+            total++;
+            document.getElementById('total').textContent = total;
+
+            if (userAnswer === currentAnswer) {
+                score++;
+                document.getElementById('correct').textContent = score;
+                feedback.className = 'feedback correct';
+                feedback.textContent = '🎉 ¡Perfecto! ¡Muy bien, Daniel!';
+                celebration.style.display = 'block';
+                setTimeout(() => celebration.style.display = 'none', 2000);
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `❌ No exactamente. La respuesta correcta es: <strong>${currentAnswer.toLocaleString('es-ES')}</strong>`;
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('celebration').style.display = 'none';
+            document.getElementById('answerInput').value = '';
+            generateQuestion();
+        }
+
+        generateQuestion();
+    </script>
+</body>
+</html>
