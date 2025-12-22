@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo - Comparación de Números</title>
+    <style>
+        @media print { body { margin: 0; padding: 20px; } .no-print { display: none; } }
+        body { font-family: Arial, sans-serif; background-color: white; color: black; max-width: 800px; margin: 0 auto; padding: 40px; line-height: 1.6; }
+        .header { border-bottom: 3px solid black; padding-bottom: 20px; margin-bottom: 30px; }
+        .student-info { font-size: 14pt; margin-bottom: 15px; }
+        .student-info span { border-bottom: 2px solid black; display: inline-block; min-width: 250px; margin-left: 10px; }
+        h1 { text-align: center; font-size: 28pt; margin: 20px 0; font-weight: bold; }
+        .subtitle { text-align: center; font-size: 14pt; margin-bottom: 30px; color: #333; }
+        .instructions { background-color: #f5f5f5; border: 2px solid black; padding: 15px; margin: 20px 0; font-size: 12pt; }
+        .section { margin: 40px 0; page-break-inside: avoid; }
+        .section-title { font-size: 18pt; font-weight: bold; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid black; }
+        .problem { margin: 20px 0; padding: 15px 0; border-bottom: 1px dashed #ccc; }
+        .problem-number { font-weight: bold; font-size: 14pt; margin-bottom: 10px; }
+        .comparison { font-size: 24pt; text-align: center; margin: 15px 0; font-weight: bold; font-family: 'Courier New'; }
+        .answer-box { display: inline-block; border: 2px solid black; padding: 10px 20px; margin: 0 10px; min-width: 50px; text-align: center; }
+        button { background: #667eea; color: white; border: none; padding: 10px 20px; font-size: 14pt; border-radius: 5px; cursor: pointer; margin: 10px 5px; }
+        button:hover { background: #764ba2; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Hoja de Trabajo</h1>
+        <p class="subtitle">Comparación de Números (Porównywanie liczb)</p>
+        <div class="student-info">Nombre / Imię: <span></span></div>
+        <div class="student-info">Fecha / Data: <span></span></div>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin-bottom: 20px;">
+        <button onclick="window.print()">🖨️ Imprimir</button>
+        <button onclick="showAnswers()">👁️ Mostrar Respuestas</button>
+        <button onclick="hideAnswers()">🙈 Ocultar Respuestas</button>
+    </div>
+
+    <div class="instructions">
+        <strong>📋 Instrucciones:</strong><br>
+        Escribe el símbolo correcto en cada caja: > (mayor que), < (menor que), o = (igual a)
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 1: Números de 1 a 100</div>
+
+        <div class="problem">
+            <div class="problem-number">1.</div>
+            <div class="comparison">15 <span class="answer-box"></span> 12</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">2.</div>
+            <div class="comparison">23 <span class="answer-box"></span> 32</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&lt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">3.</div>
+            <div class="comparison">47 <span class="answer-box"></span> 47</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>=</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">4.</div>
+            <div class="comparison">56 <span class="answer-box"></span> 65</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&lt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">5.</div>
+            <div class="comparison">89 <span class="answer-box"></span> 78</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">6.</div>
+            <div class="comparison">100 <span class="answer-box"></span> 99</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 2: Números de 100 a 1,000</div>
+
+        <div class="problem">
+            <div class="problem-number">7.</div>
+            <div class="comparison">245 <span class="answer-box"></span> 254</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&lt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">8.</div>
+            <div class="comparison">389 <span class="answer-box"></span> 389</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>=</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">9.</div>
+            <div class="comparison">567 <span class="answer-box"></span> 456</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">10.</div>
+            <div class="comparison">725 <span class="answer-box"></span> 752</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&lt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">11.</div>
+            <div class="comparison">1,000 <span class="answer-box"></span> 999</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 3: Números grandes</div>
+
+        <div class="problem">
+            <div class="problem-number">12.</div>
+            <div class="comparison">1,234 <span class="answer-box"></span> 1,243</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&lt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">13.</div>
+            <div class="comparison">5,678 <span class="answer-box"></span> 5,678</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>=</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">14.</div>
+            <div class="comparison">8,521 <span class="answer-box"></span> 7,999</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">15.</div>
+            <div class="comparison">10,500 <span class="answer-box"></span> 10,050</div>
+            <div class="answer" style="display:none; color: #667eea; text-align: center;">✓ <strong>&gt;</strong></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Parte 4: ¡Desafío!</div>
+
+        <div class="problem">
+            <div class="problem-number">16.</div>
+            <p>Ordena de menor a mayor: 456, 564, 465, 546</p>
+            <div style="height: 40px; border-bottom: 2px solid black; margin: 20px 0;"></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>456, 465, 546, 564</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">17.</div>
+            <p>Escribe 3 números que sean mayores que 1,000 pero menores que 1,100:</p>
+            <div style="height: 40px; border-bottom: 2px solid black; margin: 20px 0;"></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>Ejemplos: 1,025, 1,050, 1,075 (cualquier número entre 1,001 y 1,099)</strong></div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-number">18.</div>
+            <p>Daniel tiene 1,234 puntos y su amigo tiene 1,324 puntos. ¿Quién tiene más?</p>
+            <div style="height: 40px; border-bottom: 2px solid black; margin: 20px 0;"></div>
+            <div class="answer" style="display:none; color: #667eea;">✓ <strong>Su amigo tiene más (1,324 > 1,234)</strong></div>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid black; text-align: center; font-size: 10pt; color: #666;">
+        <p>🎓 ¡Excelente trabajo, Daniel! / Świetna robota!</p>
+        <p>Creado con ❤️ para aprender matemáticas</p>
+    </div>
+
+    <script>
+        function showAnswers() { document.querySelectorAll('.answer').forEach(el => el.style.display = 'block'); }
+        function hideAnswers() { document.querySelectorAll('.answer').forEach(el => el.style.display = 'none'); }
+    </script>
+</body>
+</html>

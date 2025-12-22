@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Juego: Comparación de Números</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0; padding: 20px; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { background: white; border-radius: 20px; padding: 40px; max-width: 700px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 100%; }
+        h1 { color: #667eea; text-align: center; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .score-board { display: flex; justify-content: space-around; margin-bottom: 30px; }
+        .score { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 15px 25px; border-radius: 10px; text-align: center; font-size: 1.3em; font-weight: bold; flex: 1; margin: 0 10px; }
+        .question-box { background: #f8f9fa; border-left: 5px solid #667eea; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .comparison-display { font-size: 4em; text-align: center; margin: 30px 0; font-weight: bold; color: #667eea; font-family: 'Courier New'; }
+        .number { color: #764ba2; }
+        .symbol-input { color: #f5576c; }
+        .buttons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0; }
+        .symbol-btn { padding: 30px; font-size: 3em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 15px; cursor: pointer; transition: transform 0.2s; font-weight: bold; }
+        .symbol-btn:hover { transform: scale(1.05); }
+        .symbol-btn:active { transform: scale(0.95); }
+        button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 40px; font-size: 1.3em; border-radius: 10px; cursor: pointer; width: 100%; margin-top: 15px; font-weight: bold; }
+        .feedback { margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center; font-size: 1.3em; font-weight: bold; display: none; }
+        .correct { background: #d4edda; border: 3px solid #28a745; color: #155724; display: block; }
+        .incorrect { background: #f8d7da; border: 3px solid #dc3545; color: #721c24; display: block; }
+        .celebration { font-size: 4em; text-align: center; display: none; animation: bounce 0.5s; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .hint { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; font-size: 1.1em; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Comparación de Números</h1>
+        <p class="subtitle">Porównywanie liczb - ¡Elige el símbolo correcto!</p>
+
+        <div class="score-board">
+            <div class="score">⭐ Correctas: <span id="correct">0</span></div>
+            <div class="score">📊 Total: <span id="total">0</span></div>
+        </div>
+
+        <div class="question-box">
+            <p style="text-align: center; font-size: 1.3em; margin-bottom: 20px;">Elige el símbolo correcto:</p>
+
+            <div class="comparison-display">
+                <span class="number" id="num1">0</span>
+                <span class="symbol-input" id="symbol">?</span>
+                <span class="number" id="num2">0</span>
+            </div>
+
+            <div class="buttons-grid">
+                <button class="symbol-btn" onclick="selectSymbol('>')"> &gt; </button>
+                <button class="symbol-btn" onclick="selectSymbol('=')">=</button>
+                <button class="symbol-btn" onclick="selectSymbol('<')"> &lt; </button>
+            </div>
+
+            <div class="hint">
+                💡 Recuerda: El símbolo > "come" al número más grande 🐊
+            </div>
+
+            <button onclick="nextQuestion()" style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);">
+                ➡️ Siguiente Pregunta
+            </button>
+        </div>
+
+        <div class="celebration" id="celebration">🎉🎊✨</div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <script>
+        let score = 0;
+        let total = 0;
+        let currentAnswer = '';
+        let num1 = 0;
+        let num2 = 0;
+
+        function generateNumbers() {
+            const levels = [
+                () => [Math.floor(Math.random() * 20), Math.floor(Math.random() * 20)],
+                () => [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
+                () => [Math.floor(Math.random() * 500), Math.floor(Math.random() * 500)],
+                () => [Math.floor(Math.random() * 1000), Math.floor(Math.random() * 1000)],
+                () => [Math.floor(Math.random() * 10000), Math.floor(Math.random() * 10000)]
+            ];
+
+            const level = levels[Math.floor(Math.random() * levels.length)];
+            [num1, num2] = level();
+
+            if (num1 > num2) currentAnswer = '>';
+            else if (num1 < num2) currentAnswer = '<';
+            else currentAnswer = '=';
+
+            document.getElementById('num1').textContent = num1.toLocaleString('es-ES');
+            document.getElementById('num2').textContent = num2.toLocaleString('es-ES');
+            document.getElementById('symbol').textContent = '?';
+        }
+
+        function selectSymbol(symbol) {
+            document.getElementById('symbol').textContent = symbol;
+            checkAnswer(symbol);
+        }
+
+        function checkAnswer(selectedSymbol) {
+            const feedback = document.getElementById('feedback');
+            const celebration = document.getElementById('celebration');
+
+            total++;
+            document.getElementById('total').textContent = total;
+
+            if (selectedSymbol === currentAnswer) {
+                score++;
+                document.getElementById('correct').textContent = score;
+                feedback.className = 'feedback correct';
+                feedback.textContent = '🎉 ¡Perfecto! ¡Muy bien, Daniel!';
+                celebration.style.display = 'block';
+
+                setTimeout(() => {
+                    celebration.style.display = 'none';
+                }, 2000);
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = `❌ No exactamente. La respuesta correcta es: <strong>${num1} ${currentAnswer} ${num2}</strong>`;
+            }
+
+            feedback.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('celebration').style.display = 'none';
+            generateNumbers();
+        }
+
+        // Inicializar
+        generateNumbers();
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 Comparación de Números (Porównywanie liczb)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; text-align: center; }
+        .subtitle { text-align: center; color: #764ba2; font-size: 1.3em; margin-bottom: 30px; }
+        .section { background: #f8f9ff; border-radius: 15px; padding: 25px; margin-bottom: 25px; border-left: 5px solid #667eea; }
+        .section h2 { color: #667eea; font-size: 1.8em; margin-bottom: 15px; }
+        p { color: #333; line-height: 1.8; font-size: 1.1em; margin-bottom: 15px; }
+        .symbol-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 20px 0; text-align: center; }
+        .symbol { font-size: 5em; font-weight: bold; margin: 20px 0; }
+        .example-box { background: white; border: 3px solid #667eea; border-radius: 12px; padding: 20px; margin: 20px 0; }
+        .comparison { font-size: 3em; text-align: center; margin: 20px 0; font-weight: bold; color: #667eea; }
+        .highlight { background: #ffeaa7; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #fdcb6e; }
+        .tip { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Comparación de Números</h1>
+        <p class="subtitle">Porównywanie liczb - Mayor, menor e igual</p>
+
+        <div class="section">
+            <h2>📚 ¿Qué es comparar?</h2>
+            <p>Comparar números significa decidir cuál es <strong>más grande (mayor)</strong>, cuál es <strong>más pequeño (menor)</strong>, o si son <strong>iguales</strong>.</p>
+            <p>En polaco: <em>większy (mayor), mniejszy (menor), równy (igual)</em></p>
+        </div>
+
+        <div class="section">
+            <h2>🔣 Los Símbolos</h2>
+
+            <div class="symbol-box">
+                <div class="symbol">&gt;</div>
+                <p style="font-size: 1.5em;">Mayor que (większy niż)</p>
+                <p>5 > 3 significa "5 es mayor que 3"</p>
+            </div>
+
+            <div class="symbol-box">
+                <div class="symbol">&lt;</div>
+                <p style="font-size: 1.5em;">Menor que (mniejszy niż)</p>
+                <p>3 < 5 significa "3 es menor que 5"</p>
+            </div>
+
+            <div class="symbol-box">
+                <div class="symbol">=</div>
+                <p style="font-size: 1.5em;">Igual a (równy)</p>
+                <p>5 = 5 significa "5 es igual a 5"</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Truco para recordar</h2>
+            <div class="highlight">
+                <p><strong>¡El símbolo siempre "come" al número más grande!</strong></p>
+                <p>Imagina que es la boca de un cocodrilo hambriento 🐊</p>
+                <div class="comparison">7 &gt; 3</div>
+                <p>El cocodrilo come el 7 porque es más grande</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Ejemplos paso a paso</h2>
+
+            <div class="example-box">
+                <h3 style="color: #764ba2;">Ejemplo 1: Comparar 45 y 32</h3>
+                <p><strong>Paso 1:</strong> Compara las decenas (dziesiątki)</p>
+                <p>45 tiene <strong>4 decenas</strong></p>
+                <p>32 tiene <strong>3 decenas</strong></p>
+                <p><strong>Paso 2:</strong> 4 > 3, entonces 45 > 32</p>
+                <div class="comparison">45 &gt; 32</div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="color: #764ba2;">Ejemplo 2: Comparar 128 y 135</h3>
+                <p><strong>Paso 1:</strong> Compara las centenas (setki)</p>
+                <p>128 tiene <strong>1 centena</strong></p>
+                <p>135 tiene <strong>1 centena</strong></p>
+                <p>Son iguales, mira las decenas...</p>
+                <p><strong>Paso 2:</strong> Compara las decenas</p>
+                <p>128 tiene <strong>2 decenas</strong></p>
+                <p>135 tiene <strong>3 decenas</strong></p>
+                <p>2 < 3, entonces 128 < 135</p>
+                <div class="comparison">128 &lt; 135</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Reglas importantes</h2>
+            <div class="tip">
+                <p><strong>1.</strong> Un número con más dígitos suele ser mayor</p>
+                <p>Ejemplo: 1,000 > 999 (4 dígitos > 3 dígitos)</p>
+            </div>
+            <div class="tip">
+                <p><strong>2.</strong> Si tienen los mismos dígitos, compara de izquierda a derecha</p>
+                <p>Ejemplo: 456 vs 478 → Compara 4=4, luego 5<7 → 456 < 478</p>
+            </div>
+            <div class="tip">
+                <p><strong>3.</strong> Cero a la izquierda no cuenta</p>
+                <p>Ejemplo: 045 = 45</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ ¡Ahora tú!</h2>
+            <p>¿Listo para practicar? Ve a la aplicación interactiva o la hoja de trabajo</p>
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="App_ComparacionNumeros.html" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-size: 1.2em; margin: 10px;">🎮 Jugar</a>
+                <a href="Worksheet_ComparacionNumeros.html" style="background: linear-gradient(135deg, #00b894, #00cec9); color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-size: 1.2em; margin: 10px;">📝 Hoja de Trabajo</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
