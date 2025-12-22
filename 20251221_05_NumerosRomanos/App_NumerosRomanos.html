@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>🎮 Números Romanos</title>
+<style>
+body{font-family:'Comic Sans MS';background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);margin:0;padding:20px;min-height:100vh;display:flex;justify-content:center;align-items:center}.container{background:white;border-radius:20px;padding:40px;max-width:700px;box-shadow:0 20px 60px rgba(0,0,0,0.3);width:100%}h1{color:#667eea;text-align:center;font-size:2.5em;margin-bottom:10px}.score{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white;padding:15px 25px;border-radius:10px;text-align:center;font-size:1.3em;font-weight:bold;margin:10px}.question-box{background:#f8f9fa;border-left:5px solid #667eea;padding:25px;margin:20px 0;border-radius:10px}.number-display{font-size:4em;text-align:center;margin:30px 0;font-weight:bold;color:#764ba2}input{width:100%;padding:15px;font-size:1.8em;border:3px solid #667eea;border-radius:10px;text-align:center;margin:20px 0}button{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;border:none;padding:15px;font-size:1.3em;border-radius:10px;cursor:pointer;width:100%;margin-top:15px;font-weight:bold}.feedback{margin-top:20px;padding:20px;border-radius:10px;text-align:center;font-size:1.3em;font-weight:bold;display:none}.correct{background:#d4edda;border:3px solid #28a745;color:#155724;display:block}.incorrect{background:#f8d7da;border:3px solid #dc3545;color:#721c24;display:block}.hint{background:#fff3cd;padding:15px;margin:15px 0;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎮 Números Romanos</h1>
+<p style="text-align:center;color:#666;font-size:1.2em;margin-bottom:30px">Liczby rzymskie</p>
+<div class="score">⭐ Correctas: <span id="correct">0</span> | 📊 Total: <span id="total">0</span></div>
+<div class="question-box">
+<p id="questionText" style="text-align:center;font-size:1.3em">Convierte a número romano:</p>
+<div class="number-display" id="numberDisplay">5</div>
+<input type="text" id="answerInput" placeholder="Tu respuesta (ej: V)">
+<div class="hint">💡 I=1, V=5, X=10, L=50, C=100</div>
+<button onclick="checkAnswer()">✓ Verificar</button>
+<button onclick="nextQuestion()" style="background:linear-gradient(135deg,#00b894 0%,#00cec9 100%)">➡️ Siguiente</button>
+</div>
+<div id="feedback" class="feedback"></div>
+</div>
+<script>
+let score=0,total=0,currentNumber=0,currentAnswer='',mode='toRoman';
+const romanMap={1:'I',4:'IV',5:'V',9:'IX',10:'X',40:'XL',50:'L',90:'XC',100:'C'};
+function toRoman(num){let result='';[100,90,50,40,10,9,5,4,1].forEach(val=>{while(num>=val){result+=romanMap[val];num-=val}});return result}
+function fromRoman(str){const map={'I':1,'V':5,'X':10,'L':50,'C':100};let num=0;for(let i=0;i<str.length;i++){let curr=map[str[i]],next=map[str[i+1]];num+=curr<next?-curr:curr}return num}
+function generateQuestion(){mode=Math.random()>0.5?'toRoman':'toArabic';if(mode==='toRoman'){currentNumber=Math.floor(Math.random()*100)+1;currentAnswer=toRoman(currentNumber);document.getElementById('questionText').textContent='Convierte a número romano:';document.getElementById('numberDisplay').textContent=currentNumber}else{currentNumber=Math.floor(Math.random()*100)+1;currentAnswer=currentNumber.toString();document.getElementById('questionText').textContent='Convierte a número arábigo:';document.getElementById('numberDisplay').textContent=toRoman(currentNumber)}}
+function checkAnswer(){const input=document.getElementById('answerInput').value.trim().toUpperCase();const feedback=document.getElementById('feedback');total++;document.getElementById('total').textContent=total;if(input===currentAnswer.toString().toUpperCase()){score++;document.getElementById('correct').textContent=score;feedback.className='feedback correct';feedback.textContent='🎉 ¡Perfecto!'}else{feedback.className='feedback incorrect';feedback.innerHTML=`❌ Respuesta correcta: <strong>${currentAnswer}</strong>`}feedback.style.display='block'}
+function nextQuestion(){document.getElementById('feedback').style.display='none';document.getElementById('answerInput').value='';generateQuestion()}
+generateQuestion();
+</script>
+</body>
+</html>
