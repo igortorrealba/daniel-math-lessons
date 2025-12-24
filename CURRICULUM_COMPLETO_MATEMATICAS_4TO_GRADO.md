@@ -81,14 +81,14 @@
 ---
 
 ## MÓDULO 4: UŁAMKI DZIESIĘTNE (Fracciones Decimales/Decimales)
-**Estado General:** 2/4 lecciones en MD 📝
+**Estado General:** 2/4 lecciones en HTML ✅
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 29 | Conexión Fracciones-Decimales (Związek ułamków zwykłych i dziesiętnych) | 📝 MD | concepts, explanations, exercises, solutions |
+| 29 | Conexión Fracciones-Decimales (Związek ułamków zwykłych i dziesiętnych) | ✅ HTML | Lesson, App, Worksheet |
 | 30 | Comparación de Decimales (Porównywanie ułamków dziesiętnych) | ⬜ POR CREAR | - |
 | 31 | Operaciones con Decimales ×÷ por 10, 100, 1000 (Mnożenie i dzielenie) | ⬜ POR CREAR | - |
-| 32 | Problemas de Palabras con Decimales (Zadania tekstowe) | 📝 MD | concepts, explanations, exercises, solutions |
+| 32 | Problemas de Palabras con Decimales (Zadania tekstowe) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -146,13 +146,13 @@
 ---
 
 ## MÓDULO 9: MIARY (Mediciones)
-**Estado General:** 3/5 lecciones en MD 📝
+**Estado General:** 3/5 lecciones en HTML ✅
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 49 | Longitud y Distancia: mm, cm, m, km (Długość i odległość) | 📝 MD | concepts, explanations, exercises, solutions |
-| 50 | Masa y Capacidad: g, kg, mL, L (Masa i pojemność) | 📝 MD | concepts, explanations, exercises, solutions |
-| 51 | Tiempo: Reloj y Tiempo Transcurrido (Czas) | 📝 MD | concepts, explanations, exercises, solutions |
+| 49 | Longitud y Distancia: mm, cm, m, km (Długość i odległość) | ✅ HTML | Lesson, App, Worksheet |
+| 50 | Masa y Capacidad: g, kg, mL, L (Masa i pojemność) | ✅ HTML | Lesson, App, Worksheet |
+| 51 | Tiempo: Reloj y Tiempo Transcurrido (Czas) | ✅ HTML | Lesson, App, Worksheet |
 | 52 | Escala (Skala) | ⬜ POR CREAR | - |
 | 53 | Velocidad, Distancia y Tiempo (Prędkość, droga, czas) | ⬜ POR CREAR | - |
 
@@ -174,8 +174,8 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 11 | 20% |
-| 📝 **Lecciones en MD (Por convertir)** | 5 | 9% |
+| ✅ **Lecciones en HTML (Completas)** | 16 | 29% |
+| 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
 | ⬜ **Lecciones por crear** | 39 | 71% |
 | **TOTAL** | **55** | **100%** |
 
@@ -186,14 +186,14 @@
 | 1. Números Naturales | 6 | 0 | 2 | 8 |
 | 2. Operaciones | 4 | 0 | 6 | 10 |
 | 3. Fracciones Comunes | 0 | 0 | 8 | 8 |
-| 4. Decimales | 0 | 2 | 2 | 4 |
+| 4. Decimales | 2 | 0 | 2 | 4 |
 | 5. Geometría Básica | 0 | 0 | 6 | 6 |
 | 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
 | 7. Círculos | 0 | 0 | 2 | 2 |
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
-| 9. Mediciones | 0 | 3 | 2 | 5 |
+| 9. Mediciones | 3 | 0 | 2 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **11** | **5** | **39** | **55** |
+| **TOTALES** | **16** | **0** | **39** | **55** |
 
 ---
 
