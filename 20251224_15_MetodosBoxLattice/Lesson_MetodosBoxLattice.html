@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Lección 15: Métodos Box y Lattice</title><style>body{font-family:Arial;max-width:900px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#f3e5f5,#e1bee7)}
+.header{text-align:center;background:linear-gradient(135deg,#ab47bc,#8e24aa);color:white;padding:30px;border-radius:15px;margin-bottom:30px}
+.section{background:white;padding:25px;margin:20px 0;border-radius:12px}
+.section h2{color:#8e24aa;border-bottom:3px solid #ab47bc;padding-bottom:10px}
+.example{background:#e8f5e9;padding:15px;border-left:5px solid #4caf50;margin:15px 0}
+pre{background:#f5f5f5;padding:15px;border-radius:8px;font-size:1.1em}
+.tip{background:#fff9c4;padding:12px;border-radius:8px;margin:15px 0}
+.nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px}
+.nav-buttons a{background:#ab47bc;color:white;padding:12px 24px;text-decoration:none;border-radius:8px}
+</style></head><body><div class="header"><h1>📦 Lección 15: Métodos Box y Lattice</h1><div>Metody mnożenia: Box i Kratka</div></div>
+<div class="section"><h2>Método Box (Método de la Caja)</h2><p>Descomponemos los números y multiplicamos por partes usando una tabla.</p>
+<div class="example"><strong>Ejemplo: 23 × 14</strong><pre>
+Descomposición: 23 = 20 + 3, 14 = 10 + 4
+
+┌────┬────┬────┐
+│    │ 20 │  3 │
+├────┼────┼────┤
+│ 10 │200 │ 30 │ = 230
+├────┼────┼────┤
+│  4 │ 80 │ 12 │ = 92
+└────┴────┴────┘
+
+Suma: 200 + 30 + 80 + 12 = 322
+</pre></div></div>
+<div class="section"><h2>Método Lattice (Celosía)</h2><p>Usamos una cuadrícula con diagonales para organizar los productos parciales.</p>
+<div class="example"><strong>Ejemplo: 32 × 24</strong><pre>
+    3   2
+  ┌───┬───┐
+2 │0/6│0/4│ 2
+  ├ ╱ ┼ ╱ ┤
+4 │1/2│0/8│ 4
+  └───┴───┘
+Suma diagonal: 768
+</pre></div></div>
+<div class="section"><h2>Comparación de Métodos</h2><ul><li><strong>Box:</strong> Más visual, bueno para principiantes</li><li><strong>Lattice:</strong> Más rápido, evita errores de llevadas</li><li><strong>Estándar:</strong> Más compacto</li></ul></div>
+<div class="nav-buttons"><a href="../index.html">🏠 Inicio</a><a href="App_MetodosBoxLattice.html">🎮 Practicar</a><a href="Worksheet_MetodosBoxLattice.html">📄 Hoja de Trabajo</a></div></body></html>
