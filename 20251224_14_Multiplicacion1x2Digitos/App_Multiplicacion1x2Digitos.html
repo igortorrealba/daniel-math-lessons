@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Juego: Multiplicación 1×2</title><style>body{font-family:Arial;max-width:800px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#e3f2fd,#bbdefb);text-align:center}
+.header{background:linear-gradient(135deg,#42a5f5,#1976d2);color:white;padding:25px;border-radius:15px;margin-bottom:30px}
+.game-container{background:white;padding:30px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
+.problem{font-size:3em;color:#1976d2;margin:30px 0;font-weight:bold}
+.answer-input{font-size:2em;padding:15px;border:3px solid #42a5f5;border-radius:10px;width:150px;text-align:center;margin:20px 0}
+.btn{background:#42a5f5;color:white;border:none;padding:15px 40px;font-size:18px;border-radius:10px;cursor:pointer;margin:10px}
+.btn-check{background:#4caf50}
+.feedback{font-size:1.5em;margin:20px 0;padding:15px;border-radius:10px;min-height:50px}
+.feedback.correct{background:#c8e6c9;color:#2e7d32}
+.feedback.incorrect{background:#ffcdd2;color:#c62828}
+.score{font-size:1.3em;color:#1976d2;margin:20px 0;font-weight:bold}
+</style></head><body><div class="header"><h1>✖️ Multiplicación 1×2 Dígitos</h1></div>
+<div class="game-container"><div class="score">Puntuación: <span id="score">0</span> / <span id="total">0</span></div>
+<div class="problem" id="problem">4 × 23 = ?</div>
+<input type="number" id="answerInput" class="answer-input" placeholder="?" autocomplete="off">
+<div><button class="btn btn-check" onclick="checkAnswer()">✓ Verificar</button>
+<button class="btn" onclick="newProblem()">→ Siguiente</button></div>
+<div class="feedback" id="feedback"></div></div>
+<script>let score=0,total=0,currentAnswer=0,num1=0,num2=0;
+function newProblem(){num1=Math.floor(Math.random()*8)+2;num2=Math.floor(Math.random()*89)+11;currentAnswer=num1*num2;document.getElementById('problem').textContent=`${num1} × ${num2} = ?`;document.getElementById('answerInput').value='';document.getElementById('feedback').textContent='';document.getElementById('feedback').className='feedback';document.getElementById('answerInput').focus();}
+function checkAnswer(){const userAnswer=parseInt(document.getElementById('answerInput').value);const feedback=document.getElementById('feedback');if(isNaN(userAnswer)){feedback.className='feedback incorrect';feedback.textContent='⚠️ Por favor ingresa un número';return;}total++;if(userAnswer===currentAnswer){score++;feedback.className='feedback correct';feedback.innerHTML='🎉 ¡Perfecto! ¡Muy bien, Daniel!';}else{feedback.className='feedback incorrect';feedback.innerHTML=`❌ Respuesta correcta: <strong>${currentAnswer}</strong>`;}document.getElementById('score').textContent=score;document.getElementById('total').textContent=total;setTimeout(newProblem,2000);}
+document.getElementById('answerInput').addEventListener('keypress',function(e){if(e.key==='Enter')checkAnswer();});newProblem();</script></body></html>
