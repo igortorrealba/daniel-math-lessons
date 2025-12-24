@@ -1,1 +1,337 @@
-<\!DOCTYPE html><html><head><meta charset="UTF-8"><title>Hoja Suma</title></head><body style="font-family:Arial;padding:40px"><h1 style="text-align:center">📝 Suma Escrita</h1><p>Hoja de trabajo en construcción</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo - Suma Escrita (Dodawanie pisemne)</title>
+    <style>
+        @media print { .no-print { display: none; } }
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #fff9c4 100%);
+        }
+        @media print { body { background: white; } }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #42a5f5, #66bb6a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 2em; }
+        .subtitle { margin-top: 5px; font-size: 1.1em; opacity: 0.95; }
+        .info {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #42a5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #1976d2;
+            border-bottom: 3px solid #42a5f5;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .problem {
+            display: inline-block;
+            margin: 15px 20px;
+            vertical-align: top;
+        }
+        .addition {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            border: 2px solid #ddd;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+        .addition div {
+            text-align: right;
+            padding: 5px 10px;
+            min-width: 120px;
+        }
+        .carry-line {
+            border-top: 2px solid #333;
+            font-size: 0.7em;
+            color: #999;
+            min-height: 20px;
+        }
+        .answer-line {
+            border-top: 2px solid #333;
+            margin-top: 5px;
+            min-height: 35px;
+        }
+        .word-problem {
+            background: #fff3e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        .answer-key {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            page-break-before: always;
+        }
+        .answer-key h2 { color: #2e7d32; border-bottom-color: #66bb6a; }
+        .tip {
+            background: #e3f2fd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .tip strong { color: #1976d2; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Suma Escrita (Dodawanie pisemne)</h1>
+        <div class="subtitle">Hoja de Trabajo para Daniel</div>
+    </div>
+
+    <div class="info">
+        <strong>Nombre:</strong> Daniel &nbsp;&nbsp;&nbsp; <strong>Fecha:</strong> ________________ &nbsp;&nbsp;&nbsp; <strong>Puntuación (Wynik):</strong> ____/18
+    </div>
+
+    <div class="tip">
+        <strong>💡 Consejo (Wskazówka):</strong> Siempre suma de derecha a izquierda. Recuerda llevar (przenieść) cuando el resultado sea mayor que 9.
+    </div>
+
+    <!-- SECCIÓN 1: SUMA SIN LLEVAR -->
+    <div class="section">
+        <h2>Sección 1: Suma sin llevar (Dodawanie bez przeniesienia) - 6 problemas</h2>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  234</div>
+                <div>+ 125</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  512</div>
+                <div>+ 367</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  1,423</div>
+                <div>+ 2,145</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  3,201</div>
+                <div>+ 1,564</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  402</div>
+                <div>+ 135</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  5,120</div>
+                <div>+ 2,347</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2: SUMA LLEVANDO -->
+    <div class="section">
+        <h2>Sección 2: Suma llevando (Dodawanie z przeniesieniem) - 6 problemas</h2>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  248</div>
+                <div>+ 175</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  567</div>
+                <div>+ 389</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  1,856</div>
+                <div>+ 2,478</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  3,947</div>
+                <div>+ 4,286</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  6,789</div>
+                <div>+ 5,654</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="addition">
+                <div>  9,876</div>
+                <div>+ 3,459</div>
+                <div class="carry-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 3: PROBLEMAS DE PALABRAS -->
+    <div class="section">
+        <h2>Sección 3: Problemas de palabras (Zadania tekstowe) - 6 problemas</h2>
+
+        <div class="word-problem">
+            <strong>1.</strong> En una biblioteca (biblioteka) hay 1,245 libros de aventuras y 2,367 libros de ciencia. ¿Cuántos libros hay en total?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  1,245</div>
+                    <div>+ 2,367</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta (Odpowiedź):</strong> _____________ libros</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>2.</strong> Daniel tiene 478 zlotys ahorrados. Su abuela le da 325 zlotys más. ¿Cuánto dinero tiene ahora?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  478</div>
+                    <div>+ 325</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ zlotys</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>3.</strong> Un cine (kino) vendió 3,456 entradas el sábado y 4,789 entradas el domingo. ¿Cuántas entradas vendió en total?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  3,456</div>
+                    <div>+ 4,789</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ entradas</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>4.</strong> En Cracovia, el museo nacional recibió 2,134 visitantes por la mañana y 1,856 por la tarde. ¿Cuántos visitantes hubo en total?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  2,134</div>
+                    <div>+ 1,856</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ visitantes</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>5.</strong> Una tienda de juguetes tiene 5,678 bloques de LEGO rojos y 4,567 bloques azules. ¿Cuántos bloques tiene en total?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  5,678</div>
+                    <div>+ 4,567</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ bloques</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>6.</strong> Un estadio de fútbol tiene 12,345 asientos en la tribuna este y 15,678 asientos en la tribuna oeste. ¿Cuántos asientos hay en total?
+            <div style="margin-top: 20px;">
+                <div class="addition" style="display: inline-block;">
+                    <div>  12,345</div>
+                    <div>+ 15,678</div>
+                    <div class="carry-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ asientos</div>
+        </div>
+    </div>
+
+    <!-- RESPUESTAS -->
+    <div class="answer-key no-print">
+        <h2>🔑 Clave de Respuestas (Klucz odpowiedzi)</h2>
+
+        <h3>Sección 1:</h3>
+        <p>1) 359 &nbsp; 2) 879 &nbsp; 3) 3,568 &nbsp; 4) 4,765 &nbsp; 5) 537 &nbsp; 6) 7,467</p>
+
+        <h3>Sección 2:</h3>
+        <p>1) 423 &nbsp; 2) 956 &nbsp; 3) 4,334 &nbsp; 4) 8,233 &nbsp; 5) 12,443 &nbsp; 6) 13,335</p>
+
+        <h3>Sección 3:</h3>
+        <p>1) 3,612 libros &nbsp; 2) 803 zlotys &nbsp; 3) 8,245 entradas &nbsp; 4) 3,990 visitantes &nbsp; 5) 10,245 bloques &nbsp; 6) 28,023 asientos</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: #666;" class="no-print">
+        <p>¡Muy bien, Daniel! 🌟 Recuerda practicar cada día un poco.</p>
+        <button onclick="window.print()" style="background: #42a5f5; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+            🖨️ Imprimir Hoja de Trabajo
+        </button>
+    </div>
+</body>
+</html>

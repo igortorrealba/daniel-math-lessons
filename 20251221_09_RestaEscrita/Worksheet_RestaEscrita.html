@@ -1,1 +1,337 @@
-<\!DOCTYPE html><html><head><meta charset="UTF-8"><title>Hoja Resta</title></head><body style="font-family:Arial;padding:40px"><h1 style="text-align:center">📝 Resta Escrita</h1></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Trabajo - Resta Escrita (Odejmowanie pisemne)</title>
+    <style>
+        @media print { .no-print { display: none; } }
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff3e0 0%, #e1f5fe 100%);
+        }
+        @media print { body { background: white; } }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #ff7043, #ffa726);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 2em; }
+        .subtitle { margin-top: 5px; font-size: 1.1em; opacity: 0.95; }
+        .info {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff7043;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #e64a19;
+            border-bottom: 3px solid #ff7043;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .problem {
+            display: inline-block;
+            margin: 15px 20px;
+            vertical-align: top;
+        }
+        .subtraction {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            border: 2px solid #ddd;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 5px;
+        }
+        .subtraction div {
+            text-align: right;
+            padding: 5px 10px;
+            min-width: 120px;
+        }
+        .borrow-line {
+            border-top: 2px solid #333;
+            font-size: 0.7em;
+            color: #999;
+            min-height: 20px;
+        }
+        .answer-line {
+            border-top: 2px solid #333;
+            margin-top: 5px;
+            min-height: 35px;
+        }
+        .word-problem {
+            background: #fff3e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        .answer-key {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            page-break-before: always;
+        }
+        .answer-key h2 { color: #2e7d32; border-bottom-color: #66bb6a; }
+        .tip {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .tip strong { color: #e64a19; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 Resta Escrita (Odejmowanie pisemne)</h1>
+        <div class="subtitle">Hoja de Trabajo para Daniel</div>
+    </div>
+
+    <div class="info">
+        <strong>Nombre:</strong> Daniel &nbsp;&nbsp;&nbsp; <strong>Fecha:</strong> ________________ &nbsp;&nbsp;&nbsp; <strong>Puntuación (Wynik):</strong> ____/18
+    </div>
+
+    <div class="tip">
+        <strong>💡 Consejo (Wskazówka):</strong> Siempre resta de derecha a izquierda. Si el número de arriba es menor, debes "pedir prestado" (pożyczyć) del siguiente dígito.
+    </div>
+
+    <!-- SECCIÓN 1: RESTA SIN LLEVAR -->
+    <div class="section">
+        <h2>Sección 1: Resta sin pedir prestado (Odejmowanie bez pożyczania) - 6 problemas</h2>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  789</div>
+                <div>- 234</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  967</div>
+                <div>- 452</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  3,789</div>
+                <div>- 1,234</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  5,896</div>
+                <div>- 2,451</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  8,978</div>
+                <div>- 3,652</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  6,589</div>
+                <div>- 1,234</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 2: RESTA PIDIENDO PRESTADO -->
+    <div class="section">
+        <h2>Sección 2: Resta pidiendo prestado (Odejmowanie z pożyczaniem) - 6 problemas</h2>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  542</div>
+                <div>- 178</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  821</div>
+                <div>- 467</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  4,325</div>
+                <div>- 1,789</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  7,531</div>
+                <div>- 2,896</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  9,024</div>
+                <div>- 3,567</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="subtraction">
+                <div>  15,432</div>
+                <div>-  8,789</div>
+                <div class="borrow-line"></div>
+                <div class="answer-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 3: PROBLEMAS DE PALABRAS -->
+    <div class="section">
+        <h2>Sección 3: Problemas de palabras (Zadania tekstowe) - 6 problemas</h2>
+
+        <div class="word-problem">
+            <strong>1.</strong> Una tienda tenía 1,856 manzanas. Vendió 623 manzanas. ¿Cuántas manzanas le quedan?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  1,856</div>
+                    <div>-   623</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta (Odpowiedź):</strong> _____________ manzanas</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>2.</strong> Daniel tenía 945 zlotys. Gastó 378 zlotys en un videojuego. ¿Cuánto dinero le queda?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  945</div>
+                    <div>- 378</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ zlotys</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>3.</strong> Un estadio tiene capacidad para 8,542 personas. Asistieron 5,789 personas a un partido. ¿Cuántos asientos quedaron vacíos?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  8,542</div>
+                    <div>- 5,789</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ asientos</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>4.</strong> En Cracovia nevó mucho este invierno. El lunes había 12,345 copos de nieve en el parque. El martes se derritieron 4,567 copos. ¿Cuántos copos quedaron?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  12,345</div>
+                    <div>-  4,567</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ copos</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>5.</strong> Una biblioteca tenía 7,234 libros. Prestó 2,856 libros a estudiantes. ¿Cuántos libros quedan en la biblioteca?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  7,234</div>
+                    <div>- 2,856</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ libros</div>
+        </div>
+
+        <div class="word-problem">
+            <strong>6.</strong> Un granjero cosechó 9,520 tomates. Vendió 6,785 tomates en el mercado. ¿Cuántos tomates le quedan?
+            <div style="margin-top: 20px;">
+                <div class="subtraction" style="display: inline-block;">
+                    <div>  9,520</div>
+                    <div>- 6,785</div>
+                    <div class="borrow-line"></div>
+                    <div class="answer-line"></div>
+                </div>
+            </div>
+            <div style="margin-top: 10px;"><strong>Respuesta:</strong> _____________ tomates</div>
+        </div>
+    </div>
+
+    <!-- RESPUESTAS -->
+    <div class="answer-key no-print">
+        <h2>🔑 Clave de Respuestas (Klucz odpowiedzi)</h2>
+
+        <h3>Sección 1:</h3>
+        <p>1) 555 &nbsp; 2) 515 &nbsp; 3) 2,555 &nbsp; 4) 3,445 &nbsp; 5) 5,326 &nbsp; 6) 5,355</p>
+
+        <h3>Sección 2:</h3>
+        <p>1) 364 &nbsp; 2) 354 &nbsp; 3) 2,536 &nbsp; 4) 4,635 &nbsp; 5) 5,457 &nbsp; 6) 6,643</p>
+
+        <h3>Sección 3:</h3>
+        <p>1) 1,233 manzanas &nbsp; 2) 567 zlotys &nbsp; 3) 2,753 asientos &nbsp; 4) 7,778 copos &nbsp; 5) 4,378 libros &nbsp; 6) 2,735 tomates</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: #666;" class="no-print">
+        <p>¡Excelente trabajo, Daniel! 🌟 La resta es muy importante en matemáticas.</p>
+        <button onclick="window.print()" style="background: #ff7043; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px;">
+            🖨️ Imprimir Hoja de Trabajo
+        </button>
+    </div>
+</body>
+</html>
