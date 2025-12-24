@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 8: Múltiplos, Divisores y Divisibilidad</title>
+<style>
+body{font-family:'Comic Sans MS',Arial,sans-serif;max-width:900px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#e0f2f1 0%,#b2dfdb 100%);line-height:1.6}
+.header{text-align:center;background:linear-gradient(135deg,#26a69a,#00897b);color:white;padding:30px;border-radius:15px;margin-bottom:30px}
+h1{margin:0;font-size:2.2em}.subtitle{margin-top:10px;font-size:1.2em;opacity:0.95}
+.section{background:white;padding:25px;margin:20px 0;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,0.1)}
+.section h2{color:#00897b;border-bottom:3px solid #26a69a;padding-bottom:10px;margin-top:0}
+.definition-box{background:#e0f2f1;padding:15px;border-left:5px solid #26a69a;border-radius:5px;margin:15px 0}
+.example-box{background:#e8f5e9;padding:15px;border-left:5px solid #4caf50;border-radius:5px;margin:15px 0}
+.multiple-list{background:#e3f2fd;padding:15px;border:2px dashed #2196f3;border-radius:8px;margin:15px 0;font-family:monospace;font-size:1.1em}
+.divisor-list{background:#fff3e0;padding:15px;border:2px dashed #ff9800;border-radius:8px;margin:15px 0;font-family:monospace;font-size:1.1em}
+.rule-box{background:#fce4ec;padding:15px;border-left:5px solid #e91e63;border-radius:5px;margin:15px 0}
+.tip{background:#fff9c4;padding:12px;border-radius:8px;margin:15px 0;border-left:4px solid #fbc02d}
+.tip strong{color:#00897b}
+.comparison-table{width:100%;border-collapse:collapse;margin:15px 0}
+.comparison-table th,.comparison-table td{border:2px solid #26a69a;padding:12px;text-align:left}
+.comparison-table th{background:#26a69a;color:white}
+.nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.nav-buttons a{background:#26a69a;color:white;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:bold}
+.nav-buttons a:hover{background:#00897b}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🔢 Lección 8: Múltiplos, Divisores y Divisibilidad</h1>
+<div class="subtitle">Wielokrotności, dzielniki i podzielność</div>
+</div>
+
+<div class="section">
+<h2>¿Qué son los Múltiplos? (Co to są wielokrotności?)</h2>
+
+<div class="definition-box">
+<strong>Múltiplo (Wielokrotność):</strong>
+<ul>
+<li>Los múltiplos de un número son los resultados de multiplicarlo por 1, 2, 3, 4, 5...</li>
+<li>Se obtienen al multiplicar el número por cualquier número natural</li>
+<li>Todo número es múltiplo de sí mismo</li>
+<li>El 0 es múltiplo de todos los números</li>
+</ul>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: Múltiplos de 3</strong>
+<pre>
+3 × 1 = 3
+3 × 2 = 6
+3 × 3 = 9
+3 × 4 = 12
+3 × 5 = 15
+3 × 6 = 18...
+</pre>
+<div class="multiple-list">
+Múltiplos de 3: 3, 6, 9, 12, 15, 18, 21, 24, 27, 30...
+</div>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: Múltiplos de 5</strong>
+<div class="multiple-list">
+Múltiplos de 5: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50...
+</div>
+</div>
+
+<div class="tip">
+<strong>💡 Observación:</strong> Los múltiplos de un número son INFINITOS. Siempre puedes seguir multiplicando.
+</div>
+</div>
+
+<div class="section">
+<h2>¿Qué son los Divisores? (Co to są dzielniki?)</h2>
+
+<div class="definition-box">
+<strong>Divisor (Dzielnik):</strong>
+<ul>
+<li>Un divisor de un número es un número que lo divide exactamente (sin resto)</li>
+<li>Si a ÷ b no tiene resto, entonces b es divisor de a</li>
+<li>El 1 es divisor de todos los números</li>
+<li>Todo número es divisor de sí mismo</li>
+</ul>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: Divisores de 12</strong>
+<pre>
+12 ÷ 1 = 12 ✓ → 1 es divisor
+12 ÷ 2 = 6 ✓ → 2 es divisor
+12 ÷ 3 = 4 ✓ → 3 es divisor
+12 ÷ 4 = 3 ✓ → 4 es divisor
+12 ÷ 5 = 2.4 ✗ → 5 NO es divisor
+12 ÷ 6 = 2 ✓ → 6 es divisor
+12 ÷ 12 = 1 ✓ → 12 es divisor
+</pre>
+<div class="divisor-list">
+Divisores de 12: 1, 2, 3, 4, 6, 12
+</div>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: Divisores de 20</strong>
+<div class="divisor-list">
+Divisores de 20: 1, 2, 4, 5, 10, 20
+</div>
+</div>
+
+<div class="tip">
+<strong>💡 Observación:</strong> Los divisores de un número son LIMITADOS (finitos). No hay infinitos divisores.
+</div>
+</div>
+
+<div class="section">
+<h2>Múltiplos vs Divisores</h2>
+
+<table class="comparison-table">
+<tr>
+<th>Característica</th>
+<th>Múltiplos</th>
+<th>Divisores</th>
+</tr>
+<tr>
+<td><strong>Cantidad</strong></td>
+<td>INFINITOS</td>
+<td>FINITOS (limitados)</td>
+</tr>
+<tr>
+<td><strong>Tamaño</strong></td>
+<td>Son MAYORES o iguales al número</td>
+<td>Son MENORES o iguales al número</td>
+</tr>
+<tr>
+<td><strong>Cómo obtenerlos</strong></td>
+<td>MULTIPLICAR</td>
+<td>DIVIDIR</td>
+</tr>
+<tr>
+<td><strong>Ejemplo (número 6)</strong></td>
+<td>6, 12, 18, 24, 30...</td>
+<td>1, 2, 3, 6</td>
+</tr>
+</table>
+
+<div class="tip">
+<strong>🎯 Truco para recordar:</strong><br>
+<strong>Múltiplos</strong> → <strong>M</strong>ultiplicar → <strong>M</strong>ás grandes<br>
+<strong>Divisores</strong> → <strong>D</strong>ividir → más <strong>D</strong>iminutivos
+</div>
+</div>
+
+<div class="section">
+<h2>Reglas de Divisibilidad (Reguły podzielności)</h2>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 2:</strong>
+<ul>
+<li>Un número es divisible por 2 si termina en 0, 2, 4, 6 u 8</li>
+<li>Ejemplos: 14, 28, 50, 126, 1000</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 3:</strong>
+<ul>
+<li>Un número es divisible por 3 si la suma de sus dígitos es divisible por 3</li>
+<li>Ejemplo: 27 → 2 + 7 = 9 → 9 ÷ 3 = 3 ✓</li>
+<li>Ejemplo: 123 → 1 + 2 + 3 = 6 → 6 ÷ 3 = 2 ✓</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 4:</strong>
+<ul>
+<li>Un número es divisible por 4 si sus dos últimos dígitos son divisibles por 4</li>
+<li>Ejemplo: 316 → 16 ÷ 4 = 4 ✓</li>
+<li>Ejemplo: 1200 → 00 ÷ 4 = 0 ✓</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 5:</strong>
+<ul>
+<li>Un número es divisible por 5 si termina en 0 o 5</li>
+<li>Ejemplos: 15, 20, 35, 100, 255</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 6:</strong>
+<ul>
+<li>Un número es divisible por 6 si es divisible por 2 Y por 3</li>
+<li>Ejemplo: 18 → par (✓) y 1+8=9 divisible por 3 (✓)</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 9:</strong>
+<ul>
+<li>Un número es divisible por 9 si la suma de sus dígitos es divisible por 9</li>
+<li>Ejemplo: 81 → 8 + 1 = 9 → 9 ÷ 9 = 1 ✓</li>
+<li>Ejemplo: 234 → 2 + 3 + 4 = 9 ✓</li>
+</ul>
+</div>
+
+<div class="rule-box">
+<strong>📌 Divisibilidad por 10:</strong>
+<ul>
+<li>Un número es divisible por 10 si termina en 0</li>
+<li>Ejemplos: 10, 50, 100, 230, 1000</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Ejemplos Prácticos</h2>
+
+<div class="example-box">
+<strong>¿El número 36 es divisible por 2, 3, 4, 5, 6, 9?</strong>
+<pre>
+✓ Por 2: Termina en 6 (par)
+✓ Por 3: 3 + 6 = 9 (divisible por 3)
+✓ Por 4: Últimos dos dígitos = 36 ÷ 4 = 9
+✗ Por 5: No termina en 0 ni 5
+✓ Por 6: Es divisible por 2 Y por 3
+✓ Por 9: 3 + 6 = 9 (divisible por 9)
+</pre>
+</div>
+
+<div class="example-box">
+<strong>¿El número 125 es divisible por 2, 3, 5?</strong>
+<pre>
+✗ Por 2: Termina en 5 (impar)
+✗ Por 3: 1 + 2 + 5 = 8 (NO divisible por 3)
+✓ Por 5: Termina en 5
+</pre>
+</div>
+</div>
+
+<div class="section">
+<h2>MCM y MCD (NWW i NWD)</h2>
+
+<div class="definition-box">
+<strong>Mínimo Común Múltiplo (MCM) - Najmniejsza wspólna wielokrotność (NWW):</strong>
+<ul>
+<li>El múltiplo más pequeño que dos números tienen en común</li>
+<li>Ejemplo: MCM de 4 y 6</li>
+</ul>
+<pre>
+Múltiplos de 4: 4, 8, 12, 16, 20, 24...
+Múltiplos de 6: 6, 12, 18, 24, 30...
+Comunes: 12, 24...
+MCM(4,6) = 12
+</pre>
+</div>
+
+<div class="definition-box">
+<strong>Máximo Común Divisor (MCD) - Największy wspólny dzielnik (NWD):</strong>
+<ul>
+<li>El divisor más grande que dos números tienen en común</li>
+<li>Ejemplo: MCD de 12 y 18</li>
+</ul>
+<pre>
+Divisores de 12: 1, 2, 3, 4, 6, 12
+Divisores de 18: 1, 2, 3, 6, 9, 18
+Comunes: 1, 2, 3, 6
+MCD(12,18) = 6
+</pre>
+</div>
+</div>
+
+<div class="section">
+<h2>Aplicaciones en Cracovia</h2>
+<div class="example-box">
+<ul>
+<li><strong>Plaza del Mercado:</strong> Tiene 200m de lado. El 200 es divisible por 2, 4, 5, 10, 20, 25, 50, 100</li>
+<li><strong>Tranvías:</strong> Pasan cada 10 minutos (múltiplos de 10: 10, 20, 30, 40...)</li>
+<li><strong>Pierogis:</strong> Se venden en cajas de 12. Para tener 48 pierogis necesitas 4 cajas (48 es múltiplo de 12)</li>
+<li><strong>Horario de Hejnał:</strong> Cada hora (múltiplos de 60 minutos)</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Resumen</h2>
+<div class="tip">
+<strong>💡 Puntos Clave:</strong>
+<ul>
+<li><strong>Múltiplos:</strong> Resultado de multiplicar (infinitos, mayores)</li>
+<li><strong>Divisores:</strong> Números que dividen exactamente (finitos, menores)</li>
+<li><strong>Reglas de divisibilidad:</strong> Trucos para saber si un número divide a otro sin hacer la división</li>
+<li><strong>MCM:</strong> Mínimo múltiplo común</li>
+<li><strong>MCD:</strong> Máximo divisor común</li>
+</ul>
+</div>
+</div>
+
+<div class="nav-buttons">
+<a href="../index.html">🏠 Inicio</a>
+<a href="App_MultiplosDivisoresDivisibilidad.html">🎮 Practicar</a>
+<a href="Worksheet_MultiplosDivisoresDivisibilidad.html">📄 Hoja de Trabajo</a>
+</div>
+</body>
+</html>
