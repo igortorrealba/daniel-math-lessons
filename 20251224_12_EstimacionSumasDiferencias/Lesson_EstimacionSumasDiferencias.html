@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 12: Estimación de Sumas y Diferencias</title>
+<style>
+body{font-family:'Comic Sans MS',Arial,sans-serif;max-width:900px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);line-height:1.6}
+.header{text-align:center;background:linear-gradient(135deg,#ec407a,#d81b60);color:white;padding:30px;border-radius:15px;margin-bottom:30px}
+h1{margin:0;font-size:2.2em}.subtitle{margin-top:10px;font-size:1.2em;opacity:0.95}
+.section{background:white;padding:25px;margin:20px 0;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,0.1)}
+.section h2{color:#d81b60;border-bottom:3px solid #ec407a;padding-bottom:10px;margin-top:0}
+.definition-box{background:#fce4ec;padding:15px;border-left:5px solid #ec407a;border-radius:5px;margin:15px 0}
+.example-box{background:#e8f5e9;padding:15px;border-left:5px solid #4caf50;border-radius:5px;margin:15px 0}
+.estimation-steps{background:#e3f2fd;padding:15px;border:2px dashed #2196f3;border-radius:8px;margin:15px 0}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:15px 0}
+.comparison div{padding:15px;border-radius:8px}
+.exact{background:#fff3e0;border:2px solid #ff9800}
+.estimate{background:#e1f5fe;border:2px solid #2196f3}
+.tip{background:#fff9c4;padding:12px;border-radius:8px;margin:15px 0;border-left:4px solid #fbc02d}
+.tip strong{color:#d81b60}
+.visual-round{font-family:monospace;font-size:1.3em;text-align:center;padding:15px;background:#f5f5f5;border-radius:8px;margin:15px 0}
+.nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.nav-buttons a{background:#ec407a;color:white;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:bold}
+.nav-buttons a:hover{background:#d81b60}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🔢 Lección 12: Estimación de Sumas y Diferencias</h1>
+<div class="subtitle">Szacowanie sum i różnic</div>
+</div>
+
+<div class="section">
+<h2>¿Qué es Estimar? (Co to jest szacowanie?)</h2>
+
+<div class="definition-box">
+<strong>Estimación (Szacowanie):</strong>
+<ul>
+<li>Encontrar una respuesta APROXIMADA, no exacta</li>
+<li>Redondear los números para hacer cálculos más fáciles</li>
+<li>Útil para verificar si una respuesta exacta tiene sentido</li>
+<li>Más rápido que calcular el resultado exacto</li>
+</ul>
+</div>
+
+<div class="tip">
+<strong>🎯 ¿Por qué estimamos?</strong>
+<ul>
+<li>Para verificar si nuestra respuesta es razonable</li>
+<li>Para hacer cálculos mentales rápidos</li>
+<li>Para saber aproximadamente cuánto dinero necesitamos</li>
+<li>Para detectar errores grandes en nuestros cálculos</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Redondeo para Estimación</h2>
+
+<div class="estimation-steps">
+<strong>📌 Regla general:</strong>
+<ol>
+<li><strong>Redondea</strong> cada número al lugar más grande (decenas, centenas, millares)</li>
+<li><strong>Opera</strong> con los números redondeados</li>
+<li><strong>Obtén</strong> la estimación</li>
+</ol>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo de Redondeo:</strong>
+<div class="visual-round">
+47 → 50 (redondeo a la decena más cercana)<br>
+238 → 240 o 200 (decena o centena)<br>
+1,789 → 1,800 o 2,000 (centena o millar)
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Estimación de Sumas</h2>
+
+<div class="example-box">
+<strong>Ejemplo 1: Suma simple</strong>
+<pre>
+Problema: 47 + 32 = ?
+
+Paso 1: Redondear
+  47 → 50 (redondeo a la decena)
+  32 → 30 (redondeo a la decena)
+
+Paso 2: Sumar los números redondeados
+  50 + 30 = 80
+
+<strong>Estimación: ≈ 80</strong>
+Resultado exacto: 79 (¡muy cercano!)
+</pre>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo 2: Suma de números grandes</strong>
+<pre>
+Problema: 487 + 623 = ?
+
+Paso 1: Redondear a centenas
+  487 → 500
+  623 → 600
+
+Paso 2: Sumar
+  500 + 600 = 1,100
+
+<strong>Estimación: ≈ 1,100</strong>
+Resultado exacto: 1,110 (¡muy cercano!)
+</pre>
+</div>
+
+<div class="comparison">
+<div class="exact">
+<strong>🎯 Cálculo Exacto</strong><br>
+347 + 289 = 636
+</div>
+<div class="estimate">
+<strong>≈ Estimación</strong><br>
+350 + 290 = 640
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Estimación de Diferencias (Restas)</h2>
+
+<div class="example-box">
+<strong>Ejemplo 1: Resta simple</strong>
+<pre>
+Problema: 68 - 23 = ?
+
+Paso 1: Redondear
+  68 → 70
+  23 → 20
+
+Paso 2: Restar
+  70 - 20 = 50
+
+<strong>Estimación: ≈ 50</strong>
+Resultado exacto: 45 (¡razonable!)
+</pre>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo 2: Resta de números grandes</strong>
+<pre>
+Problema: 892 - 347 = ?
+
+Paso 1: Redondear a centenas
+  892 → 900
+  347 → 300
+
+Paso 2: Restar
+  900 - 300 = 600
+
+<strong>Estimación: ≈ 600</strong>
+Resultado exacto: 545 (¡en el rango correcto!)
+</pre>
+</div>
+
+<div class="comparison">
+<div class="exact">
+<strong>🎯 Cálculo Exacto</strong><br>
+754 - 289 = 465
+</div>
+<div class="estimate">
+<strong>≈ Estimación</strong><br>
+750 - 290 = 460
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Estrategias de Estimación</h2>
+
+<div class="tip">
+<strong>📊 Estrategia 1: Redondeo a Decenas</strong><br>
+Mejor para números pequeños (10-100)
+<pre>
+38 + 45 → 40 + 50 = 90
+</pre>
+</div>
+
+<div class="tip">
+<strong>📊 Estrategia 2: Redondeo a Centenas</strong><br>
+Mejor para números medianos (100-1000)
+<pre>
+247 + 389 → 200 + 400 = 600
+</pre>
+</div>
+
+<div class="tip">
+<strong>📊 Estrategia 3: Redondeo a Millares</strong><br>
+Mejor para números grandes (1000+)
+<pre>
+2,345 + 3,789 → 2,000 + 4,000 = 6,000
+</pre>
+</div>
+
+<div class="tip">
+<strong>📊 Estrategia 4: Números Compatibles</strong><br>
+Buscar números que sean fáciles de sumar mentalmente
+<pre>
+47 + 32 → 50 + 30 = 80 (redondeamos a decenas)
+48 + 52 → 50 + 50 = 100 (¡números compatibles!)
+</pre>
+</div>
+</div>
+
+<div class="section">
+<h2>Verificar Respuestas con Estimación</h2>
+
+<div class="example-box">
+<strong>Situación: Daniel resuelve 347 + 289</strong>
+<pre>
+Su respuesta: 536
+
+Verificación con estimación:
+  347 → 350
+  289 → 290
+  350 + 290 = 640
+
+❌ ¡Algo está mal! 536 está muy lejos de 640
+
+Resultado correcto: 636
+</pre>
+</div>
+
+<div class="example-box">
+<strong>Situación: Compras en el mercado</strong>
+<pre>
+Queso: 18 zł
+Pan: 12 zł
+Leche: 9 zł
+¿Cuánto aproximadamente?
+
+Estimación:
+  18 → 20
+  12 → 10
+  9 → 10
+  20 + 10 + 10 = 40 zł
+
+Conclusión: Necesito aproximadamente 40 zł
+</pre>
+</div>
+</div>
+
+<div class="section">
+<h2>Aplicaciones en Cracovia</h2>
+<div class="example-box">
+<ul>
+<li><strong>Mercado de Cloth Hall:</strong> Compras múltiples: 38 zł + 52 zł + 27 zł ≈ 40 + 50 + 30 = 120 zł</li>
+<li><strong>Tranvía:</strong> Viaje de 3.8 km + 4.2 km ≈ 4 + 4 = 8 km</li>
+<li><strong>Pierogis:</strong> Una caja 23 zł, otra 18 zł ≈ 20 + 20 = 40 zł</li>
+<li><strong>Torre de Wawel:</strong> Altura 70m, subimos 28m, quedan ≈ 70 - 30 = 40m</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Resumen</h2>
+<div class="tip">
+<strong>💡 Puntos Clave:</strong>
+<ul>
+<li><strong>Estimar</strong> = Encontrar una respuesta aproximada</li>
+<li><strong>Redondea</strong> primero, luego opera</li>
+<li><strong>Usa estimación</strong> para verificar respuestas exactas</li>
+<li><strong>Más rápido</strong> que calcular exactamente</li>
+<li>La estimación debe estar <strong>cerca</strong> del resultado exacto</li>
+<li>Símbolo de estimación: <strong>≈</strong> (aproximadamente)</li>
+</ul>
+</div>
+</div>
+
+<div class="nav-buttons">
+<a href="../index.html">🏠 Inicio</a>
+<a href="App_EstimacionSumasDiferencias.html">🎮 Practicar</a>
+<a href="Worksheet_EstimacionSumasDiferencias.html">📄 Hoja de Trabajo</a>
+</div>
+</body>
+</html>
