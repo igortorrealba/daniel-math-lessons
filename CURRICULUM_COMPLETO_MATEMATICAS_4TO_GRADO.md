@@ -16,7 +16,7 @@
 ---
 
 ## MÓDULO 1: LICZBY NATURALNE (Números Naturales)
-**Estado General:** 7/8 lecciones en HTML ✅
+**Estado General:** 8/8 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
@@ -26,8 +26,8 @@
 | 04 | Redondeo de Números (Zaokrąglanie liczb) | ✅ HTML | Lesson, App, Worksheet |
 | 05 | Números Romanos (Liczby rzymskie) | ✅ HTML | Lesson, App, Worksheet |
 | 06 | Conversión de Sistemas Numéricos (Konwersja systemów) | ✅ HTML | Lesson, App, Worksheet |
-| 07 | Números Primos y Compuestos (Liczby pierwsze i złożone) | ⬜ POR CREAR | - |
-| 08 | Múltiplos, Divisores y Divisibilidad (Wielokrotności, dzielniki) | ⬜ POR CREAR | - |
+| 07 | Números Primos y Compuestos (Liczby pierwsze i złożone) | ✅ HTML | Lesson, App, Worksheet |
+| 08 | Múltiplos, Divisores y Divisibilidad (Wielokrotności, dzielniki) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,16 +174,16 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 16 | 29% |
+| ✅ **Lecciones en HTML (Completas)** | 18 | 33% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 39 | 71% |
+| ⬜ **Lecciones por crear** | 37 | 67% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
 
 | Módulo | Completo (HTML) | Disponible (MD) | Por Crear | Total |
 |--------|-----------------|-----------------|-----------|-------|
-| 1. Números Naturales | 6 | 0 | 2 | 8 |
+| 1. Números Naturales | 8 ✅ | 0 | 0 | 8 |
 | 2. Operaciones | 4 | 0 | 6 | 10 |
 | 3. Fracciones Comunes | 0 | 0 | 8 | 8 |
 | 4. Decimales | 2 | 0 | 2 | 4 |
@@ -193,7 +193,7 @@
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
 | 9. Mediciones | 3 | 0 | 2 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **16** | **0** | **39** | **55** |
+| **TOTALES** | **18** | **0** | **37** | **55** |
 
 ---
 
