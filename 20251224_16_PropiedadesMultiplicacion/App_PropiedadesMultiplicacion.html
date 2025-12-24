@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Juego: Propiedades</title><style>body{font-family:Arial;max-width:800px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#fff3e0,#ffe0b2);text-align:center}
+.header{background:linear-gradient(135deg,#ff9800,#f57c00);color:white;padding:25px;border-radius:15px;margin-bottom:30px}
+.game-container{background:white;padding:30px;border-radius:15px}
+.problem{font-size:2.5em;color:#f57c00;margin:30px 0;font-weight:bold}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:500px;margin:30px auto}
+.choice-btn{background:#ff9800;color:white;border:none;padding:20px;font-size:1.3em;border-radius:10px;cursor:pointer}
+.choice-btn:hover{background:#f57c00}
+.btn{background:#ff9800;color:white;border:none;padding:15px 40px;font-size:18px;border-radius:10px;cursor:pointer;margin:10px}
+.feedback{font-size:1.5em;margin:20px 0;padding:15px;border-radius:10px}
+.feedback.correct{background:#c8e6c9;color:#2e7d32}
+.feedback.incorrect{background:#ffcdd2;color:#c62828}
+.score{font-size:1.3em;color:#f57c00;margin:20px 0;font-weight:bold}
+</style></head><body><div class="header"><h1>⚡ Propiedades de Multiplicación</h1></div>
+<div class="game-container"><div class="score">Puntuación: <span id="score">0</span> / <span id="total">0</span></div>
+<div class="problem" id="problem">3 × 5 = ?</div>
+<div class="choices" id="choices">
+<button class="choice-btn" onclick="checkAnswer(this)">15</button>
+<button class="choice-btn" onclick="checkAnswer(this)">8</button>
+<button class="choice-btn" onclick="checkAnswer(this)">20</button>
+<button class="choice-btn" onclick="checkAnswer(this)">12</button>
+</div>
+<div><button class="btn" onclick="newProblem()">→ Siguiente</button></div>
+<div class="feedback" id="feedback"></div></div>
+<script>let score=0,total=0,correctAnswer=0;
+function newProblem(){const a=Math.floor(Math.random()*9)+2;const b=Math.floor(Math.random()*9)+2;correctAnswer=a*b;document.getElementById('problem').textContent=`${a} × ${b} = ?`;const choices=[correctAnswer];while(choices.length<4){const wrong=correctAnswer+(Math.floor(Math.random()*11)-5);if(wrong>0&&!choices.includes(wrong))choices.push(wrong);}choices.sort(()=>Math.random()-0.5);const buttons=document.querySelectorAll('.choice-btn');buttons.forEach((btn,i)=>btn.textContent=choices[i]);document.getElementById('feedback').textContent='';document.getElementById('feedback').className='feedback';}
+function checkAnswer(btn){const userAnswer=parseInt(btn.textContent);const feedback=document.getElementById('feedback');total++;if(userAnswer===correctAnswer){score++;feedback.className='feedback correct';feedback.innerHTML='🎉 ¡Correcto!';}else{feedback.className='feedback incorrect';feedback.innerHTML=`❌ Respuesta: <strong>${correctAnswer}</strong>`;}document.getElementById('score').textContent=score;document.getElementById('total').textContent=total;setTimeout(newProblem,2000);}
+newProblem();</script></body></html>
