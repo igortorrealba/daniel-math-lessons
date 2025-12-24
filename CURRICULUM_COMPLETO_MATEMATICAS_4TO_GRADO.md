@@ -1,0 +1,339 @@
+# PROGRAMA COMPLETO DE MATEMÁTICAS 4TO GRADO - DANIEL
+## Basado en Curriculum Oficial de Polonia (Podstawa Programowa 2025)
+
+**Fecha de Creación:** 24 de Diciembre, 2025
+**Total de Lecciones Estimadas:** 52 lecciones
+**GitHub Pages:** https://igortorrealba.github.io/daniel-math-lessons/
+
+---
+
+## LEYENDA DE ESTADO
+
+- ✅ **HTML COMPLETO** - Publicado en GitHub Pages (Lesson + App + Worksheet)
+- 📝 **MD DISPONIBLE** - Existe contenido en Markdown (necesita conversión a HTML)
+- ⬜ **POR CREAR** - No existe contenido
+
+---
+
+## MÓDULO 1: LICZBY NATURALNE (Números Naturales)
+**Estado General:** 7/8 lecciones en HTML ✅
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 01 | Números de Varios Dígitos (Liczby wielocyfrowe) | ✅ HTML | Lesson, App, Worksheet |
+| 02 | Recta Numérica (Linia liczbowa) | ✅ HTML | Lesson, App, Worksheet |
+| 03 | Comparación de Números (Porównywanie liczb) | ✅ HTML | Lesson, App, Worksheet |
+| 04 | Redondeo de Números (Zaokrąglanie liczb) | ✅ HTML | Lesson, App, Worksheet |
+| 05 | Números Romanos (Liczby rzymskie) | ✅ HTML | Lesson, App, Worksheet |
+| 06 | Conversión de Sistemas Numéricos (Konwersja systemów) | ✅ HTML | Lesson, App, Worksheet |
+| 07 | Números Primos y Compuestos (Liczby pierwsze i złożone) | ⬜ POR CREAR | - |
+| 08 | Múltiplos, Divisores y Divisibilidad (Wielokrotności, dzielniki) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 2: DZIAŁANIA (Operaciones Aritméticas)
+**Estado General:** 4/10 lecciones en HTML ✅
+
+### SUMA Y RESTA
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 09 | Suma y Resta Mental (Dodawanie i odejmowanie w pamięci) | ✅ HTML | Lesson, App, Worksheet |
+| 10 | Suma Escrita (Dodawanie pisemne) | ✅ HTML | Lesson, App, Worksheet |
+| 11 | Resta Escrita (Odejmowanie pisemne) | ✅ HTML | Lesson, App, Worksheet |
+| 12 | Estimación de Sumas y Diferencias (Szacowanie) | ⬜ POR CREAR | - |
+
+### MULTIPLICACIÓN
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 13 | Tablas de Multiplicar (1-12) (Tabliczka mnożenia) | ⬜ POR CREAR | - |
+| 14 | Multiplicación 1 dígito × 2 dígitos (Mnożenie) | ⬜ POR CREAR | - |
+| 15 | Métodos de Multiplicación: Box y Lattice (Metody mnożenia) | ⬜ POR CREAR | - |
+| 16 | Propiedades de Multiplicación (Właściwości mnożenia) | ⬜ POR CREAR | - |
+
+### DIVISIÓN
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 17 | División Básica (Dzielenie podstawowe) | ✅ HTML | Lesson, App, Worksheet |
+| 18 | División Larga/Escrita (Dzielenie pisemne) | ⬜ POR CREAR | - |
+| 19 | División con Residuo (Dzielenie z resztą) | ⬜ POR CREAR | - |
+
+### POTENCIAS
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 20 | Potencias (Potęgi) | ✅ HTML | Lesson, App, Worksheet |
+
+---
+
+## MÓDULO 3: UŁAMKI ZWYKŁE (Fracciones Comunes)
+**Estado General:** 0/8 lecciones ⬜
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 21 | Introducción a Fracciones (Wprowadzenie do ułamków) | ⬜ POR CREAR | - |
+| 22 | Fracciones Propias, Impropias y Mixtas (Ułamki właściwe, niewłaściwe, mieszane) | ⬜ POR CREAR | - |
+| 23 | Fracciones Equivalentes y Simplificación (Ułamki równoważne, skracanie) | ⬜ POR CREAR | - |
+| 24 | Comparación de Fracciones (Porównywanie ułamków) | ⬜ POR CREAR | - |
+| 25 | Suma y Resta de Fracciones - Mismo Denominador (Dodawanie i odejmowanie) | ⬜ POR CREAR | - |
+| 26 | Suma y Resta de Fracciones - Diferente Denominador (Różne mianowniki) | ⬜ POR CREAR | - |
+| 27 | Multiplicación de Fracciones (Mnożenie ułamków) | ⬜ POR CREAR | - |
+| 28 | Fracciones de Cantidades (Ułamki liczb) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 4: UŁAMKI DZIESIĘTNE (Fracciones Decimales/Decimales)
+**Estado General:** 2/4 lecciones en MD 📝
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 29 | Conexión Fracciones-Decimales (Związek ułamków zwykłych i dziesiętnych) | 📝 MD | concepts, explanations, exercises, solutions |
+| 30 | Comparación de Decimales (Porównywanie ułamków dziesiętnych) | ⬜ POR CREAR | - |
+| 31 | Operaciones con Decimales ×÷ por 10, 100, 1000 (Mnożenie i dzielenie) | ⬜ POR CREAR | - |
+| 32 | Problemas de Palabras con Decimales (Zadania tekstowe) | 📝 MD | concepts, explanations, exercises, solutions |
+
+---
+
+## MÓDULO 5: GEOMETRIA - PODSTAWY (Geometría Básica)
+**Estado General:** 0/6 lecciones ⬜
+
+### LÍNEAS, SEGMENTOS Y ÁNGULOS
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 33 | Punto, Línea, Rayo, Segmento (Punkt, prosta, promień, odcinek) | ⬜ POR CREAR | - |
+| 34 | Líneas Perpendiculares y Paralelas (Proste prostopadłe i równoległe) | ⬜ POR CREAR | - |
+| 35 | Ángulos: Tipos y Medición (Kąty: rodzaje i pomiar) | ⬜ POR CREAR | - |
+| 36 | Ángulos Adyacentes y en el Reloj (Kąty przyległe) | ⬜ POR CREAR | - |
+
+### FIGURAS PLANAS
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 37 | Triángulos y Cuadriláteros (Trójkąty i czworokąty) | ⬜ POR CREAR | - |
+| 38 | Dibujar Figuras con Ángulos Dados (Rysowanie figur) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 6: POLA I OBWODY (Perímetros y Áreas)
+**Estado General:** 0/5 lecciones ⬜
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 39 | Perímetro de Polígonos (Obwód wielokątów) | ⬜ POR CREAR | - |
+| 40 | Área de Rectángulos y Cuadrados (Pole prostokąta i kwadratu) | ⬜ POR CREAR | - |
+| 41 | Área de Triángulos (Pole trójkąta) | ⬜ POR CREAR | - |
+| 42 | Área de Paralelogramos, Rombos y Trapecios (Pole równoległoboku, rombu, trapezu) | ⬜ POR CREAR | - |
+| 43 | Unidades de Área y Conversiones (Jednostki pola powierzchni) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 7: KOŁA (Círculos)
+**Estado General:** 0/2 lecciones ⬜
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 44 | Círculo: Radio, Diámetro, Cuerda (Okrąg: promień, średnica, cięciwa) | ⬜ POR CREAR | - |
+| 45 | Circunferencia del Círculo (Obwód koła) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 8: BRYŁY (Sólidos 3D)
+**Estado General:** 0/3 lecciones ⬜
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 46 | Prismas y Cubos: Caras, Aristas, Vértices (Prostopadłościany i sześciany) | ⬜ POR CREAR | - |
+| 47 | Redes de Sólidos (Siatki brył) | ⬜ POR CREAR | - |
+| 48 | Área de Superficie (Pole powierzchni) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 9: MIARY (Mediciones)
+**Estado General:** 3/5 lecciones en MD 📝
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 49 | Longitud y Distancia: mm, cm, m, km (Długość i odległość) | 📝 MD | concepts, explanations, exercises, solutions |
+| 50 | Masa y Capacidad: g, kg, mL, L (Masa i pojemność) | 📝 MD | concepts, explanations, exercises, solutions |
+| 51 | Tiempo: Reloj y Tiempo Transcurrido (Czas) | 📝 MD | concepts, explanations, exercises, solutions |
+| 52 | Escala (Skala) | ⬜ POR CREAR | - |
+| 53 | Velocidad, Distancia y Tiempo (Prędkość, droga, czas) | ⬜ POR CREAR | - |
+
+---
+
+## MÓDULO 10: PROCENTY I ZASTOSOWANIA (Porcentajes y Aplicaciones)
+**Estado General:** 0/2 lecciones ⬜
+
+| # | Lección | Estado | Archivos |
+|---|---------|--------|----------|
+| 54 | Porcentajes Básicos: 100%, 50%, 25%, 10%, 1% (Procenty podstawowe) | ⬜ POR CREAR | - |
+| 55 | Problemas con Descuentos y Dinero (Problemy z pieniędzmi) | ⬜ POR CREAR | - |
+
+---
+
+## RESUMEN GENERAL DEL PROGRAMA
+
+### 📊 ESTADÍSTICAS ACTUALES
+
+| Categoría | Cantidad | Porcentaje |
+|-----------|----------|------------|
+| ✅ **Lecciones en HTML (Completas)** | 11 | 20% |
+| 📝 **Lecciones en MD (Por convertir)** | 5 | 9% |
+| ⬜ **Lecciones por crear** | 39 | 71% |
+| **TOTAL** | **55** | **100%** |
+
+### 📈 PROGRESO POR MÓDULO
+
+| Módulo | Completo (HTML) | Disponible (MD) | Por Crear | Total |
+|--------|-----------------|-----------------|-----------|-------|
+| 1. Números Naturales | 6 | 0 | 2 | 8 |
+| 2. Operaciones | 4 | 0 | 6 | 10 |
+| 3. Fracciones Comunes | 0 | 0 | 8 | 8 |
+| 4. Decimales | 0 | 2 | 2 | 4 |
+| 5. Geometría Básica | 0 | 0 | 6 | 6 |
+| 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
+| 7. Círculos | 0 | 0 | 2 | 2 |
+| 8. Sólidos 3D | 0 | 0 | 3 | 3 |
+| 9. Mediciones | 0 | 3 | 2 | 5 |
+| 10. Porcentajes | 0 | 0 | 2 | 2 |
+| **TOTALES** | **11** | **5** | **39** | **55** |
+
+---
+
+## 🎯 PLAN DE TRABAJO POR BLOQUES
+
+### BLOQUE 1: DECIMALES Y MEDICIONES (5 lecciones) 📝→✅
+**Prioridad:** INMEDIATA
+**Tiempo estimado:** 8-10 horas de trabajo
+**Acción:** Convertir MD a HTML (Lesson + App + Worksheet)
+
+- Lección 29: Conexión Fracciones-Decimales
+- Lección 32: Problemas de Palabras con Decimales
+- Lección 49: Longitud y Distancia
+- Lección 50: Masa y Capacidad
+- Lección 51: Tiempo
+
+### BLOQUE 2: MULTIPLICACIÓN Y DIVISIÓN (5 lecciones) ⬜→✅
+**Prioridad:** ALTA
+**Tiempo estimado:** 10-12 horas de trabajo
+**Acción:** Crear desde cero
+
+- Lección 13: Tablas de Multiplicar (1-12)
+- Lección 14: Multiplicación 1×2 dígitos
+- Lección 15: Métodos Box y Lattice
+- Lección 18: División Larga/Escrita
+- Lección 19: División con Residuo
+
+### BLOQUE 3: FRACCIONES COMUNES (8 lecciones) ⬜→✅
+**Prioridad:** CRÍTICA (tema central del 4to grado)
+**Tiempo estimado:** 16-18 horas de trabajo
+**Acción:** Crear desde cero
+
+- Lecciones 21-28: Todo el módulo de fracciones
+
+### BLOQUE 4: GEOMETRÍA BÁSICA (6 lecciones) ⬜→✅
+**Prioridad:** MEDIA
+**Tiempo estimado:** 12-14 horas de trabajo
+**Acción:** Crear desde cero
+
+- Lecciones 33-38: Líneas, ángulos, figuras
+
+### BLOQUE 5: ÁREAS Y PERÍMETROS (5 lecciones) ⬜→✅
+**Prioridad:** MEDIA
+**Tiempo estimado:** 10-12 horas de trabajo
+**Acción:** Crear desde cero
+
+- Lecciones 39-43: Perímetros y áreas de figuras
+
+### BLOQUE 6: TEMAS COMPLEMENTARIOS (11 lecciones) ⬜→✅
+**Prioridad:** MEDIA-BAJA
+**Tiempo estimado:** 18-20 horas de trabajo
+**Acción:** Crear desde cero
+
+- Números primos (2 lecciones)
+- Decimales avanzados (2 lecciones)
+- Círculos (2 lecciones)
+- Sólidos 3D (3 lecciones)
+- Porcentajes (2 lecciones)
+
+---
+
+## 📅 CALENDARIO ESTIMADO
+
+**Ritmo de trabajo:** 2 horas de Daniel practicando = 1 sesión
+**Frecuencia recomendada:** 3-4 sesiones por semana
+
+### TRIMESTRE 1 (Enero - Marzo 2026)
+- ✅ Completar BLOQUE 1 (Decimales y Mediciones) - Semanas 1-2
+- ✅ Completar BLOQUE 2 (Multiplicación y División) - Semanas 3-5
+- ✅ Iniciar BLOQUE 3 (Fracciones Comunes) - Semanas 6-12
+
+### TRIMESTRE 2 (Abril - Junio 2026)
+- ✅ Completar BLOQUE 3 (Fracciones Comunes)
+- ✅ Completar BLOQUE 4 (Geometría Básica)
+- ✅ Completar BLOQUE 5 (Áreas y Perímetros)
+
+### TRIMESTRE 3 (Septiembre - Diciembre 2026)
+- ✅ Completar BLOQUE 6 (Temas Complementarios)
+- ✅ Repaso integral
+- ✅ Evaluación final
+
+---
+
+## 📁 ESTRUCTURA DE ARCHIVOS
+
+### Lecciones Completadas (HTML)
+```
+02_AREAS/Personal Life/Daniel's Education/
+├── 20251221_01_NumerosVariosDigitos/
+│   ├── Lesson_NumerosVariosDigitos.html
+│   ├── App_NumerosVariosDigitos.html
+│   └── Worksheet_NumerosVariosDigitos.html
+├── 20251221_02_RectaNumerica/
+├── ... (hasta 11 lecciones)
+└── index.html (navegación principal)
+```
+
+### Lecciones en MD
+```
+02_AREAS/Personal Life/Daniel's Education/
+├── module_03_decimals/
+│   ├── lesson_27_fraction_decimal_connection/
+│   │   ├── concepts.md
+│   │   ├── explanations.md
+│   │   ├── exercises.md
+│   │   └── solutions.md
+│   └── lesson_28_decimal_word_problems/
+└── module_04_measurement/
+    ├── lesson_29_length_distance/
+    ├── lesson_30_mass_capacity/
+    └── lesson_31_time/
+```
+
+---
+
+## 🎓 ALINEACIÓN CON CURRICULUM POLACO
+
+Este programa cubre **100% de los requisitos** del curriculum oficial polaco (Podstawa Programowa) para 4to grado:
+
+✅ Liczby naturalne (Números naturales)
+✅ Działania (Operaciones: +, -, ×, ÷)
+✅ Ułamki zwykłe (Fracciones comunes)
+✅ Ułamki dziesiętne (Decimales)
+✅ Geometria (Geometría: líneas, ángulos, figuras)
+✅ Pola i obwody (Áreas y perímetros)
+✅ Koła (Círculos)
+✅ Bryły (Sólidos 3D)
+✅ Miary (Mediciones)
+✅ Procenty (Porcentajes básicos)
+
+---
+
+## 🔄 PRÓXIMA ACTUALIZACIÓN
+
+**Última actualización:** 24 de Diciembre, 2025
+**Próxima revisión:** Después de completar BLOQUE 1
+**Documento de referencia:** Este archivo será actualizado después de cada bloque completado
+
+---
+
+*Documento creado para el programa educativo de Daniel - Matemáticas 4to Grado Polonia*
+*Basado en Podstawa Programowa 2025*
+*GitHub Pages: https://igortorrealba.github.io/daniel-math-lessons/*
