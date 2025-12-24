@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Juego: División con Residuo</title><style>body{font-family:Arial;max-width:800px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);text-align:center}
+.header{background:linear-gradient(135deg,#ec407a,#d81b60);color:white;padding:25px;border-radius:15px;margin-bottom:30px}
+.game-container{background:white;padding:30px;border-radius:15px}
+.problem{font-size:2.5em;color:#d81b60;margin:30px 0;font-weight:bold}
+.inputs{display:flex;gap:20px;justify-content:center;align-items:center;margin:20px 0}
+.answer-input{font-size:1.5em;padding:15px;border:3px solid #ec407a;border-radius:10px;width:100px;text-align:center}
+.btn{background:#ec407a;color:white;border:none;padding:15px 40px;font-size:18px;border-radius:10px;cursor:pointer;margin:10px}
+.btn-check{background:#4caf50}
+.feedback{font-size:1.5em;margin:20px 0;padding:15px;border-radius:10px}
+.feedback.correct{background:#c8e6c9;color:#2e7d32}
+.feedback.incorrect{background:#ffcdd2;color:#c62828}
+.score{font-size:1.3em;color:#d81b60;margin:20px 0;font-weight:bold}
+</style></head><body><div class="header"><h1>➗ División con Residuo</h1></div>
+<div class="game-container"><div class="score">Puntuación: <span id="score">0</span> / <span id="total">0</span></div>
+<div class="problem" id="problem">17 ÷ 5 = ?</div>
+<div class="inputs">
+<div><label>Cociente:</label><br><input type="number" id="quotientInput" class="answer-input" placeholder="?" autocomplete="off"></div>
+<div><label>Residuo:</label><br><input type="number" id="remainderInput" class="answer-input" placeholder="?" autocomplete="off"></div>
+</div>
+<div><button class="btn btn-check" onclick="checkAnswer()">✓ Verificar</button>
+<button class="btn" onclick="newProblem()">→ Siguiente</button></div>
+<div class="feedback" id="feedback"></div></div>
+<script>let score=0,total=0,correctQuotient=0,correctRemainder=0;
+function newProblem(){const divisor=Math.floor(Math.random()*8)+3;const quotient=Math.floor(Math.random()*10)+2;const remainder=Math.floor(Math.random()*(divisor-1));const dividend=divisor*quotient+remainder;correctQuotient=quotient;correctRemainder=remainder;document.getElementById('problem').textContent=`${dividend} ÷ ${divisor} = ?`;document.getElementById('quotientInput').value='';document.getElementById('remainderInput').value='';document.getElementById('feedback').textContent='';document.getElementById('feedback').className='feedback';document.getElementById('quotientInput').focus();}
+function checkAnswer(){const userQuotient=parseInt(document.getElementById('quotientInput').value);const userRemainder=parseInt(document.getElementById('remainderInput').value);const feedback=document.getElementById('feedback');if(isNaN(userQuotient)||isNaN(userRemainder)){feedback.className='feedback incorrect';feedback.textContent='⚠️ Ingresa ambos números';return;}total++;if(userQuotient===correctQuotient&&userRemainder===correctRemainder){score++;feedback.className='feedback correct';feedback.innerHTML='🎉 ¡Perfecto!';}else{feedback.className='feedback incorrect';feedback.innerHTML=`❌ Respuesta: Cociente=<strong>${correctQuotient}</strong>, Residuo=<strong>${correctRemainder}</strong>`;}document.getElementById('score').textContent=score;document.getElementById('total').textContent=total;setTimeout(newProblem,3000);}
+document.getElementById('remainderInput').addEventListener('keypress',function(e){if(e.key==='Enter')checkAnswer();});newProblem();</script></body></html>
