@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 7: Números Primos y Compuestos</title>
+<style>
+body{font-family:'Comic Sans MS',Arial,sans-serif;max-width:900px;margin:20px auto;padding:20px;background:linear-gradient(135deg,#f3e5f5 0%,#e1bee7 100%);line-height:1.6}
+.header{text-align:center;background:linear-gradient(135deg,#ab47bc,#8e24aa);color:white;padding:30px;border-radius:15px;margin-bottom:30px}
+h1{margin:0;font-size:2.2em}.subtitle{margin-top:10px;font-size:1.2em;opacity:0.95}
+.section{background:white;padding:25px;margin:20px 0;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,0.1)}
+.section h2{color:#8e24aa;border-bottom:3px solid #ab47bc;padding-bottom:10px;margin-top:0}
+.definition-box{background:#f3e5f5;padding:15px;border-left:5px solid #ab47bc;border-radius:5px;margin:15px 0}
+.example-box{background:#e8f5e9;padding:15px;border-left:5px solid #4caf50;border-radius:5px;margin:15px 0}
+.prime-list{background:#e3f2fd;padding:15px;border:2px dashed #2196f3;border-radius:8px;margin:15px 0;font-family:monospace;font-size:1.2em;text-align:center}
+.number-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;margin:15px 0}
+.number-cell{padding:12px;text-align:center;border-radius:5px;font-weight:bold;font-size:1.1em}
+.prime{background:#c8e6c9;color:#2e7d32}
+.composite{background:#ffccbc;color:#d84315}
+.special{background:#fff9c4;color:#f57f17}
+.tip{background:#fff9c4;padding:12px;border-radius:8px;margin:15px 0;border-left:4px solid #fbc02d}
+.tip strong{color:#8e24aa}
+.factor-tree{background:#f5f5f5;padding:20px;border-radius:8px;margin:15px 0;font-family:monospace;white-space:pre;font-size:1.1em}
+.nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.nav-buttons a{background:#ab47bc;color:white;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:bold}
+.nav-buttons a:hover{background:#8e24aa}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🔢 Lección 7: Números Primos y Compuestos</h1>
+<div class="subtitle">Liczby pierwsze i złożone</div>
+</div>
+
+<div class="section">
+<h2>¿Qué es un Número Primo? (Co to jest liczba pierwsza?)</h2>
+
+<div class="definition-box">
+<strong>Número Primo (Liczba pierwsza):</strong>
+<ul>
+<li>Un número natural mayor que 1</li>
+<li>Tiene exactamente 2 divisores: 1 y él mismo</li>
+<li>Solo se puede dividir por 1 y por sí mismo sin dejar resto</li>
+</ul>
+</div>
+
+<div class="example-box">
+<strong>Ejemplos de números primos:</strong>
+<ul>
+<li><strong>2:</strong> Solo divisible por 1 y 2 → 1 × 2 = 2</li>
+<li><strong>3:</strong> Solo divisible por 1 y 3 → 1 × 3 = 3</li>
+<li><strong>5:</strong> Solo divisible por 1 y 5 → 1 × 5 = 5</li>
+<li><strong>7:</strong> Solo divisible por 1 y 7 → 1 × 7 = 7</li>
+<li><strong>11:</strong> Solo divisible por 1 y 11 → 1 × 11 = 11</li>
+</ul>
+</div>
+
+<div class="tip">
+<strong>💡 Dato Curioso:</strong> El número 2 es el único número primo PAR. Todos los demás números primos son impares.
+</div>
+</div>
+
+<div class="section">
+<h2>¿Qué es un Número Compuesto? (Co to jest liczba złożona?)</h2>
+
+<div class="definition-box">
+<strong>Número Compuesto (Liczba złożona):</strong>
+<ul>
+<li>Un número natural mayor que 1</li>
+<li>Tiene MÁS de 2 divisores</li>
+<li>Se puede formar multiplicando dos o más números naturales (además de 1 × él mismo)</li>
+</ul>
+</div>
+
+<div class="example-box">
+<strong>Ejemplos de números compuestos:</strong>
+<ul>
+<li><strong>4:</strong> Divisores: 1, 2, 4 → 2 × 2 = 4</li>
+<li><strong>6:</strong> Divisores: 1, 2, 3, 6 → 2 × 3 = 6</li>
+<li><strong>8:</strong> Divisores: 1, 2, 4, 8 → 2 × 4 = 8</li>
+<li><strong>9:</strong> Divisores: 1, 3, 9 → 3 × 3 = 9</li>
+<li><strong>12:</strong> Divisores: 1, 2, 3, 4, 6, 12 → 3 × 4 = 12</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Caso Especial: El Número 1</h2>
+
+<div class="definition-box" style="border-left-color:#ff9800;background:#fff3e0">
+<strong>⚠️ El número 1 NO es primo ni compuesto</strong>
+<ul>
+<li>Solo tiene UN divisor (él mismo)</li>
+<li>Es un caso especial en matemáticas</li>
+<li>Se llama "unidad" (jednostka)</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Números del 1 al 50: Primos vs Compuestos</h2>
+
+<div class="number-grid">
+<div class="number-cell special">1</div>
+<div class="number-cell prime">2</div>
+<div class="number-cell prime">3</div>
+<div class="number-cell composite">4</div>
+<div class="number-cell prime">5</div>
+<div class="number-cell composite">6</div>
+<div class="number-cell prime">7</div>
+<div class="number-cell composite">8</div>
+<div class="number-cell composite">9</div>
+<div class="number-cell composite">10</div>
+<div class="number-cell prime">11</div>
+<div class="number-cell composite">12</div>
+<div class="number-cell prime">13</div>
+<div class="number-cell composite">14</div>
+<div class="number-cell composite">15</div>
+<div class="number-cell composite">16</div>
+<div class="number-cell prime">17</div>
+<div class="number-cell composite">18</div>
+<div class="number-cell prime">19</div>
+<div class="number-cell composite">20</div>
+<div class="number-cell composite">21</div>
+<div class="number-cell composite">22</div>
+<div class="number-cell prime">23</div>
+<div class="number-cell composite">24</div>
+<div class="number-cell composite">25</div>
+<div class="number-cell composite">26</div>
+<div class="number-cell composite">27</div>
+<div class="number-cell composite">28</div>
+<div class="number-cell prime">29</div>
+<div class="number-cell composite">30</div>
+<div class="number-cell prime">31</div>
+<div class="number-cell composite">32</div>
+<div class="number-cell composite">33</div>
+<div class="number-cell composite">34</div>
+<div class="number-cell composite">35</div>
+<div class="number-cell composite">36</div>
+<div class="number-cell prime">37</div>
+<div class="number-cell composite">38</div>
+<div class="number-cell composite">39</div>
+<div class="number-cell composite">40</div>
+<div class="number-cell prime">41</div>
+<div class="number-cell composite">42</div>
+<div class="number-cell prime">43</div>
+<div class="number-cell composite">44</div>
+<div class="number-cell composite">45</div>
+<div class="number-cell composite">46</div>
+<div class="number-cell prime">47</div>
+<div class="number-cell composite">48</div>
+<div class="number-cell composite">49</div>
+<div class="number-cell composite">50</div>
+</div>
+
+<div style="margin-top:20px;text-align:center">
+<span style="background:#c8e6c9;padding:8px 15px;border-radius:5px;margin:0 10px">🟢 Verde = Primo</span>
+<span style="background:#ffccbc;padding:8px 15px;border-radius:5px;margin:0 10px">🟠 Naranja = Compuesto</span>
+<span style="background:#fff9c4;padding:8px 15px;border-radius:5px;margin:0 10px">🟡 Amarillo = Especial (1)</span>
+</div>
+</div>
+
+<div class="section">
+<h2>Números Primos del 1 al 100</h2>
+
+<div class="prime-list">
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+</div>
+
+<p style="text-align:center"><strong>Total: 25 números primos del 1 al 100</strong></p>
+</div>
+
+<div class="section">
+<h2>Cómo Identificar si un Número es Primo</h2>
+
+<div class="tip">
+<strong>🔍 Método para verificar números primos:</strong>
+<ol>
+<li>Si el número es 2 → Es primo</li>
+<li>Si el número es par (termina en 0, 2, 4, 6, 8) → Es compuesto</li>
+<li>Intenta dividir por números primos pequeños: 2, 3, 5, 7, 11...</li>
+<li>Si ninguno divide exactamente → Es primo</li>
+<li>Solo necesitas probar hasta la raíz cuadrada del número</li>
+</ol>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: ¿Es 29 un número primo?</strong>
+<pre>
+29 ÷ 2 = 14.5 ✗ (no es exacto)
+29 ÷ 3 = 9.67 ✗ (no es exacto)
+29 ÷ 5 = 5.8 ✗ (no es exacto)
+√29 ≈ 5.4, así que no necesitamos probar más
+
+✅ 29 ES PRIMO
+</pre>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo: ¿Es 51 un número primo?</strong>
+<pre>
+51 ÷ 2 = 25.5 ✗ (no es exacto)
+51 ÷ 3 = 17 ✓ (¡exacto!)
+
+❌ 51 NO ES PRIMO (51 = 3 × 17)
+</pre>
+</div>
+</div>
+
+<div class="section">
+<h2>Factorización Prima (Rozkład na czynniki pierwsze)</h2>
+
+<div class="definition-box">
+<strong>Factorización Prima:</strong> Escribir un número compuesto como producto de números primos.
+</div>
+
+<div class="example-box">
+<strong>Ejemplo 1: Factorizar 12</strong>
+<div class="factor-tree">
+       12
+      /  \
+     2    6
+         / \
+        2   3
+
+12 = 2 × 2 × 3 = 2² × 3
+</div>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo 2: Factorizar 30</strong>
+<div class="factor-tree">
+       30
+      /  \
+     2   15
+        /  \
+       3    5
+
+30 = 2 × 3 × 5
+</div>
+</div>
+
+<div class="example-box">
+<strong>Ejemplo 3: Factorizar 24</strong>
+<div class="factor-tree">
+       24
+      /  \
+     2   12
+        /  \
+       2    6
+           / \
+          2   3
+
+24 = 2 × 2 × 2 × 3 = 2³ × 3
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Aplicaciones en Cracovia</h2>
+<div class="example-box">
+<ul>
+<li><strong>Plaza del Mercado:</strong> Tiene forma cuadrada de 200m × 200m. El 200 es compuesto: 2³ × 5²</li>
+<li><strong>Wawel:</strong> El castillo tiene 71 salas. El 71 es un número primo.</li>
+<li><strong>Trompeta de Santa María:</strong> Se toca cada hora. Hay 23 horas primas en un día (2, 3, 5, 7, 11, 13, 17, 19, 23)</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>Resumen</h2>
+<div class="tip">
+<strong>💡 Puntos Clave:</strong>
+<ul>
+<li><strong>Primo:</strong> Solo 2 divisores (1 y él mismo)</li>
+<li><strong>Compuesto:</strong> Más de 2 divisores</li>
+<li><strong>El 1:</strong> Ni primo ni compuesto</li>
+<li><strong>El 2:</strong> Único primo par</li>
+<li><strong>Factorización prima:</strong> Descomponer en producto de primos</li>
+<li>Hay 25 números primos del 1 al 100</li>
+</ul>
+</div>
+</div>
+
+<div class="nav-buttons">
+<a href="../index.html">🏠 Inicio</a>
+<a href="App_NumerosPrimosCompuestos.html">🎮 Practicar</a>
+<a href="Worksheet_NumerosPrimosCompuestos.html">📄 Hoja de Trabajo</a>
+</div>
+</body>
+</html>
