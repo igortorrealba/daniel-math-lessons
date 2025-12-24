@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 27: Conexión Fracciones-Decimales (Związek ułamków i dziesiętnych)</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #5c6bc0, #7e57c2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 2.2em; }
+        .subtitle { margin-top: 10px; font-size: 1.2em; opacity: 0.95; }
+        .section {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #5c6bc0;
+            border-bottom: 3px solid #7e57c2;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .concept-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-left: 5px solid #9c27b0;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-left: 5px solid #4caf50;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .visual-model {
+            background: #fff3e0;
+            padding: 15px;
+            border: 2px dashed #ff9800;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .fraction-decimal-pair {
+            display: inline-block;
+            background: #e3f2fd;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 8px;
+            border: 2px solid #2196f3;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .story-box {
+            background: #fff9c4;
+            padding: 20px;
+            border-left: 5px solid #fbc02d;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .key-terms {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .key-terms dt {
+            font-weight: bold;
+            color: #0277bd;
+            margin-top: 10px;
+        }
+        .key-terms dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .tip {
+            background: #e8f5e9;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .tip strong { color: #2e7d32; }
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .nav-buttons a {
+            background: #5c6bc0;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .nav-buttons a:hover {
+            background: #3949ab;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Lección 27: Conexión Fracciones-Decimales</h1>
+        <div class="subtitle">Związek między ułamkami zwykłymi a dziesiętnymi</div>
+    </div>
+
+    <!-- CONCEPTOS CLAVE -->
+    <div class="section">
+        <h2>¿Qué son los Decimales? (Czym są ułamki dziesiętne?)</h2>
+
+        <p>Los <strong>decimales</strong> son otra manera de mostrar partes de un número entero. Usan un <strong>punto decimal</strong> (.) para separar el número entero de la parte fraccionaria.</p>
+
+        <div class="key-terms">
+            <dl>
+                <dt>Punto decimal (Przecinek dziesiętny)</dt>
+                <dd>El punto que separa los números enteros de las partes decimales</dd>
+
+                <dt>Lugares decimales (Miejsca dziesiętne)</dt>
+                <dd>Los dígitos después del punto decimal</dd>
+
+                <dt>Décimo (Dziesiąta)</dt>
+                <dd>1 de 10 partes iguales → 0.1</dd>
+
+                <dt>Centésimo (Setna)</dt>
+                <dd>1 de 100 partes iguales → 0.01</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- HISTORIA -->
+    <div class="section">
+        <h2>¡Historia de la Pizza! 🍕</h2>
+
+        <div class="story-box">
+            <p><strong>Imagina que tienes una pizza cortada en 10 rebanadas iguales.</strong></p>
+            <p>Si comes 3 rebanadas, has comido:</p>
+            <ul>
+                <li><strong>Manera de fracción:</strong> 3/10 de la pizza</li>
+                <li><strong>Manera decimal:</strong> 0.3 de la pizza</li>
+            </ul>
+            <p style="font-size:1.2em; color:#d32f2f; font-weight:bold;">¡Ambas significan LO MISMO! Solo son formas diferentes de escribirlo.</p>
+        </div>
+    </div>
+
+    <!-- DÉCIMOS -->
+    <div class="section">
+        <h2>Décimos (Dziesiąte) - Denominador 10</h2>
+
+        <div class="concept-box">
+            <strong>Regla:</strong> El numerador se convierte en el lugar decimal!
+        </div>
+
+        <p><strong>Ejemplos (Przykłady):</strong></p>
+
+        <div class="fraction-decimal-pair">1/10 = 0.1</div>
+        <div class="fraction-decimal-pair">3/10 = 0.3</div>
+        <div class="fraction-decimal-pair">7/10 = 0.7</div>
+        <div class="fraction-decimal-pair">10/10 = 1.0</div>
+
+        <div class="example-box">
+            <strong>Ejemplo detallado: 4/10</strong>
+            <pre>
+4/10 = 0.4
+
+¿Por qué? Porque tenemos 4 de 10 partes
+         = 4 décimos
+         = 0.4
+            </pre>
+        </div>
+
+        <div class="visual-model">
+<strong>Modelo Visual de 10 columnas (3/10 sombreadas):</strong>
+[█][█][█][ ][ ][ ][ ][ ][ ][ ]  =  0.3
+        </div>
+    </div>
+
+    <!-- CENTÉSIMOS -->
+    <div class="section">
+        <h2>Centésimos (Setne) - Denominador 100</h2>
+
+        <div class="concept-box">
+            <strong>Regla:</strong> El numerador se convierte en los últimos dos lugares decimales!
+        </div>
+
+        <p><strong>Ejemplos (Przykłady):</strong></p>
+
+        <div class="fraction-decimal-pair">1/100 = 0.01</div>
+        <div class="fraction-decimal-pair">25/100 = 0.25</div>
+        <div class="fraction-decimal-pair">50/100 = 0.50</div>
+        <div class="fraction-decimal-pair">100/100 = 1.00</div>
+
+        <div class="example-box">
+            <strong>Ejemplo detallado: 25/100</strong>
+            <pre>
+25/100 = 0.25
+
+¿Por qué? Porque tenemos 25 de 100 partes
+         = 25 centésimos
+         = 0.25 (el 2 está en los décimos, el 5 en los centésimos)
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <strong>¡Atención! 7/100</strong>
+            <pre>
+7/100 = 0.07
+
+Tenemos 7 de 100 partes
+      = 7 centésimos
+      = 0.07 (¡fíjate en el cero! muestra que no tenemos décimos)
+            </pre>
+        </div>
+
+        <div class="visual-model">
+<strong>Cuadrícula 10×10 = 100 cuadrados (25 sombreados):</strong>
+[████████████████████████]
+[████████████████████████]  = 0.25 = 25/100
+[████                    ]
+        </div>
+    </div>
+
+    <!-- CONVERSIÓN DECIMAL A FRACCIÓN -->
+    <div class="section">
+        <h2>Convertir Decimales a Fracciones (Zamiana dziesiętnych na ułamki)</h2>
+
+        <div class="concept-box">
+            <strong>Proceso inverso:</strong> Lee el decimal, luego escríbelo como fracción!
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplo 1: 0.6</strong>
+            <pre>
+Paso 1: Léelo → "seis décimos"
+Paso 2: Escríbelo → 6/10
+
+Respuesta: 0.6 = 6/10 (se puede simplificar a 3/5)
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplo 2: 0.35</strong>
+            <pre>
+Paso 1: Léelo → "treinta y cinco centésimos"
+Paso 2: Escríbelo → 35/100
+
+Respuesta: 0.35 = 35/100 (se puede simplificar a 7/20)
+            </pre>
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplo 3: 0.09</strong>
+            <pre>
+Paso 1: Léelo → "nueve centésimos"
+Paso 2: Escríbelo → 9/100
+
+Respuesta: 0.09 = 9/100
+            </pre>
+        </div>
+    </div>
+
+    <!-- COMPARAR DECIMALES -->
+    <div class="section">
+        <h2>Comparar Decimales (Porównywanie ułamków dziesiętnych)</h2>
+
+        <div class="concept-box">
+            <strong>Regla:</strong> ¡Alinea los puntos decimales!
+        </div>
+
+        <div class="example-box">
+            <strong>Comparar: 0.3 y 0.25</strong>
+            <pre>
+Paso 1: Alinéalos
+        0.30
+        0.25
+
+Paso 2: Compara → 0.30 > 0.25
+        (30 centésimos > 25 centésimos)
+            </pre>
+        </div>
+
+        <div class="visual-model">
+<strong>Usando la Recta Numérica:</strong>
+    0.25        0.3
+    |           |
+0  ├───┼─────┼───┤  1
+       ↑
+   0.3 está más a la derecha, entonces 0.3 > 0.25
+        </div>
+    </div>
+
+    <!-- APLICACIONES DEL MUNDO REAL -->
+    <div class="section">
+        <h2>Aplicaciones del Mundo Real 💰 (Zastosowania w życiu)</h2>
+
+        <div class="example-box">
+            <strong>Ejemplo de Dinero (Pieniądze):</strong>
+            <p>Si tienes 3.25 zlotys:</p>
+            <ul>
+                <li><strong>Forma decimal:</strong> 3 zlotys y 25 groszy</li>
+                <li><strong>Forma de fracción:</strong> 3 y 25/100 zlotys</li>
+            </ul>
+            <p>¡El decimal hace MUY fácil contar dinero!</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Ejemplo de Medición (Pomiar):</strong>
+            <p>Si algo mide 1.5 metros:</p>
+            <ul>
+                <li><strong>Forma decimal:</strong> 1.5 metros</li>
+                <li><strong>Forma de fracción:</strong> 1 y 5/10 metros</li>
+            </ul>
+            <p>Ambas nos dicen que es 1 metro y la mitad de otro metro.</p>
+        </div>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section">
+        <h2>Resumen (Podsumowanie)</h2>
+
+        <div class="tip">
+            <strong>💡 Puntos Clave:</strong>
+            <ul>
+                <li>Las fracciones y los decimales muestran el MISMO valor, solo escritos de manera diferente</li>
+                <li>Con denominador 10: numerador = lugar de los décimos</li>
+                <li>Con denominador 100: numerador = lugares de los centésimos</li>
+                <li>¡Los decimales hacen que las comparaciones y aplicaciones del mundo real sean más fáciles!</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <div class="nav-buttons">
+        <a href="../index.html">🏠 Inicio</a>
+        <a href="App_ConexionFraccionesDecimales.html">🎮 Practicar con Juego</a>
+        <a href="Worksheet_ConexionFraccionesDecimales.html">📄 Hoja de Trabajo</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: #666;">
+        <p>¡Excelente trabajo aprendiendo sobre fracciones y decimales, Daniel! 🌟</p>
+    </div>
+</body>
+</html>
