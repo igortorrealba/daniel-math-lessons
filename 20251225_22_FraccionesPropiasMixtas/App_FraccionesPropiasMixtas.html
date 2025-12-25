@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Tipos de Fracciones y Conversiones</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#e74c3c 0%,#c0392b 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.mode-select{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap}.mode-btn{padding:12px 20px;font-size:16px;background:#ecf0f1;border:2px solid #bdc3c7;border-radius:8px;cursor:pointer;font-weight:bold;transition:all .3s}.mode-btn.active{background:#e74c3c;color:#fff;border-color:#c0392b}.question-area{min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:30px 0}.question{font-size:26px;color:#2c3e50;text-align:center;margin:20px 0;font-weight:bold}.fraction-display{font-size:48px;font-weight:bold;color:#e74c3c;margin:20px 0}.answer-group{margin:20px 0;text-align:center}.answer-input{width:120px;margin:5px;padding:12px;font-size:22px;text-align:center;border:3px solid #e74c3c;border-radius:8px}.btn{display:block;margin:15px auto;padding:15px 40px;font-size:18px;background:#e74c3c;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:bold;transition:all .3s}.btn:hover{background:#c0392b;transform:scale(1.05)}.feedback{text-align:center;font-size:20px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}.label{font-size:14px;color:#666;margin:5px}
+</style>
+</head>
+<body>
+<h1>🎮 Juego: Tipos de Fracciones</h1>
+<div class="game-container">
+<div class="score">
+<div>✅ Correctas: <span id="correct">0</span> | ❌ Incorrectas: <span id="incorrect">0</span> | 🏆 Racha: <span id="streak">0</span></div>
+</div>
+
+<div class="mode-select">
+<button class="mode-btn active" onclick="setMode('classify')">Clasificar Fracciones</button>
+<button class="mode-btn" onclick="setMode('toMixed')">Impropia → Mixta</button>
+<button class="mode-btn" onclick="setMode('toImproper')">Mixta → Impropia</button>
+</div>
+
+<div class="question-area" id="questionArea"></div>
+
+<div id="answerArea"></div>
+
+<button class="btn" onclick="checkAnswer()">Verificar Respuesta</button>
+
+<div id="feedback"></div>
+</div>
+
+<script>
+let correctCount=0,incorrectCount=0,streak=0;
+let currentMode='classify';
+let currentAnswer='';
+let currentNum=0,currentDen=0,currentWhole=0;
+
+function setMode(mode){
+currentMode=mode;
+document.querySelectorAll('.mode-btn').forEach(btn=>btn.classList.remove('active'));
+event.target.classList.add('active');
+generateProblem();
+}
+
+function generateProblem(){
+document.getElementById('feedback').innerHTML='';
+if(currentMode==='classify'){
+generateClassifyProblem();
+}else if(currentMode==='toMixed'){
+generateToMixedProblem();
+}else{
+generateToImproperProblem();
+}
+}
+
+function generateClassifyProblem(){
+const types=['propia','impropia','mixta'];
+const type=types[Math.floor(Math.random()*types.length)];
+currentAnswer=type;
+let display='';
+if(type==='propia'){
+currentDen=Math.floor(Math.random()*9)+2;
+currentNum=Math.floor(Math.random()*(currentDen-1))+1;
+display=currentNum+'/'+currentDen;
+}else if(type==='impropia'){
+currentDen=Math.floor(Math.random()*8)+2;
+currentNum=currentDen+Math.floor(Math.random()*12)+1;
+display=currentNum+'/'+currentDen;
+}else{
+currentWhole=Math.floor(Math.random()*5)+1;
+currentDen=Math.floor(Math.random()*7)+2;
+currentNum=Math.floor(Math.random()*(currentDen-1))+1;
+display=currentWhole+' '+currentNum+'/'+currentDen;
+}
+document.getElementById('questionArea').innerHTML='<div class="question">¿Qué tipo de fracción es?</div><div class="fraction-display">'+display+'</div>';
+document.getElementById('answerArea').innerHTML='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="mode-btn" onclick="selectAnswer(\'propia\')">Propia</button><button class="mode-btn" onclick="selectAnswer(\'impropia\')">Impropia</button><button class="mode-btn" onclick="selectAnswer(\'mixta\')">Mixta</button></div>';
+}
+
+function generateToMixedProblem(){
+currentDen=Math.floor(Math.random()*7)+2;
+currentNum=currentDen+Math.floor(Math.random()*20)+1;
+const quotient=Math.floor(currentNum/currentDen);
+const remainder=currentNum%currentDen;
+currentAnswer=quotient+','+remainder+','+currentDen;
+document.getElementById('questionArea').innerHTML='<div class="question">Convierte a número mixto:</div><div class="fraction-display">'+currentNum+'/'+currentDen+'</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><div class="label">Parte entera:</div><input type="number" id="wholeInput" class="answer-input" min="0"><div class="label" style="margin-top:15px">Fracción restante:</div><input type="number" id="numInput" class="answer-input" placeholder="Num" min="0"> / <input type="number" id="denInput" class="answer-input" placeholder="Den" min="1"></div>';
+}
+
+function generateToImproperProblem(){
+currentWhole=Math.floor(Math.random()*6)+1;
+currentDen=Math.floor(Math.random()*8)+2;
+currentNum=Math.floor(Math.random()*(currentDen-1))+1;
+const impNum=(currentWhole*currentDen)+currentNum;
+currentAnswer=impNum+','+currentDen;
+document.getElementById('questionArea').innerHTML='<div class="question">Convierte a fracción impropia:</div><div class="fraction-display">'+currentWhole+' '+currentNum+'/'+currentDen+'</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><div class="label">Fracción impropia:</div><input type="number" id="numInput" class="answer-input" placeholder="Numerador" min="1"> / <input type="number" id="denInput" class="answer-input" placeholder="Denominador" min="1"></div>';
+}
+
+let selectedAnswer='';
+function selectAnswer(type){
+selectedAnswer=type;
+document.querySelectorAll('#answerArea .mode-btn').forEach(btn=>btn.classList.remove('active'));
+event.target.classList.add('active');
+}
+
+function checkAnswer(){
+const fb=document.getElementById('feedback');
+let correct=false;
+if(currentMode==='classify'){
+if(!selectedAnswer){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Selecciona una opción</div>';
+return;
+}
+correct=selectedAnswer===currentAnswer;
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Correcto! Es una fracción '+currentAnswer+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. Es una fracción '+currentAnswer+'</div>';
+}
+selectedAnswer='';
+}else if(currentMode==='toMixed'){
+const w=parseInt(document.getElementById('wholeInput').value);
+const n=parseInt(document.getElementById('numInput').value);
+const d=parseInt(document.getElementById('denInput').value);
+if(isNaN(w)||isNaN(n)||isNaN(d)){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Completa todos los campos</div>';
+return;
+}
+const expected=currentAnswer.split(',');
+correct=(w==expected[0]&&n==expected[1]&&d==expected[2]);
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Excelente! '+currentNum+'/'+currentDen+' = '+w+' '+n+'/'+d+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+currentNum+'/'+currentDen+' = '+expected[0]+' '+expected[1]+'/'+expected[2]+'</div>';
+}
+}else{
+const n=parseInt(document.getElementById('numInput').value);
+const d=parseInt(document.getElementById('denInput').value);
+if(isNaN(n)||isNaN(d)){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Completa todos los campos</div>';
+return;
+}
+const expected=currentAnswer.split(',');
+correct=(n==expected[0]&&d==expected[1]);
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Excelente! '+currentWhole+' '+currentNum+'/'+currentDen+' = '+n+'/'+d+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+currentWhole+' '+currentNum+'/'+currentDen+' = '+expected[0]+'/'+expected[1]+'</div>';
+}
+}
+if(correct){
+correctCount++;
+streak++;
+}else{
+incorrectCount++;
+streak=0;
+}
+updateScore();
+setTimeout(generateProblem,2500);
+}
+
+function updateScore(){
+document.getElementById('correct').textContent=correctCount;
+document.getElementById('incorrect').textContent=incorrectCount;
+document.getElementById('streak').textContent=streak;
+}
+
+generateProblem();
+</script>
+</body>
+</html>
