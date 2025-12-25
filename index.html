@@ -11,6 +11,15 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --beginner: #4CAF50;
+            --intermediate: #2196F3;
+            --advanced: #9C27B0;
+            --lesson-color: #FF9800;
+            --app-color: #E91E63;
+            --worksheet-color: #00BCD4;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -50,90 +59,191 @@
             line-height: 1.6;
         }
 
-        .lessons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+        /* Module Container */
+        .module {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .module:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Module Header */
+        .module-header {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s;
+        }
+
+        .module-header:hover {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .module-info {
+            flex: 1;
+        }
+
+        .module-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .module-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .lesson-count {
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .difficulty-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: white;
+        }
+
+        .difficulty-beginner {
+            background: var(--beginner);
+        }
+
+        .difficulty-intermediate {
+            background: var(--intermediate);
+        }
+
+        .difficulty-advanced {
+            background: var(--advanced);
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .dot.filled {
+            background: var(--beginner);
+        }
+
+        .toggle-icon {
+            font-size: 2em;
+            color: #999;
+            transition: transform 0.3s;
+            user-select: none;
+        }
+
+        .module.expanded .toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Lesson List */
+        .lesson-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 30px;
+        }
+
+        .module.expanded .lesson-list {
+            max-height: 5000px;
+            padding: 0 30px 30px 30px;
         }
 
         .lesson-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
         }
 
         .lesson-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+            transform: translateX(5px);
         }
 
         .lesson-date {
             color: #999;
-            font-size: 0.9em;
-            margin-bottom: 10px;
+            font-size: 0.85em;
+            margin-bottom: 8px;
         }
 
         .lesson-title {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 15px;
+            font-size: 1.2em;
             font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .lesson-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            line-height: 1.4;
         }
 
         .lesson-links {
             display: flex;
-            flex-direction: column;
             gap: 10px;
-            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .lesson-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            padding: 12px 20px;
-            border-radius: 8px;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9em;
             transition: all 0.2s;
+            color: white;
         }
 
         .lesson-link:hover {
-            transform: translateX(5px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .link-lesson {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .link-lesson:hover {
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: var(--lesson-color);
         }
 
         .link-app {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .link-app:hover {
-            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+            background: var(--app-color);
         }
 
         .link-worksheet {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-        }
-
-        .link-worksheet:hover {
-            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
-        }
-
-        .icon {
-            font-size: 1.3em;
-            margin-right: 10px;
+            background: var(--worksheet-color);
         }
 
         footer {
@@ -142,11 +252,12 @@
             padding: 30px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 30px;
         }
 
-        footer p {
-            color: #666;
-            margin: 10px 0;
+        footer h2 {
+            color: #667eea;
+            margin-bottom: 20px;
         }
 
         .stats {
@@ -155,6 +266,8 @@
             margin-top: 20px;
             padding-top: 20px;
             border-top: 2px solid #f0f0f0;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .stat {
@@ -162,7 +275,7 @@
         }
 
         .stat-number {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #667eea;
             font-weight: bold;
         }
@@ -170,6 +283,33 @@
         .stat-label {
             color: #999;
             font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .module-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .module-stat {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+
+        .module-stat.beginner {
+            border-color: var(--beginner);
+        }
+
+        .module-stat.intermediate {
+            border-color: var(--intermediate);
+        }
+
+        .module-stat.advanced {
+            border-color: var(--advanced);
         }
 
         @media (max-width: 768px) {
@@ -177,8 +317,16 @@
                 font-size: 2em;
             }
 
-            .lessons-grid {
-                grid-template-columns: 1fr;
+            .module-header {
+                padding: 20px;
+            }
+
+            .lesson-links {
+                flex-direction: column;
+            }
+
+            .lesson-link {
+                justify-content: center;
             }
 
             .stats {
@@ -195,691 +343,796 @@
             <div class="subtitle">Matemáticas de Daniel | Grado 4</div>
             <p class="intro">
                 ¡Bienvenido al portal de aprendizaje de Daniel! 🌟<br>
-                Aquí encontrarás todas las lecciones interactivas, juegos educativos y hojas de trabajo.<br>
-                <strong>Creado con amor por tu Equipo de AI 🤖</strong>
+                Todas las lecciones organizadas por módulos para un aprendizaje progresivo.<br>
+                <strong>Haz clic en cada módulo para ver las lecciones 📖</strong>
             </p>
         </header>
 
-        <div class="lessons-grid">
-            <!-- Lesson 01: Números de Varios Dígitos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Números de Varios Dígitos (Liczby wielocyfrowe)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Lectura y escritura de números grandes.</p>
-                <div class="lesson-links">
-                    <a href="20251221_01_NumerosVariosDigitos/Lesson_NumerosVariosDigitos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_01_NumerosVariosDigitos/App_NumerosVariosDigitos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_01_NumerosVariosDigitos/Worksheet_NumerosVariosDigitos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 1: NÚMEROS NATURALES -->
+        <div class="module" id="module1" onclick="toggleModule('module1')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 1: NÚMEROS NATURALES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">8 lecciones</span>
+                        <span class="difficulty-badge difficulty-beginner">🟢 Principiante</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">01: Números de Varios Dígitos (Liczby wielocyfrowe)</div>
+                    <div class="lesson-description">Lectura y escritura de números grandes.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_01_NumerosVariosDigitos/Lesson_NumerosVariosDigitos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_01_NumerosVariosDigitos/App_NumerosVariosDigitos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_01_NumerosVariosDigitos/Worksheet_NumerosVariosDigitos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">02: Recta Numérica (Oś liczbowa)</div>
+                    <div class="lesson-description">Ubicar números en la recta numérica.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_02_RectaNumerica/Lesson_RectaNumerica.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_02_RectaNumerica/App_RectaNumerica.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_02_RectaNumerica/Worksheet_RectaNumerica.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">03: Comparación de Números (Porównywanie liczb)</div>
+                    <div class="lesson-description">Mayor que, menor que e igual a.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_03_ComparacionNumeros/Lesson_ComparacionNumeros.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_03_ComparacionNumeros/App_ComparacionNumeros.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_03_ComparacionNumeros/Worksheet_ComparacionNumeros.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">04: Redondeo de Números (Zaokrąglanie)</div>
+                    <div class="lesson-description">Redondear a decenas, centenas y millares.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_04_RedondeoNumeros/Lesson_RedondeoNumeros.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_04_RedondeoNumeros/App_RedondeoNumeros.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_04_RedondeoNumeros/Worksheet_RedondeoNumeros.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">05: Números Romanos (Liczby rzymskie)</div>
+                    <div class="lesson-description">Convertir entre números romanos y arábigos.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_05_NumerosRomanos/Lesson_NumerosRomanos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_05_NumerosRomanos/App_NumerosRomanos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_05_NumerosRomanos/Worksheet_NumerosRomanos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">06: Conversión de Sistemas (Konwersja systemów)</div>
+                    <div class="lesson-description">Binario y decimal.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_06_ConversionSistemas/Lesson_ConversionSistemas.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_06_ConversionSistemas/App_ConversionSistemas.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_06_ConversionSistemas/Worksheet_ConversionSistemas.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">07: Números Primos y Compuestos (Liczby pierwsze i złożone)</div>
+                    <div class="lesson-description">Identificar números primos y factorización.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_07_NumerosPrimosCompuestos/Lesson_NumerosPrimosCompuestos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_07_NumerosPrimosCompuestos/App_NumerosPrimosCompuestos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_07_NumerosPrimosCompuestos/Worksheet_NumerosPrimosCompuestos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">08: Múltiplos, Divisores y Divisibilidad (Wielokrotności, dzielniki)</div>
+                    <div class="lesson-description">MCM y MCD.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_08_MultiplosDivisoresDivisibilidad/Lesson_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_08_MultiplosDivisoresDivisibilidad/App_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_08_MultiplosDivisoresDivisibilidad/Worksheet_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 02: Recta Numérica -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Recta Numérica (Oś liczbowa)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Ubicar números en la recta numérica.</p>
-                <div class="lesson-links">
-                    <a href="20251221_02_RectaNumerica/Lesson_RectaNumerica.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_02_RectaNumerica/App_RectaNumerica.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_02_RectaNumerica/Worksheet_RectaNumerica.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 2: OPERACIONES -->
+        <div class="module" id="module2" onclick="toggleModule('module2')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 2: OPERACIONES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">10 lecciones</span>
+                        <span class="difficulty-badge difficulty-beginner">🟢 Principiante</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">09: Suma y Resta Mental (Dodawanie i odejmowanie w pamięci)</div>
+                    <div class="lesson-description">Cálculo mental rápido.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_07_SumaRestaMental/Lesson_SumaRestaMental.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_07_SumaRestaMental/App_SumaRestaMental.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_07_SumaRestaMental/Worksheet_SumaRestaMental.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">10: Suma Escrita (Dodawanie pisemne)</div>
+                    <div class="lesson-description">Suma con reagrupación.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_08_SumaEscrita/Lesson_SumaEscrita.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_08_SumaEscrita/App_SumaEscrita.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_08_SumaEscrita/Worksheet_SumaEscrita.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">11: Resta Escrita (Odejmowanie pisemne)</div>
+                    <div class="lesson-description">Resta con reagrupación.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_09_RestaEscrita/Lesson_RestaEscrita.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_09_RestaEscrita/App_RestaEscrita.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_09_RestaEscrita/Worksheet_RestaEscrita.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">12: Estimación de Sumas y Diferencias (Szacowanie)</div>
+                    <div class="lesson-description">Redondeo y estimaciones rápidas.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_12_EstimacionSumasDiferencias/Lesson_EstimacionSumasDiferencias.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_12_EstimacionSumasDiferencias/App_EstimacionSumasDiferencias.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_12_EstimacionSumasDiferencias/Worksheet_EstimacionSumasDiferencias.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">13: Tablas de Multiplicar (1-12) (Tabliczka mnożenia)</div>
+                    <div class="lesson-description">Memorizar las tablas del 1 al 12.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_13_TablasMultiplicar/Lesson_TablasMultiplicar.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_13_TablasMultiplicar/App_TablasMultiplicar.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_13_TablasMultiplicar/Worksheet_TablasMultiplicar.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">14: Multiplicación 1×2 Dígitos (Mnożenie)</div>
+                    <div class="lesson-description">Multiplicar números de 1 y 2 dígitos.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_14_Multiplicacion1x2Digitos/Lesson_Multiplicacion1x2Digitos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_14_Multiplicacion1x2Digitos/App_Multiplicacion1x2Digitos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_14_Multiplicacion1x2Digitos/Worksheet_Multiplicacion1x2Digitos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">15: Métodos Box y Lattice (Metody mnożenia)</div>
+                    <div class="lesson-description">Métodos visuales de multiplicación.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_15_MetodosBoxLattice/Lesson_MetodosBoxLattice.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_15_MetodosBoxLattice/App_MetodosBoxLattice.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_15_MetodosBoxLattice/Worksheet_MetodosBoxLattice.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">16: Propiedades de Multiplicación (Właściwości mnożenia)</div>
+                    <div class="lesson-description">Conmutativa, asociativa, distributiva.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_16_PropiedadesMultiplicacion/Lesson_PropiedadesMultiplicacion.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_16_PropiedadesMultiplicacion/App_PropiedadesMultiplicacion.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_16_PropiedadesMultiplicacion/Worksheet_PropiedadesMultiplicacion.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 22 de Diciembre, 2025</div>
+                    <div class="lesson-title">17: División Básica (Dzielenie podstawowe)</div>
+                    <div class="lesson-description">División simple y tablas de dividir.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_12_DivisionBasica/Lesson_DivisionBasica.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_12_DivisionBasica/App_DivisionBasica.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_12_DivisionBasica/Worksheet_DivisionBasica.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">18: División Larga (Dzielenie pisemne)</div>
+                    <div class="lesson-description">División larga paso a paso.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_18_DivisionLarga/Lesson_DivisionLarga.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_18_DivisionLarga/App_DivisionLarga.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_18_DivisionLarga/Worksheet_DivisionLarga.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 03: Comparación de Números -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Comparación de Números (Porównywanie liczb)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Mayor que, menor que e igual a.</p>
-                <div class="lesson-links">
-                    <a href="20251221_03_ComparacionNumeros/Lesson_ComparacionNumeros.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_03_ComparacionNumeros/App_ComparacionNumeros.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_03_ComparacionNumeros/Worksheet_ComparacionNumeros.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 3: FRACCIONES COMUNES -->
+        <div class="module" id="module3" onclick="toggleModule('module3')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 3: FRACCIONES COMUNES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">8 lecciones</span>
+                        <span class="difficulty-badge difficulty-intermediate">🔵 Intermedio</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">19: División con Residuo (Dzielenie z resztą)</div>
+                    <div class="lesson-description">Divisiones que dejan resto.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_19_DivisionConResiduo/Lesson_DivisionConResiduo.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_19_DivisionConResiduo/App_DivisionConResiduo.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_19_DivisionConResiduo/Worksheet_DivisionConResiduo.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 21 de Diciembre, 2025</div>
+                    <div class="lesson-title">20: Potencias (Potęgi)</div>
+                    <div class="lesson-description">Exponentes, base, potencias al cuadrado y al cubo.</div>
+                    <div class="lesson-links">
+                        <a href="20251221_Potencias/Lesson_Potencias.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251221_Potencias/App_Potencias.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251221_Potencias/Worksheet_Potencias.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">21: Introducción a Fracciones (Wprowadzenie do ułamków)</div>
+                    <div class="lesson-description">Conceptos básicos, numerador y denominador.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_21_IntroduccionFracciones/Lesson_IntroduccionFracciones.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_21_IntroduccionFracciones/App_IntroduccionFracciones.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_21_IntroduccionFracciones/Worksheet_IntroduccionFracciones.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">22: Tipos de Fracciones (Ułamki właściwe, niewłaściwe, mieszane)</div>
+                    <div class="lesson-description">Propias, impropias, mixtas y conversiones.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_22_FraccionesPropiasMixtas/Lesson_FraccionesPropiasMixtas.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_22_FraccionesPropiasMixtas/App_FraccionesPropiasMixtas.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_22_FraccionesPropiasMixtas/Worksheet_FraccionesPropiasMixtas.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">23: Fracciones Equivalentes (Ułamki równoważne)</div>
+                    <div class="lesson-description">Ampliar, simplificar y encontrar el MCD.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_23_FraccionesEquivalentes/Lesson_FraccionesEquivalentes.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_23_FraccionesEquivalentes/App_FraccionesEquivalentes.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_23_FraccionesEquivalentes/Worksheet_FraccionesEquivalentes.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">24: Comparación de Fracciones (Porównywanie ułamków)</div>
+                    <div class="lesson-description">Símbolos <, >, = y métodos de comparación.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_24_ComparacionFracciones/Lesson_ComparacionFracciones.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_24_ComparacionFracciones/App_ComparacionFracciones.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_24_ComparacionFracciones/Worksheet_ComparacionFracciones.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">25: Suma/Resta Mismo Denominador (Dodawanie i odejmowanie)</div>
+                    <div class="lesson-description">Operar con fracciones de igual denominador.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_25_SumaRestaIgualDenominador/Lesson_SumaRestaIgualDenominador.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_25_SumaRestaIgualDenominador/App_SumaRestaIgualDenominador.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_25_SumaRestaIgualDenominador/Worksheet_SumaRestaIgualDenominador.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">26: Suma/Resta Diferente Denominador (Różne mianowniki)</div>
+                    <div class="lesson-description">MCM y fracciones con distintos denominadores.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_26_SumaRestaDiferenteDenominador/Lesson_SumaRestaDiferenteDenominador.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_26_SumaRestaDiferenteDenominador/App_SumaRestaDiferenteDenominador.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_26_SumaRestaDiferenteDenominador/Worksheet_SumaRestaDiferenteDenominador.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 04: Redondeo de Números -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Redondeo de Números (Zaokrąglanie)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Redondear a decenas, centenas y millares.</p>
-                <div class="lesson-links">
-                    <a href="20251221_04_RedondeoNumeros/Lesson_RedondeoNumeros.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_04_RedondeoNumeros/App_RedondeoNumeros.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_04_RedondeoNumeros/Worksheet_RedondeoNumeros.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 4: DECIMALES -->
+        <div class="module" id="module4" onclick="toggleModule('module4')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 4: DECIMALES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">6 lecciones</span>
+                        <span class="difficulty-badge difficulty-intermediate">🔵 Intermedio</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">27: Multiplicación de Fracciones (Mnożenie ułamków)</div>
+                    <div class="lesson-description">Multiplicar numeradores y denominadores.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_27_MultiplicacionFracciones/Lesson_MultiplicacionFracciones.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_27_MultiplicacionFracciones/App_MultiplicacionFracciones.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_27_MultiplicacionFracciones/Worksheet_MultiplicacionFracciones.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">28: Fracciones de Cantidades (Ułamki liczb)</div>
+                    <div class="lesson-description">Calcular fracciones de números enteros.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_28_FraccionesCantidades/Lesson_FraccionesCantidades.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_28_FraccionesCantidades/App_FraccionesCantidades.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_28_FraccionesCantidades/Worksheet_FraccionesCantidades.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">29: Conexión Fracciones-Decimales (Związek ułamków i dziesiętnych)</div>
+                    <div class="lesson-description">Convertir entre fracciones y decimales.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_27_ConexionFraccionesDecimales/Lesson_ConexionFraccionesDecimales.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_27_ConexionFraccionesDecimales/App_ConexionFraccionesDecimales.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_27_ConexionFraccionesDecimales/Worksheet_ConexionFraccionesDecimales.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">30: Comparación de Decimales (Porównywanie liczb dziesiętnych)</div>
+                    <div class="lesson-description">Comparar decimales usando <, >, =</div>
+                    <div class="lesson-links">
+                        <a href="20251225_30_ComparacionDecimales/Lesson_ComparacionDecimales.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_30_ComparacionDecimales/App_ComparacionDecimales.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_30_ComparacionDecimales/Worksheet_ComparacionDecimales.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">31: Operaciones con Decimales ×÷ 10,100,1000 (Działania)</div>
+                    <div class="lesson-description">Multiplicar y dividir por potencias de 10.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_31_OperacionesDecimales/Lesson_OperacionesDecimales.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_31_OperacionesDecimales/App_OperacionesDecimales.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_31_OperacionesDecimales/Worksheet_OperacionesDecimales.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">32: Problemas con Decimales (Zadania z ułamkami dziesiętnymi)</div>
+                    <div class="lesson-description">Problemas de palabras con dinero y mediciones.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_28_ProblemasDecimales/Lesson_ProblemasDecimales.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_28_ProblemasDecimales/App_ProblemasDecimales.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_28_ProblemasDecimales/Worksheet_ProblemasDecimales.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 05: Números Romanos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Números Romanos (Liczby rzymskie)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Convertir entre números romanos y arábigos.</p>
-                <div class="lesson-links">
-                    <a href="20251221_05_NumerosRomanos/Lesson_NumerosRomanos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_05_NumerosRomanos/App_NumerosRomanos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_05_NumerosRomanos/Worksheet_NumerosRomanos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 5: GEOMETRÍA BÁSICA -->
+        <div class="module" id="module5" onclick="toggleModule('module5')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 5: GEOMETRÍA BÁSICA</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">6 lecciones</span>
+                        <span class="difficulty-badge difficulty-intermediate">🔵 Intermedio</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">33: Punto, Línea, Rayo, Segmento (Punkt, Prosta, Promień, Odcinek)</div>
+                    <div class="lesson-description">Conceptos fundamentales de geometría.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_33_PuntoLineaRayoSegmento/Lesson_PuntoLineaRayoSegmento.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_33_PuntoLineaRayoSegmento/App_PuntoLineaRayoSegmento.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_33_PuntoLineaRayoSegmento/Worksheet_PuntoLineaRayoSegmento.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">34: Líneas Perpendiculares y Paralelas (Proste Prostopadłe i Równoległe)</div>
+                    <div class="lesson-description">Usar escuadras para líneas perpendiculares y paralelas.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_34_LineasPerpendicularesParalelas/Lesson_LineasPerpendicularesParalelas.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_34_LineasPerpendicularesParalelas/App_LineasPerpendicularesParalelas.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_34_LineasPerpendicularesParalelas/Worksheet_LineasPerpendicularesParalelas.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">35: Ángulos: Tipos y Medición (Kąty: Rodzaje i Pomiar)</div>
+                    <div class="lesson-description">Usar el transportador para medir ángulos.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_35_AngulosTiposMedicion/Lesson_AngulosTiposMedicion.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_35_AngulosTiposMedicion/App_AngulosTiposMedicion.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_35_AngulosTiposMedicion/Worksheet_AngulosTiposMedicion.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">36: Ángulos Adyacentes y en el Reloj (Kąty Przyległe i Zegar)</div>
+                    <div class="lesson-description">Calcular ángulos usando el reloj (horas × 30°).</div>
+                    <div class="lesson-links">
+                        <a href="20251225_36_AngulosAdyacentesReloj/Lesson_AngulosAdyacentesReloj.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_36_AngulosAdyacentesReloj/App_AngulosAdyacentesReloj.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_36_AngulosAdyacentesReloj/Worksheet_AngulosAdyacentesReloj.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">37: Triángulos y Cuadriláteros (Trójkąty i Czworokąty)</div>
+                    <div class="lesson-description">Tipos de triángulos y cuadriláteros.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_37_TriangulosCuadrilateros/Lesson_TriangulosCuadrilateros.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_37_TriangulosCuadrilateros/App_TriangulosCuadrilateros.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_37_TriangulosCuadrilateros/Worksheet_TriangulosCuadrilateros.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">38: Dibujar Figuras con Ángulos Dados (Rysowanie Figur)</div>
+                    <div class="lesson-description">Construir figuras con regla, transportador y compás.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_38_DibujarFigurasAngulos/Lesson_DibujarFigurasAngulos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_38_DibujarFigurasAngulos/App_DibujarFigurasAngulos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_38_DibujarFigurasAngulos/Worksheet_DibujarFigurasAngulos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 06: Conversión de Sistemas -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Conversión de Sistemas (Konwersja systemów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Binario y decimal.</p>
-                <div class="lesson-links">
-                    <a href="20251221_06_ConversionSistemas/Lesson_ConversionSistemas.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_06_ConversionSistemas/App_ConversionSistemas.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_06_ConversionSistemas/Worksheet_ConversionSistemas.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 6: PERÍMETROS Y ÁREAS -->
+        <div class="module" id="module6" onclick="toggleModule('module6')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 6: PERÍMETROS Y ÁREAS</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">5 lecciones</span>
+                        <span class="difficulty-badge difficulty-intermediate">🔵 Intermedio</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">39: Perímetro de Polígonos (Obwód Wielokątów)</div>
+                    <div class="lesson-description">Calcular el perímetro sumando todos los lados.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_39_PerimetroPoligonos/Lesson_PerimetroPoligonos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_39_PerimetroPoligonos/App_PerimetroPoligonos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_39_PerimetroPoligonos/Worksheet_PerimetroPoligonos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">40: Área de Rectángulos y Cuadrados (Pole Prostokątów i Kwadratów)</div>
+                    <div class="lesson-description">Fórmulas: A = l² y A = l × a</div>
+                    <div class="lesson-links">
+                        <a href="20251225_40_AreaRectangulosCuadrados/Lesson_AreaRectangulosCuadrados.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_40_AreaRectangulosCuadrados/App_AreaRectangulosCuadrados.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_40_AreaRectangulosCuadrados/Worksheet_AreaRectangulosCuadrados.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">41: Área de Triángulos (Pole Trójkątów)</div>
+                    <div class="lesson-description">Fórmula: A = (b × h) / 2</div>
+                    <div class="lesson-links">
+                        <a href="20251225_41_AreaTriangulos/Lesson_AreaTriangulos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_41_AreaTriangulos/App_AreaTriangulos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_41_AreaTriangulos/Worksheet_AreaTriangulos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">42: Área de Paralelogramos, Rombos y Trapecios (Pole Równoległoboków)</div>
+                    <div class="lesson-description">Fórmulas para diferentes cuadriláteros.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_42_AreaParalelogramos/Lesson_AreaParalelogramos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_42_AreaParalelogramos/App_AreaParalelogramos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_42_AreaParalelogramos/Worksheet_AreaParalelogramos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">43: Unidades de Área (Jednostki Pola)</div>
+                    <div class="lesson-description">Conversiones: 1 m² = 10,000 cm²</div>
+                    <div class="lesson-links">
+                        <a href="20251225_43_UnidadesArea/Lesson_UnidadesArea.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_43_UnidadesArea/App_UnidadesArea.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_43_UnidadesArea/Worksheet_UnidadesArea.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 07: Números Primos y Compuestos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Números Primos y Compuestos (Liczby pierwsze i złożone)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Identificar números primos, compuestos y factorización prima.</p>
-                <div class="lesson-links">
-                    <a href="20251224_07_NumerosPrimosCompuestos/Lesson_NumerosPrimosCompuestos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_07_NumerosPrimosCompuestos/App_NumerosPrimosCompuestos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_07_NumerosPrimosCompuestos/Worksheet_NumerosPrimosCompuestos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 7: CÍRCULOS -->
+        <div class="module" id="module7" onclick="toggleModule('module7')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 7: CÍRCULOS</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">2 lecciones</span>
+                        <span class="difficulty-badge difficulty-advanced">🟣 Avanzado</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">44: Radio y Diámetro del Círculo (Promień i Średnica)</div>
+                    <div class="lesson-description">Relación: d = 2r, r = d/2</div>
+                    <div class="lesson-links">
+                        <a href="20251225_44_CirculoRadioDiametro/Lesson_CirculoRadioDiametro.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_44_CirculoRadioDiametro/App_CirculoRadioDiametro.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_44_CirculoRadioDiametro/Worksheet_CirculoRadioDiametro.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">45: Circunferencia del Círculo (Obwód Koła)</div>
+                    <div class="lesson-description">Fórmula: C = 2πr = πd (π ≈ 3.14)</div>
+                    <div class="lesson-links">
+                        <a href="20251225_45_CircunferenciaCirculo/Lesson_CircunferenciaCirculo.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_45_CircunferenciaCirculo/App_CircunferenciaCirculo.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_45_CircunferenciaCirculo/Worksheet_CircunferenciaCirculo.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 08: Múltiplos, Divisores y Divisibilidad -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Múltiplos, Divisores y Divisibilidad (Wielokrotności, dzielniki i podzielność)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Múltiplos vs divisores, reglas de divisibilidad, MCM y MCD.</p>
-                <div class="lesson-links">
-                    <a href="20251224_08_MultiplosDivisoresDivisibilidad/Lesson_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_08_MultiplosDivisoresDivisibilidad/App_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_08_MultiplosDivisoresDivisibilidad/Worksheet_MultiplosDivisoresDivisibilidad.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 8: SÓLIDOS 3D -->
+        <div class="module" id="module8" onclick="toggleModule('module8')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 8: SÓLIDOS 3D</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">3 lecciones</span>
+                        <span class="difficulty-badge difficulty-advanced">🟣 Avanzado</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">46: Prismas y Cubos (Prostopadłościany i Sześciany)</div>
+                    <div class="lesson-description">Caras, aristas, vértices. Fórmula de Euler.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_46_PrismasCubos/Lesson_PrismasCubos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_46_PrismasCubos/App_PrismasCubos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_46_PrismasCubos/Worksheet_PrismasCubos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">47: Redes de Sólidos (Siatki Brył)</div>
+                    <div class="lesson-description">Patrones planos que forman sólidos 3D.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_47_RedesSolidos/Lesson_RedesSolidos.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_47_RedesSolidos/App_RedesSolidos.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_47_RedesSolidos/Worksheet_RedesSolidos.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">48: Área de Superficie (Pole Powierzchni)</div>
+                    <div class="lesson-description">Cubo: AS=6a² | Prisma: AS=2(lw+lh+wh)</div>
+                    <div class="lesson-links">
+                        <a href="20251225_48_AreaSuperficie/Lesson_AreaSuperficie.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_48_AreaSuperficie/App_AreaSuperficie.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_48_AreaSuperficie/Worksheet_AreaSuperficie.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 09: Suma y Resta Mental -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Suma y Resta Mental (Dodawanie i odejmowanie w pamięci)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Cálculo mental rápido.</p>
-                <div class="lesson-links">
-                    <a href="20251221_07_SumaRestaMental/Lesson_SumaRestaMental.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_07_SumaRestaMental/App_SumaRestaMental.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_07_SumaRestaMental/Worksheet_SumaRestaMental.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 9: MEDICIONES -->
+        <div class="module" id="module9" onclick="toggleModule('module9')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 9: MEDICIONES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">5 lecciones</span>
+                        <span class="difficulty-badge difficulty-intermediate">🔵 Intermedio</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                            <div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-icon">▶</div>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">49: Longitud y Distancia (Długość i Odległość)</div>
+                    <div class="lesson-description">Unidades métricas: mm, cm, m, km.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_49_LongitudDistancia/Lesson_LongitudDistancia.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_49_LongitudDistancia/App_LongitudDistancia.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_49_LongitudDistancia/Worksheet_LongitudDistancia.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">50: Masa y Capacidad (Masa i Pojemność)</div>
+                    <div class="lesson-description">Peso (g, kg) y volumen (mL, L).</div>
+                    <div class="lesson-links">
+                        <a href="20251224_50_MasaCapacidad/Lesson_MasaCapacidad.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_50_MasaCapacidad/App_MasaCapacidad.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_50_MasaCapacidad/Worksheet_MasaCapacidad.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 24 de Diciembre, 2025</div>
+                    <div class="lesson-title">51: Tiempo (Czas)</div>
+                    <div class="lesson-description">Leer el reloj y calcular tiempo transcurrido.</div>
+                    <div class="lesson-links">
+                        <a href="20251224_51_Tiempo/Lesson_Tiempo.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251224_51_Tiempo/App_Tiempo.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251224_51_Tiempo/Worksheet_Tiempo.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">52: Escala (Skala)</div>
+                    <div class="lesson-description">Interpretar mapas y planos usando escala.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_52_Escala/Lesson_Escala.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_52_Escala/App_Escala.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_52_Escala/Worksheet_Escala.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">53: Velocidad, Distancia y Tiempo (Prędkość, Odległość i Czas)</div>
+                    <div class="lesson-description">Fórmulas: d=v×t, v=d÷t, t=d÷v</div>
+                    <div class="lesson-links">
+                        <a href="20251225_53_VelocidadDistanciaTiempo/Lesson_VelocidadDistanciaTiempo.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_53_VelocidadDistanciaTiempo/App_VelocidadDistanciaTiempo.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_53_VelocidadDistanciaTiempo/Worksheet_VelocidadDistanciaTiempo.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Lesson 08: Suma Escrita -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Suma Escrita (Dodawanie pisemne)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Suma con reagrupación.</p>
-                <div class="lesson-links">
-                    <a href="20251221_08_SumaEscrita/Lesson_SumaEscrita.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_08_SumaEscrita/App_SumaEscrita.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_08_SumaEscrita/Worksheet_SumaEscrita.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+        <!-- MÓDULO 10: PORCENTAJES -->
+        <div class="module" id="module10" onclick="toggleModule('module10')">
+            <div class="module-header">
+                <div class="module-info">
+                    <div class="module-title">
+                        <span>MÓDULO 10: PORCENTAJES</span>
+                    </div>
+                    <div class="module-meta">
+                        <span class="lesson-count">2 lecciones</span>
+                        <span class="difficulty-badge difficulty-advanced">🟣 Avanzado</span>
+                        <div class="progress-dots">
+                            <div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
                 </div>
+                <div class="toggle-icon">▶</div>
             </div>
-
-            <!-- Lesson 09: Resta Escrita -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">Resta Escrita (Odejmowanie pisemne)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Resta con reagrupación.</p>
-                <div class="lesson-links">
-                    <a href="20251221_09_RestaEscrita/Lesson_RestaEscrita.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_09_RestaEscrita/App_RestaEscrita.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_09_RestaEscrita/Worksheet_RestaEscrita.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+            <div class="lesson-list">
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">54: Introducción a Porcentajes (Wprowadzenie do Procentów)</div>
+                    <div class="lesson-description">Conversiones entre %, fracciones y decimales.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_54_IntroduccionPorcentajes/Lesson_IntroduccionPorcentajes.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_54_IntroduccionPorcentajes/App_IntroduccionPorcentajes.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_54_IntroduccionPorcentajes/Worksheet_IntroduccionPorcentajes.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Lesson 12: Estimación de Sumas y Diferencias -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Estimación de Sumas y Diferencias (Szacowanie)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Redondeo y estimaciones rápidas.</p>
-                <div class="lesson-links">
-                    <a href="20251224_12_EstimacionSumasDiferencias/Lesson_EstimacionSumasDiferencias.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_12_EstimacionSumasDiferencias/App_EstimacionSumasDiferencias.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_12_EstimacionSumasDiferencias/Worksheet_EstimacionSumasDiferencias.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 13: Tablas de Multiplicar -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Tablas de Multiplicar (1-12) (Tabliczka mnożenia)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Memorizar las tablas del 1 al 12.</p>
-                <div class="lesson-links">
-                    <a href="20251224_13_TablasMultiplicar/Lesson_TablasMultiplicar.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_13_TablasMultiplicar/App_TablasMultiplicar.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_13_TablasMultiplicar/Worksheet_TablasMultiplicar.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 14: Multiplicación 1×2 Dígitos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Multiplicación 1×2 Dígitos (Mnożenie)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Multiplicar números de 1 y 2 dígitos.</p>
-                <div class="lesson-links">
-                    <a href="20251224_14_Multiplicacion1x2Digitos/Lesson_Multiplicacion1x2Digitos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_14_Multiplicacion1x2Digitos/App_Multiplicacion1x2Digitos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_14_Multiplicacion1x2Digitos/Worksheet_Multiplicacion1x2Digitos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 15: Métodos Box y Lattice -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Métodos Box y Lattice (Metody mnożenia)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Métodos visuales de multiplicación.</p>
-                <div class="lesson-links">
-                    <a href="20251224_15_MetodosBoxLattice/Lesson_MetodosBoxLattice.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_15_MetodosBoxLattice/App_MetodosBoxLattice.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_15_MetodosBoxLattice/Worksheet_MetodosBoxLattice.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 16: Propiedades de Multiplicación -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Propiedades de Multiplicación (Właściwości mnożenia)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Conmutativa, asociativa, distributiva.</p>
-                <div class="lesson-links">
-                    <a href="20251224_16_PropiedadesMultiplicacion/Lesson_PropiedadesMultiplicacion.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_16_PropiedadesMultiplicacion/App_PropiedadesMultiplicacion.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_16_PropiedadesMultiplicacion/Worksheet_PropiedadesMultiplicacion.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 17: División Básica -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 22 de Diciembre, 2025</div>
-                <div class="lesson-title">División Básica (Dzielenie podstawowe)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">División simple y tablas de dividir.</p>
-                <div class="lesson-links">
-                    <a href="20251221_12_DivisionBasica/Lesson_DivisionBasica.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_12_DivisionBasica/App_DivisionBasica.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_12_DivisionBasica/Worksheet_DivisionBasica.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 18: División Larga -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">División Larga (Dzielenie pisemne)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">División larga paso a paso.</p>
-                <div class="lesson-links">
-                    <a href="20251224_18_DivisionLarga/Lesson_DivisionLarga.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_18_DivisionLarga/App_DivisionLarga.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_18_DivisionLarga/Worksheet_DivisionLarga.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 19: División con Residuo -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">División con Residuo (Dzielenie z resztą)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Divisiones que dejan resto.</p>
-                <div class="lesson-links">
-                    <a href="20251224_19_DivisionConResiduo/Lesson_DivisionConResiduo.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_19_DivisionConResiduo/App_DivisionConResiduo.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_19_DivisionConResiduo/Worksheet_DivisionConResiduo.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 20: Potencias -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 21 de Diciembre, 2025</div>
-                <div class="lesson-title">Potencias (Potęgi)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Exponentes, base, y potencias al cuadrado y al cubo.</p>
-                <div class="lesson-links">
-                    <a href="20251221_Potencias/Lesson_Potencias.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251221_Potencias/App_Potencias.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251221_Potencias/Worksheet_Potencias.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 21: Introducción a Fracciones -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Introducción a Fracciones (Wprowadzenie do ułamków)</div>
-                <p style="color: #666;">Conceptos básicos de fracciones, numerador y denominador.</p>
-                <div class="lesson-links">
-                    <a href="20251225_21_IntroduccionFracciones/Lesson_IntroduccionFracciones.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_21_IntroduccionFracciones/App_IntroduccionFracciones.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_21_IntroduccionFracciones/Worksheet_IntroduccionFracciones.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 22: Fracciones Propias, Impropias y Mixtas -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Tipos de Fracciones (Ułamki właściwe, niewłaściwe, mieszane)</div>
-                <p style="color: #666;">Propias, impropias, mixtas y conversiones.</p>
-                <div class="lesson-links">
-                    <a href="20251225_22_FraccionesPropiasMixtas/Lesson_FraccionesPropiasMixtas.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_22_FraccionesPropiasMixtas/App_FraccionesPropiasMixtas.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_22_FraccionesPropiasMixtas/Worksheet_FraccionesPropiasMixtas.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 23: Fracciones Equivalentes -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Fracciones Equivalentes (Ułamki równoważne)</div>
-                <p style="color: #666;">Ampliar, simplificar y encontrar el MCD.</p>
-                <div class="lesson-links">
-                    <a href="20251225_23_FraccionesEquivalentes/Lesson_FraccionesEquivalentes.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_23_FraccionesEquivalentes/App_FraccionesEquivalentes.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_23_FraccionesEquivalentes/Worksheet_FraccionesEquivalentes.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 24: Comparación de Fracciones -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Comparación de Fracciones (Porównywanie ułamków)</div>
-                <p style="color: #666;">Símbolos <, >, = y métodos de comparación.</p>
-                <div class="lesson-links">
-                    <a href="20251225_24_ComparacionFracciones/Lesson_ComparacionFracciones.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_24_ComparacionFracciones/App_ComparacionFracciones.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_24_ComparacionFracciones/Worksheet_ComparacionFracciones.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 25: Suma y Resta - Mismo Denominador -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Suma/Resta Mismo Denominador (Dodawanie i odejmowanie)</div>
-                <p style="color: #666;">Operar con fracciones de igual denominador.</p>
-                <div class="lesson-links">
-                    <a href="20251225_25_SumaRestaIgualDenominador/Lesson_SumaRestaIgualDenominador.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_25_SumaRestaIgualDenominador/App_SumaRestaIgualDenominador.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_25_SumaRestaIgualDenominador/Worksheet_SumaRestaIgualDenominador.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 26: Suma y Resta - Diferente Denominador -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Suma/Resta Diferente Denominador (Różne mianowniki)</div>
-                <p style="color: #666;">MCM y fracciones con distintos denominadores.</p>
-                <div class="lesson-links">
-                    <a href="20251225_26_SumaRestaDiferenteDenominador/Lesson_SumaRestaDiferenteDenominador.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_26_SumaRestaDiferenteDenominador/App_SumaRestaDiferenteDenominador.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_26_SumaRestaDiferenteDenominador/Worksheet_SumaRestaDiferenteDenominador.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 27: Multiplicación de Fracciones -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Multiplicación de Fracciones (Mnożenie ułamków)</div>
-                <p style="color: #666;">Multiplicar numeradores y denominadores.</p>
-                <div class="lesson-links">
-                    <a href="20251225_27_MultiplicacionFracciones/Lesson_MultiplicacionFracciones.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_27_MultiplicacionFracciones/App_MultiplicacionFracciones.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_27_MultiplicacionFracciones/Worksheet_MultiplicacionFracciones.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 28: Fracciones de Cantidades -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Fracciones de Cantidades (Ułamki liczb)</div>
-                <p style="color: #666;">Calcular fracciones de números enteros.</p>
-                <div class="lesson-links">
-                    <a href="20251225_28_FraccionesCantidades/Lesson_FraccionesCantidades.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_28_FraccionesCantidades/App_FraccionesCantidades.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_28_FraccionesCantidades/Worksheet_FraccionesCantidades.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 29: Conexión Fracciones-Decimales -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Conexión Fracciones-Decimales (Związek ułamków i dziesiętnych)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Convertir entre fracciones y decimales.</p>
-                <div class="lesson-links">
-                    <a href="20251224_27_ConexionFraccionesDecimales/Lesson_ConexionFraccionesDecimales.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_27_ConexionFraccionesDecimales/App_ConexionFraccionesDecimales.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_27_ConexionFraccionesDecimales/Worksheet_ConexionFraccionesDecimales.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 28: Problemas con Decimales -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Problemas con Decimales (Zadania z ułamkami dziesiętnymi)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Problemas de palabras con dinero y mediciones.</p>
-                <div class="lesson-links">
-                    <a href="20251224_28_ProblemasDecimales/Lesson_ProblemasDecimales.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_28_ProblemasDecimales/App_ProblemasDecimales.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_28_ProblemasDecimales/Worksheet_ProblemasDecimales.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 30: Comparación de Decimales -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Comparación de Decimales (Porównywanie liczb dziesiętnych)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Comparar decimales usando <, >, =</p>
-                <div class="lesson-links">
-                    <a href="20251225_30_ComparacionDecimales/Lesson_ComparacionDecimales.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_30_ComparacionDecimales/App_ComparacionDecimales.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_30_ComparacionDecimales/Worksheet_ComparacionDecimales.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 31: Operaciones con Decimales ×÷ 10,100,1000 -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Operaciones con Decimales ×÷ 10,100,1000 (Działania na liczbach dziesiętnych)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Multiplicar y dividir decimales por potencias de 10.</p>
-                <div class="lesson-links">
-                    <a href="20251225_31_OperacionesDecimales/Lesson_OperacionesDecimales.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_31_OperacionesDecimales/App_OperacionesDecimales.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_31_OperacionesDecimales/Worksheet_OperacionesDecimales.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 33: Punto, Línea, Rayo, Segmento -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Punto, Línea, Rayo, Segmento (Punkt, Prosta, Promień, Odcinek)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Conceptos fundamentales de geometría.</p>
-                <div class="lesson-links">
-                    <a href="20251225_33_PuntoLineaRayoSegmento/Lesson_PuntoLineaRayoSegmento.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_33_PuntoLineaRayoSegmento/App_PuntoLineaRayoSegmento.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_33_PuntoLineaRayoSegmento/Worksheet_PuntoLineaRayoSegmento.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 34: Líneas Perpendiculares y Paralelas -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Líneas Perpendiculares y Paralelas (Proste Prostopadłe i Równoległe)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Usar escuadras para líneas perpendiculares y paralelas.</p>
-                <div class="lesson-links">
-                    <a href="20251225_34_LineasPerpendicularesParalelas/Lesson_LineasPerpendicularesParalelas.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_34_LineasPerpendicularesParalelas/App_LineasPerpendicularesParalelas.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_34_LineasPerpendicularesParalelas/Worksheet_LineasPerpendicularesParalelas.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 35: Ángulos - Tipos y Medición -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Ángulos: Tipos y Medición (Kąty: Rodzaje i Pomiar)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Usar el transportador para medir ángulos.</p>
-                <div class="lesson-links">
-                    <a href="20251225_35_AngulosTiposMedicion/Lesson_AngulosTiposMedicion.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_35_AngulosTiposMedicion/App_AngulosTiposMedicion.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_35_AngulosTiposMedicion/Worksheet_AngulosTiposMedicion.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 36: Ángulos Adyacentes y en el Reloj -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Ángulos Adyacentes y en el Reloj (Kąty Przyległe i Zegar)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Calcular ángulos usando el reloj (horas × 30°).</p>
-                <div class="lesson-links">
-                    <a href="20251225_36_AngulosAdyacentesReloj/Lesson_AngulosAdyacentesReloj.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_36_AngulosAdyacentesReloj/App_AngulosAdyacentesReloj.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_36_AngulosAdyacentesReloj/Worksheet_AngulosAdyacentesReloj.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 37: Triángulos y Cuadriláteros -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Triángulos y Cuadriláteros (Trójkąty i Czworokąty)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Tipos de triángulos y cuadriláteros.</p>
-                <div class="lesson-links">
-                    <a href="20251225_37_TriangulosCuadrilateros/Lesson_TriangulosCuadrilateros.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_37_TriangulosCuadrilateros/App_TriangulosCuadrilateros.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_37_TriangulosCuadrilateros/Worksheet_TriangulosCuadrilateros.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 38: Dibujar Figuras con Ángulos Dados -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Dibujar Figuras con Ángulos Dados (Rysowanie Figur)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Construir figuras con regla, transportador y compás.</p>
-                <div class="lesson-links">
-                    <a href="20251225_38_DibujarFigurasAngulos/Lesson_DibujarFigurasAngulos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_38_DibujarFigurasAngulos/App_DibujarFigurasAngulos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_38_DibujarFigurasAngulos/Worksheet_DibujarFigurasAngulos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 39: Perímetro de Polígonos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Perímetro de Polígonos (Obwód Wielokątów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Calcular el perímetro sumando todos los lados.</p>
-                <div class="lesson-links">
-                    <a href="20251225_39_PerimetroPoligonos/Lesson_PerimetroPoligonos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_39_PerimetroPoligonos/App_PerimetroPoligonos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_39_PerimetroPoligonos/Worksheet_PerimetroPoligonos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 40: Área de Rectángulos y Cuadrados -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Área de Rectángulos y Cuadrados (Pole Prostokątów i Kwadratów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Fórmulas: A = l² y A = l × a</p>
-                <div class="lesson-links">
-                    <a href="20251225_40_AreaRectangulosCuadrados/Lesson_AreaRectangulosCuadrados.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_40_AreaRectangulosCuadrados/App_AreaRectangulosCuadrados.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_40_AreaRectangulosCuadrados/Worksheet_AreaRectangulosCuadrados.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 41: Área de Triángulos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Área de Triángulos (Pole Trójkątów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Fórmula: A = (b × h) / 2</p>
-                <div class="lesson-links">
-                    <a href="20251225_41_AreaTriangulos/Lesson_AreaTriangulos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_41_AreaTriangulos/App_AreaTriangulos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_41_AreaTriangulos/Worksheet_AreaTriangulos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 42: Área de Paralelogramos, Rombos y Trapecios -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Área de Paralelogramos, Rombos y Trapecios (Pole Równoległoboków)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Fórmulas para diferentes cuadriláteros.</p>
-                <div class="lesson-links">
-                    <a href="20251225_42_AreaParalelogramos/Lesson_AreaParalelogramos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_42_AreaParalelogramos/App_AreaParalelogramos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_42_AreaParalelogramos/Worksheet_AreaParalelogramos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 43: Unidades de Área -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Unidades de Área (Jednostki Pola)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Conversiones: 1 m² = 10,000 cm²</p>
-                <div class="lesson-links">
-                    <a href="20251225_43_UnidadesArea/Lesson_UnidadesArea.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_43_UnidadesArea/App_UnidadesArea.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_43_UnidadesArea/Worksheet_UnidadesArea.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 44: Radio y Diámetro del Círculo -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Radio y Diámetro del Círculo (Promień i Średnica)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Relación: d = 2r, r = d/2</p>
-                <div class="lesson-links">
-                    <a href="20251225_44_CirculoRadioDiametro/Lesson_CirculoRadioDiametro.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_44_CirculoRadioDiametro/App_CirculoRadioDiametro.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_44_CirculoRadioDiametro/Worksheet_CirculoRadioDiametro.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 45: Circunferencia del Círculo -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Circunferencia del Círculo (Obwód Koła)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Fórmula: C = 2πr = πd (π ≈ 3.14)</p>
-                <div class="lesson-links">
-                    <a href="20251225_45_CircunferenciaCirculo/Lesson_CircunferenciaCirculo.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_45_CircunferenciaCirculo/App_CircunferenciaCirculo.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_45_CircunferenciaCirculo/Worksheet_CircunferenciaCirculo.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 46: Prismas y Cubos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Prismas y Cubos (Prostopadłościany i Sześciany)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Caras, aristas, vértices. Fórmula de Euler.</p>
-                <div class="lesson-links">
-                    <a href="20251225_46_PrismasCubos/Lesson_PrismasCubos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_46_PrismasCubos/App_PrismasCubos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_46_PrismasCubos/Worksheet_PrismasCubos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 47: Redes de Sólidos -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Redes de Sólidos (Siatki Brył)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Patrones planos que forman sólidos 3D.</p>
-                <div class="lesson-links">
-                    <a href="20251225_47_RedesSolidos/Lesson_RedesSolidos.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_47_RedesSolidos/App_RedesSolidos.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_47_RedesSolidos/Worksheet_RedesSolidos.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 48: Área de Superficie -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Área de Superficie (Pole Powierzchni)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Cubo: AS=6a² | Prisma: AS=2(lw+lh+wh)</p>
-                <div class="lesson-links">
-                    <a href="20251225_48_AreaSuperficie/Lesson_AreaSuperficie.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_48_AreaSuperficie/App_AreaSuperficie.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_48_AreaSuperficie/Worksheet_AreaSuperficie.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 49: Longitud y Distancia -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Longitud y Distancia (Długość i Odległość)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Unidades métricas: mm, cm, m, km.</p>
-                <div class="lesson-links">
-                    <a href="20251224_49_LongitudDistancia/Lesson_LongitudDistancia.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_49_LongitudDistancia/App_LongitudDistancia.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_49_LongitudDistancia/Worksheet_LongitudDistancia.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 50: Masa y Capacidad -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Masa y Capacidad (Masa i Pojemność)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Peso (g, kg) y volumen (mL, L).</p>
-                <div class="lesson-links">
-                    <a href="20251224_50_MasaCapacidad/Lesson_MasaCapacidad.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_50_MasaCapacidad/App_MasaCapacidad.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_50_MasaCapacidad/Worksheet_MasaCapacidad.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 51: Tiempo -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 24 de Diciembre, 2025</div>
-                <div class="lesson-title">Tiempo (Czas)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Leer el reloj y calcular tiempo transcurrido.</p>
-                <div class="lesson-links">
-                    <a href="20251224_51_Tiempo/Lesson_Tiempo.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251224_51_Tiempo/App_Tiempo.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251224_51_Tiempo/Worksheet_Tiempo.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 52: Escala -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Escala (Skala)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Interpretar mapas y planos usando escala.</p>
-                <div class="lesson-links">
-                    <a href="20251225_52_Escala/Lesson_Escala.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_52_Escala/App_Escala.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_52_Escala/Worksheet_Escala.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 53: Velocidad, Distancia y Tiempo -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Velocidad, Distancia y Tiempo (Prędkość, Odległość i Czas)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Fórmulas: d=v×t, v=d÷t, t=d÷v</p>
-                <div class="lesson-links">
-                    <a href="20251225_53_VelocidadDistanciaTiempo/Lesson_VelocidadDistanciaTiempo.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_53_VelocidadDistanciaTiempo/App_VelocidadDistanciaTiempo.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_53_VelocidadDistanciaTiempo/Worksheet_VelocidadDistanciaTiempo.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 54: Introducción a Porcentajes -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Introducción a Porcentajes (Wprowadzenie do Procentów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Conversiones entre %, fracciones y decimales.</p>
-                <div class="lesson-links">
-                    <a href="20251225_54_IntroduccionPorcentajes/Lesson_IntroduccionPorcentajes.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_54_IntroduccionPorcentajes/App_IntroduccionPorcentajes.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_54_IntroduccionPorcentajes/Worksheet_IntroduccionPorcentajes.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
-                </div>
-            </div>
-
-            <!-- Lesson 55: Calcular Porcentajes -->
-            <div class="lesson-card">
-                <div class="lesson-date">📅 25 de Diciembre, 2025</div>
-                <div class="lesson-title">Calcular Porcentajes (Obliczanie Procentów)</div>
-                <p style="color: #666; margin-top: 10px; line-height: 1.6;">Problemas de descuentos, propinas y calificaciones.</p>
-                <div class="lesson-links">
-                    <a href="20251225_55_CalcularPorcentajes/Lesson_CalcularPorcentajes.html" class="lesson-link link-lesson"><span class="icon">🎓</span><span>Clase</span></a>
-                    <a href="20251225_55_CalcularPorcentajes/App_CalcularPorcentajes.html" class="lesson-link link-app"><span class="icon">🎮</span><span>Juego</span></a>
-                    <a href="20251225_55_CalcularPorcentajes/Worksheet_CalcularPorcentajes.html" class="lesson-link link-worksheet"><span class="icon">📄</span><span>Hoja de Trabajo</span></a>
+                <div class="lesson-card">
+                    <div class="lesson-date">📅 25 de Diciembre, 2025</div>
+                    <div class="lesson-title">55: Calcular Porcentajes (Obliczanie Procentów)</div>
+                    <div class="lesson-description">Problemas de descuentos, propinas y calificaciones.</div>
+                    <div class="lesson-links">
+                        <a href="20251225_55_CalcularPorcentajes/Lesson_CalcularPorcentajes.html" class="lesson-link link-lesson">🎓 Clase</a>
+                        <a href="20251225_55_CalcularPorcentajes/App_CalcularPorcentajes.html" class="lesson-link link-app">🎮 Juego</a>
+                        <a href="20251225_55_CalcularPorcentajes/Worksheet_CalcularPorcentajes.html" class="lesson-link link-worksheet">📄 Hoja</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <h2 style="color: #667eea; margin-bottom: 15px;">📊 Progreso de Daniel</h2>
+            <h2>📊 Progreso de Daniel</h2>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-number" id="lesson-count">1</div>
-                    <div class="stat-label">Lecciones Completadas</div>
+                    <div class="stat-number">55</div>
+                    <div class="stat-label">Lecciones Totales</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">🎯</div>
-                    <div class="stat-label">Siguiente: Fracciones</div>
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Módulos</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">⭐</div>
-                    <div class="stat-label">¡Sigue así!</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Completado</div>
                 </div>
             </div>
             <p style="margin-top: 25px; color: #999; font-size: 0.9em;">
-                Última actualización: <span id="last-update">21 de Diciembre, 2025</span>
+                Última actualización: <span id="last-update">25 de Diciembre, 2025</span>
             </p>
             <p style="color: #667eea; font-weight: bold; margin-top: 10px;">
                 💪 "Las matemáticas son el gimnasio de la mente" 💪
@@ -888,14 +1141,35 @@
     </div>
 
     <script>
-        // Auto-update lesson count based on lesson cards
-        const lessonCards = document.querySelectorAll('.lesson-card');
-        document.getElementById('lesson-count').textContent = lessonCards.length;
+        function toggleModule(moduleId) {
+            const module = document.getElementById(moduleId);
 
-        // Update last update date to today
-        const today = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('last-update').textContent = today.toLocaleDateString('es-ES', options);
+            if (module.classList.contains('expanded')) {
+                module.classList.remove('expanded');
+                localStorage.setItem(moduleId, 'collapsed');
+            } else {
+                module.classList.add('expanded');
+                localStorage.setItem(moduleId, 'expanded');
+            }
+        }
+
+        // Restore module states on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const modules = ['module1', 'module2', 'module3', 'module4', 'module5',
+                            'module6', 'module7', 'module8', 'module9', 'module10'];
+
+            modules.forEach(moduleId => {
+                const state = localStorage.getItem(moduleId);
+                if (state === 'expanded') {
+                    document.getElementById(moduleId).classList.add('expanded');
+                }
+            });
+
+            // Update date
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('last-update').textContent = today.toLocaleDateString('es-ES', options);
+        });
     </script>
 </body>
 </html>
