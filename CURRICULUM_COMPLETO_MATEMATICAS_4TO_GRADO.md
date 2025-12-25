@@ -112,25 +112,25 @@
 ---
 
 ## MÓDULO 6: POLA I OBWODY (Perímetros y Áreas)
-**Estado General:** 0/5 lecciones ⬜
+**Estado General:** 5/5 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 39 | Perímetro de Polígonos (Obwód wielokątów) | ⬜ POR CREAR | - |
-| 40 | Área de Rectángulos y Cuadrados (Pole prostokąta i kwadratu) | ⬜ POR CREAR | - |
-| 41 | Área de Triángulos (Pole trójkąta) | ⬜ POR CREAR | - |
-| 42 | Área de Paralelogramos, Rombos y Trapecios (Pole równoległoboku, rombu, trapezu) | ⬜ POR CREAR | - |
-| 43 | Unidades de Área y Conversiones (Jednostki pola powierzchni) | ⬜ POR CREAR | - |
+| 39 | Perímetro de Polígonos (Obwód wielokątów) | ✅ HTML | Lesson, App, Worksheet |
+| 40 | Área de Rectángulos y Cuadrados (Pole prostokąta i kwadratu) | ✅ HTML | Lesson, App, Worksheet |
+| 41 | Área de Triángulos (Pole trójkąta) | ✅ HTML | Lesson, App, Worksheet |
+| 42 | Área de Paralelogramos, Rombos y Trapecios (Pole równoległoboku, rombu, trapezu) | ✅ HTML | Lesson, App, Worksheet |
+| 43 | Unidades de Área y Conversiones (Jednostki pola powierzchni) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
 ## MÓDULO 7: KOŁA (Círculos)
-**Estado General:** 0/2 lecciones ⬜
+**Estado General:** 2/2 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 44 | Círculo: Radio, Diámetro, Cuerda (Okrąg: promień, średnica, cięciwa) | ⬜ POR CREAR | - |
-| 45 | Circunferencia del Círculo (Obwód koła) | ⬜ POR CREAR | - |
+| 44 | Círculo: Radio, Diámetro, Cuerda (Okrąg: promień, średnica, cięciwa) | ✅ HTML | Lesson, App, Worksheet |
+| 45 | Circunferencia del Círculo (Obwód koła) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 43 | 78% |
+| ✅ **Lecciones en HTML (Completas)** | 50 | 91% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 12 | 22% |
+| ⬜ **Lecciones por crear** | 5 | 9% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -188,12 +188,12 @@
 | 3. Fracciones Comunes | 8 ✅ | 0 | 0 | 8 |
 | 4. Decimales | 4 ✅ | 0 | 0 | 4 |
 | 5. Geometría Básica | 6 ✅ | 0 | 0 | 6 |
-| 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
-| 7. Círculos | 0 | 0 | 2 | 2 |
+| 6. Perímetros y Áreas | 5 ✅ | 0 | 0 | 5 |
+| 7. Círculos | 2 ✅ | 0 | 0 | 2 |
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
 | 9. Mediciones | 5 ✅ | 0 | 0 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **43** | **0** | **12** | **55** |
+| **TOTALES** | **50** | **0** | **5** | **55** |
 
 ---
 
