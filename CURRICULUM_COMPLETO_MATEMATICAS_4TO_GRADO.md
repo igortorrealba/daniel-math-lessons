@@ -93,21 +93,21 @@
 ---
 
 ## MÓDULO 5: GEOMETRIA - PODSTAWY (Geometría Básica)
-**Estado General:** 0/6 lecciones ⬜
+**Estado General:** 6/6 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 ### LÍNEAS, SEGMENTOS Y ÁNGULOS
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 33 | Punto, Línea, Rayo, Segmento (Punkt, prosta, promień, odcinek) | ⬜ POR CREAR | - |
-| 34 | Líneas Perpendiculares y Paralelas (Proste prostopadłe i równoległe) | ⬜ POR CREAR | - |
-| 35 | Ángulos: Tipos y Medición (Kąty: rodzaje i pomiar) | ⬜ POR CREAR | - |
-| 36 | Ángulos Adyacentes y en el Reloj (Kąty przyległe) | ⬜ POR CREAR | - |
+| 33 | Punto, Línea, Rayo, Segmento (Punkt, prosta, promień, odcinek) | ✅ HTML | Lesson, App, Worksheet |
+| 34 | Líneas Perpendiculares y Paralelas (Proste prostopadłe i równoległe) | ✅ HTML | Lesson, App, Worksheet |
+| 35 | Ángulos: Tipos y Medición (Kąty: rodzaje i pomiar) | ✅ HTML | Lesson, App, Worksheet |
+| 36 | Ángulos Adyacentes y en el Reloj (Kąty przyległe) | ✅ HTML | Lesson, App, Worksheet |
 
 ### FIGURAS PLANAS
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 37 | Triángulos y Cuadriláteros (Trójkąty i czworokąty) | ⬜ POR CREAR | - |
-| 38 | Dibujar Figuras con Ángulos Dados (Rysowanie figur) | ⬜ POR CREAR | - |
+| 37 | Triángulos y Cuadriláteros (Trójkąty i czworokąty) | ✅ HTML | Lesson, App, Worksheet |
+| 38 | Dibujar Figuras con Ángulos Dados (Rysowanie figur) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 37 | 67% |
+| ✅ **Lecciones en HTML (Completas)** | 43 | 78% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 18 | 33% |
+| ⬜ **Lecciones por crear** | 12 | 22% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -187,13 +187,13 @@
 | 2. Operaciones | 10 ✅ | 0 | 0 | 10 |
 | 3. Fracciones Comunes | 8 ✅ | 0 | 0 | 8 |
 | 4. Decimales | 4 ✅ | 0 | 0 | 4 |
-| 5. Geometría Básica | 0 | 0 | 6 | 6 |
+| 5. Geometría Básica | 6 ✅ | 0 | 0 | 6 |
 | 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
 | 7. Círculos | 0 | 0 | 2 | 2 |
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
 | 9. Mediciones | 5 ✅ | 0 | 0 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **37** | **0** | **18** | **55** |
+| **TOTALES** | **43** | **0** | **12** | **55** |
 
 ---
 

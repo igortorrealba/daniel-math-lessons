@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Perpendiculares y Paralelas</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#e74c3c 0%,#c0392b 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.question{font-size:24px;font-weight:bold;color:#2c3e50;margin:30px 0;text-align:center}.visual-area{background:#f8f9fa;border:3px solid#e74c3c;padding:30px;margin:20px 0;border-radius:10px;min-height:200px;display:flex;align-items:center;justify-content:center}.choices{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin:20px 0}.choice-btn{padding:20px;font-size:18px;background:#ecf0f1;color:#2c3e50;border:3px solid#bdc3c7;border-radius:10px;cursor:pointer;font-weight:bold;transition:all .3s}.choice-btn:hover{background:#e74c3c;color:#fff;border-color:#c0392b;transform:scale(1.05)}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
+</style>
+</head>
+<body>
+<h1>🎮 ¿Perpendiculares o Paralelas?</h1>
+<div class="game-container">
+<div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div>
+<div class="question">Identifica el tipo de líneas:</div>
+<div class="visual-area">
+<svg id="svgCanvas" width="400" height="250"></svg>
+</div>
+<div class="choices">
+<button class="choice-btn" onclick="checkAnswer('perpendicular')">⊥ Perpendiculares</button>
+<button class="choice-btn" onclick="checkAnswer('paralela')">∥ Paralelas</button>
+<button class="choice-btn" onclick="checkAnswer('ninguna')">✗ Ninguna</button>
+</div>
+<div id="feedback"></div>
+</div>
+
+<script>
+let correct=0,incorrect=0,streak=0;
+let currentType='';
+
+function gen(){
+document.getElementById('feedback').innerHTML='';
+const svg=document.getElementById('svgCanvas');
+svg.innerHTML='';
+const types=['perpendicular','paralela','ninguna'];
+currentType=types[Math.floor(Math.random()*types.length)];
+
+if(currentType==='perpendicular'){
+const variation=Math.floor(Math.random()*3);
+if(variation===0){
+// Vertical and horizontal
+svg.innerHTML=`<line x1="200" y1="30" x2="200" y2="220" stroke="#e74c3c" stroke-width="3"/>
+<line x1="80" y1="125" x2="320" y2="125" stroke="#3498db" stroke-width="3"/>
+<rect x="193" y="118" width="14" height="14" fill="none" stroke="#27ae60" stroke-width="2"/>`;
+}else if(variation===1){
+// T shape
+svg.innerHTML=`<line x1="100" y1="80" x2="300" y2="80" stroke="#e74c3c" stroke-width="3"/>
+<line x1="200" y1="80" x2="200" y2="200" stroke="#3498db" stroke-width="3"/>
+<rect x="193" y="73" width="14" height="14" fill="none" stroke="#27ae60" stroke-width="2"/>`;
+}else{
+// L shape
+svg.innerHTML=`<line x1="100" y1="180" x2="300" y2="180" stroke="#e74c3c" stroke-width="3"/>
+<line x1="100" y1="60" x2="100" y2="180" stroke="#3498db" stroke-width="3"/>
+<rect x="93" y="173" width="14" height="14" fill="none" stroke="#27ae60" stroke-width="2"/>`;
+}
+}else if(currentType==='paralela'){
+const variation=Math.floor(Math.random()*3);
+if(variation===0){
+// Horizontal parallels
+svg.innerHTML=`<line x1="50" y1="80" x2="350" y2="80" stroke="#e74c3c" stroke-width="3"/>
+<line x1="50" y1="170" x2="350" y2="170" stroke="#3498db" stroke-width="3"/>
+<line x1="200" y1="80" x2="200" y2="170" stroke="#27ae60" stroke-width="1" stroke-dasharray="5,5"/>
+<text x="205" y="130" font-size="12" fill="#27ae60">misma</text>`;
+}else if(variation===1){
+// Vertical parallels
+svg.innerHTML=`<line x1="120" y1="40" x2="120" y2="210" stroke="#e74c3c" stroke-width="3"/>
+<line x1="280" y1="40" x2="280" y2="210" stroke="#3498db" stroke-width="3"/>
+<line x1="120" y1="125" x2="280" y2="125" stroke="#27ae60" stroke-width="1" stroke-dasharray="5,5"/>`;
+}else{
+// Diagonal parallels
+svg.innerHTML=`<line x1="80" y1="60" x2="200" y2="180" stroke="#e74c3c" stroke-width="3"/>
+<line x1="200" y1="60" x2="320" y2="180" stroke="#3498db" stroke-width="3"/>`;
+}
+}else{
+// Neither - intersecting at non-90 degrees
+const variation=Math.floor(Math.random()*2);
+if(variation===0){
+svg.innerHTML=`<line x1="80" y1="80" x2="320" y2="170" stroke="#e74c3c" stroke-width="3"/>
+<line x1="80" y1="170" x2="320" y2="80" stroke="#3498db" stroke-width="3"/>`;
+}else{
+svg.innerHTML=`<line x1="100" y1="60" x2="150" y2="200" stroke="#e74c3c" stroke-width="3"/>
+<line x1="250" y1="70" x2="300" y2="190" stroke="#3498db" stroke-width="3"/>`;
+}
+}
+}
+
+function checkAnswer(selected){
+const fb=document.getElementById('feedback');
+if(selected===currentType){
+correct++;streak++;
+const names={perpendicular:'Perpendiculares (⊥)',paralela:'Paralelas (∥)',ninguna:'Ninguna de las dos'};
+fb.innerHTML=`<div class="feedback correct">✅ ¡Correcto! Son ${names[currentType]}</div>`;
+}else{
+incorrect++;streak=0;
+const names={perpendicular:'Perpendiculares (⊥)',paralela:'Paralelas (∥)',ninguna:'Ninguna de las dos'};
+fb.innerHTML=`<div class="feedback incorrect">❌ Incorrecto. Eran ${names[currentType]}</div>`;
+}
+document.getElementById('correct').textContent=correct;
+document.getElementById('incorrect').textContent=incorrect;
+document.getElementById('streak').textContent=streak;
+setTimeout(gen,2500);
+}
+
+gen();
+</script>
+</body>
+</html>

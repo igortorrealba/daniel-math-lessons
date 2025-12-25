@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Tipos de Ángulos</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.question{font-size:24px;font-weight:bold;color:#2c3e50;margin:30px 0;text-align:center}.visual-area{background:#f8f9fa;border:3px solid#9b59b6;padding:30px;margin:20px 0;border-radius:10px;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center}.angle-value{font-size:36px;font-weight:bold;color:#f39c12;margin:20px 0}.choices{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}.choice-btn{padding:20px;font-size:18px;background:#ecf0f1;color:#2c3e50;border:3px solid#bdc3c7;border-radius:10px;cursor:pointer;font-weight:bold;transition:all .3s}.choice-btn:hover{background:#9b59b6;color:#fff;border-color:#8e44ad;transform:scale(1.05)}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
+</style>
+</head>
+<body>
+<h1>🎮 Identifica el Tipo de Ángulo</h1>
+<div class="game-container">
+<div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div>
+<div class="question">¿Qué tipo de ángulo es?</div>
+<div class="visual-area">
+<svg id="svgCanvas" width="350" height="200"></svg>
+<div class="angle-value" id="angleValue"></div>
+</div>
+<div class="choices">
+<button class="choice-btn" onclick="checkAnswer('agudo')">🔻 Agudo (< 90°)</button>
+<button class="choice-btn" onclick="checkAnswer('recto')">⬜ Recto (= 90°)</button>
+<button class="choice-btn" onclick="checkAnswer('obtuso')">📐 Obtuso (90°-180°)</button>
+<button class="choice-btn" onclick="checkAnswer('llano')">➖ Llano (= 180°)</button>
+</div>
+<div id="feedback"></div>
+</div>
+
+<script>
+let correct=0,incorrect=0,streak=0;
+let currentType='';
+let currentAngle=0;
+
+function gen(){
+document.getElementById('feedback').innerHTML='';
+const svg=document.getElementById('svgCanvas');
+svg.innerHTML='';
+
+const rand=Math.random();
+if(rand<0.25){
+currentType='agudo';
+currentAngle=Math.floor(Math.random()*85+5);
+}else if(rand<0.4){
+currentType='recto';
+currentAngle=90;
+}else if(rand<0.65){
+currentType='obtuso';
+currentAngle=Math.floor(Math.random()*85+95);
+}else{
+currentType='llano';
+currentAngle=180;
+}
+
+document.getElementById('angleValue').textContent=currentAngle+'°';
+
+const centerX=175;
+const centerY=150;
+const radius=120;
+
+const angleRad=(currentAngle*Math.PI)/180;
+const endX=centerX+radius*Math.cos(angleRad);
+const endY=centerY-radius*Math.sin(angleRad);
+
+const arcRadius=40;
+const largeArc=currentAngle>180?1:0;
+
+let html=`<line x1="${centerX}" y1="${centerY}" x2="${centerX+radius}" y2="${centerY}" stroke="#e74c3c" stroke-width="3"/>
+<line x1="${centerX}" y1="${centerY}" x2="${endX}" y2="${endY}" stroke="#3498db" stroke-width="3"/>
+<circle cx="${centerX}" cy="${centerY}" r="4" fill="#2c3e50"/>`;
+
+if(currentAngle>0 && currentAngle<180){
+html+=`<path d="M ${centerX+arcRadius},${centerY} A ${arcRadius},${arcRadius} 0 ${largeArc},0 ${centerX+arcRadius*Math.cos(angleRad)},${centerY-arcRadius*Math.sin(angleRad)}" fill="none" stroke="#f39c12" stroke-width="2"/>`;
+}else if(currentAngle===180){
+html+=`<path d="M ${centerX+30},${centerY-5} A 30,30 0 0,1 ${centerX-30},${centerY-5}" fill="none" stroke="#f39c12" stroke-width="2"/>`;
+}
+
+if(currentAngle===90){
+const squareSize=15;
+html+=`<rect x="${centerX-squareSize}" y="${centerY-squareSize}" width="${squareSize}" height="${squareSize}" fill="none" stroke="#27ae60" stroke-width="2"/>`;
+}
+
+svg.innerHTML=html;
+}
+
+function checkAnswer(selected){
+const fb=document.getElementById('feedback');
+if(selected===currentType){
+correct++;streak++;
+const names={agudo:'Agudo',recto:'Recto',obtuso:'Obtuso',llano:'Llano'};
+fb.innerHTML=`<div class="feedback correct">✅ ¡Correcto! ${currentAngle}° es un ángulo ${names[currentType]}</div>`;
+}else{
+incorrect++;streak=0;
+const names={agudo:'Agudo',recto:'Recto',obtuso:'Obtuso',llano:'Llano'};
+fb.innerHTML=`<div class="feedback incorrect">❌ Incorrecto. ${currentAngle}° es un ángulo ${names[currentType]}</div>`;
+}
+document.getElementById('correct').textContent=correct;
+document.getElementById('incorrect').textContent=incorrect;
+document.getElementById('streak').textContent=streak;
+setTimeout(gen,2500);
+}
+
+gen();
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lección 33: Punto, Línea, Rayo, Segmento</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:20px;background:#f5f5f5}h1{color:#2c3e50;text-align:center;border-bottom:3px solid#3498db;padding-bottom:10px}h2{color:#2980b9;margin-top:30px}.concept-box{background:#fff;border-left:4px solid#3498db;padding:20px;margin:20px 0;border-radius:5px}.example{background:#ebf5fb;border-left:4px solid#5dade2;padding:15px;margin:15px 0;border-radius:5px}.visual{background:#fff;border:2px solid#3498db;padding:20px;margin:15px 0;text-align:center;border-radius:8px}.practice-link{display:block;text-align:center;margin:30px 0;padding:15px;background:#3498db;color:#fff;text-decoration:none;border-radius:5px;font-size:18px;font-weight:bold}.practice-link:hover{background:#2980b9}.tool-box{background:#fff3cd;border-left:4px solid#ffc107;padding:15px;margin:15px 0;border-radius:5px}
+</style>
+</head>
+<body>
+<h1>📐 Lección 33: Punto, Línea, Rayo, Segmento<br>(Punkt, Prosta, Promień, Odcinek)</h1>
+
+<div class="tool-box">
+<h3>🛠️ Herramientas que necesitas:</h3>
+<ul>
+<li>✏️ Lápiz</li>
+<li>📏 Regla</li>
+<li>📄 Papel</li>
+</ul>
+</div>
+
+<div class="concept-box">
+<h2>📌 Conceptos Fundamentales de Geometría</h2>
+<p>La geometría comienza con cuatro conceptos básicos. ¡Vamos a conocerlos!</p>
+</div>
+
+<h2>1️⃣ Punto (Punkt)</h2>
+
+<div class="example">
+<h3>¿Qué es un Punto?</h3>
+<p>Un punto es una <strong>ubicación exacta en el espacio</strong>. No tiene tamaño, largo ni ancho.</p>
+<div class="visual">
+<svg width="200" height="80">
+<circle cx="100" cy="40" r="3" fill="#e74c3c"/>
+<text x="100" y="65" text-anchor="middle" font-size="16" fill="#2c3e50">A</text>
+</svg>
+<p style="margin-top:10px">Este es el punto <strong>A</strong></p>
+</div>
+<p><strong>Notación:</strong> Se nombra con una letra mayúscula: A, B, C, etc.</p>
+<p><strong>Ejemplo:</strong> La punta de tu lápiz marca un punto en el papel.</p>
+</div>
+
+<h2>2️⃣ Línea (Prosta)</h2>
+
+<div class="example">
+<h3>¿Qué es una Línea?</h3>
+<p>Una línea es <strong>infinita</strong> en ambas direcciones. No tiene principio ni fin.</p>
+<div class="visual">
+<svg width="400" height="80">
+<defs>
+<marker id="arrow1" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#2ecc71"/>
+</marker>
+<marker id="arrow2" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M9,0 L9,6 L0,3 z" fill="#2ecc71"/>
+</marker>
+</defs>
+<line x1="20" y1="40" x2="380" y2="40" stroke="#2ecc71" stroke-width="2" marker-start="url(#arrow2)" marker-end="url(#arrow1)"/>
+<circle cx="150" cy="40" r="3" fill="#e74c3c"/>
+<circle cx="250" cy="40" r="3" fill="#e74c3c"/>
+<text x="150" y="60" text-anchor="middle" font-size="14">A</text>
+<text x="250" y="60" text-anchor="middle" font-size="14">B</text>
+</svg>
+<p style="margin-top:10px">Línea <strong>AB</strong> o línea <strong>l</strong></p>
+</div>
+<p><strong>Notación:</strong> Se nombra con dos puntos que están en ella (AB) o con una letra minúscula (l, m, n).</p>
+<p><strong>Característica:</strong> ¡Se extiende infinitamente! Las flechas indican que continúa para siempre.</p>
+</div>
+
+<h2>3️⃣ Rayo (Promień)</h2>
+
+<div class="example">
+<h3>¿Qué es un Rayo?</h3>
+<p>Un rayo tiene un <strong>punto de inicio</strong> pero <strong>no tiene fin</strong>. Se extiende infinitamente en una dirección.</p>
+<div class="visual">
+<svg width="400" height="80">
+<defs>
+<marker id="arrow3" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#9b59b6"/>
+</marker>
+</defs>
+<line x1="100" y1="40" x2="380" y2="40" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow3)"/>
+<circle cx="100" cy="40" r="4" fill="#e74c3c"/>
+<circle cx="250" cy="40" r="3" fill="#e74c3c"/>
+<text x="100" y="60" text-anchor="middle" font-size="14">A</text>
+<text x="250" y="60" text-anchor="middle" font-size="14">B</text>
+</svg>
+<p style="margin-top:10px">Rayo <strong>AB</strong> (comienza en A, pasa por B y continúa)</p>
+</div>
+<p><strong>Notación:</strong> Se nombra con dos letras: el punto de inicio primero (AB significa: comienza en A y va hacia B).</p>
+<p><strong>Ejemplo:</strong> Un rayo de luz del sol comienza en el sol y viaja infinitamente.</p>
+<p><strong>⚠️ Importante:</strong> El rayo AB es diferente del rayo BA (van en direcciones opuestas).</p>
+</div>
+
+<h2>4️⃣ Segmento (Odcinek)</h2>
+
+<div class="example">
+<h3>¿Qué es un Segmento?</h3>
+<p>Un segmento es <strong>una parte de una línea</strong> con dos puntos finales. Tiene longitud definida.</p>
+<div class="visual">
+<svg width="400" height="80">
+<line x1="100" y1="40" x2="300" y2="40" stroke="#e67e22" stroke-width="3"/>
+<circle cx="100" cy="40" r="4" fill="#e74c3c"/>
+<circle cx="300" cy="40" r="4" fill="#e74c3c"/>
+<text x="100" y="60" text-anchor="middle" font-size="14">A</text>
+<text x="300" y="60" text-anchor="middle" font-size="14">B</text>
+<text x="200" y="25" text-anchor="middle" font-size="14" fill="#e67e22">8 cm</text>
+</svg>
+<p style="margin-top:10px">Segmento <strong>AB</strong> mide 8 cm</p>
+</div>
+<p><strong>Notación:</strong> Se nombra con sus dos puntos finales: AB o BA (es lo mismo).</p>
+<p><strong>Característica:</strong> ¡Se puede medir con una regla!</p>
+<p><strong>Ejemplo:</strong> El borde de tu regla es un segmento.</p>
+</div>
+
+<h2>📊 Tabla Comparativa</h2>
+
+<div class="concept-box">
+<table style="width:100%;border-collapse:collapse">
+<tr style="background:#3498db;color:#fff">
+<th style="padding:10px;border:1px solid #ddd">Elemento</th>
+<th style="padding:10px;border:1px solid #ddd">Puntos Finales</th>
+<th style="padding:10px;border:1px solid #ddd">Se Extiende</th>
+<th style="padding:10px;border:1px solid #ddd">Se Puede Medir</th>
+</tr>
+<tr>
+<td style="padding:10px;border:1px solid #ddd"><strong>Punto</strong></td>
+<td style="padding:10px;border:1px solid #ddd">No aplica</td>
+<td style="padding:10px;border:1px solid #ddd">No</td>
+<td style="padding:10px;border:1px solid #ddd">No</td>
+</tr>
+<tr style="background:#f8f9fa">
+<td style="padding:10px;border:1px solid #ddd"><strong>Línea</strong></td>
+<td style="padding:10px;border:1px solid #ddd">0 (ninguno)</td>
+<td style="padding:10px;border:1px solid #ddd">Ambas direcciones ↔️</td>
+<td style="padding:10px;border:1px solid #ddd">No (infinita)</td>
+</tr>
+<tr>
+<td style="padding:10px;border:1px solid #ddd"><strong>Rayo</strong></td>
+<td style="padding:10px;border:1px solid #ddd">1 (punto inicial)</td>
+<td style="padding:10px;border:1px solid #ddd">Una dirección →</td>
+<td style="padding:10px;border:1px solid #ddd">No (infinito)</td>
+</tr>
+<tr style="background:#f8f9fa">
+<td style="padding:10px;border:1px solid #ddd"><strong>Segmento</strong></td>
+<td style="padding:10px;border:1px solid #ddd">2 (ambos extremos)</td>
+<td style="padding:10px;border:1px solid #ddd">No</td>
+<td style="padding:10px;border:1px solid #ddd">Sí ✓</td>
+</tr>
+</table>
+</div>
+
+<h2>✏️ Ejercicio Práctico con Regla</h2>
+
+<div class="tool-box">
+<h3>Dibuja en tu cuaderno:</h3>
+<p><strong>1.</strong> Marca tres puntos: A, B y C</p>
+<p><strong>2.</strong> Dibuja el segmento AB de 5 cm</p>
+<p><strong>3.</strong> Dibuja el segmento BC de 7 cm</p>
+<p><strong>4.</strong> Dibuja el segmento AC (¿cuánto mide?)</p>
+<p><strong>5.</strong> Dibuja el rayo que comienza en A y pasa por B</p>
+<p><strong>6.</strong> Dibuja una línea que pase por los puntos B y C</p>
+</div>
+
+<h2>🎯 Identificación Visual</h2>
+
+<div class="example">
+<h3>Ejercicio: Identifica cada elemento</h3>
+<div class="visual">
+<svg width="600" height="200">
+<!-- Punto -->
+<circle cx="50" cy="50" r="4" fill="#e74c3c"/>
+<text x="50" y="75" text-anchor="middle" font-size="12">1. ¿Qué es?</text>
+
+<!-- Línea -->
+<defs>
+<marker id="a1" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#2ecc71"/>
+</marker>
+<marker id="a2" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M9,0 L9,6 L0,3 z" fill="#2ecc71"/>
+</marker>
+</defs>
+<line x1="150" y1="50" x2="300" y2="50" stroke="#2ecc71" stroke-width="2" marker-start="url(#a2)" marker-end="url(#a1)"/>
+<text x="225" y="75" text-anchor="middle" font-size="12">2. ¿Qué es?</text>
+
+<!-- Rayo -->
+<defs>
+<marker id="a3" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#9b59b6"/>
+</marker>
+</defs>
+<line x1="350" y1="50" x2="500" y2="50" stroke="#9b59b6" stroke-width="2" marker-end="url(#a3)"/>
+<circle cx="350" cy="50" r="4" fill="#e74c3c"/>
+<text x="425" y="75" text-anchor="middle" font-size="12">3. ¿Qué es?</text>
+
+<!-- Segmento -->
+<line x1="100" y1="130" x2="250" y2="130" stroke="#e67e22" stroke-width="3"/>
+<circle cx="100" cy="130" r="4" fill="#e74c3c"/>
+<circle cx="250" cy="130" r="4" fill="#e74c3c"/>
+<text x="175" y="155" text-anchor="middle" font-size="12">4. ¿Qué es?</text>
+</svg>
+<p><strong>Respuestas:</strong> 1) Punto, 2) Línea, 3) Rayo, 4) Segmento</p>
+</div>
+</div>
+
+<div class="concept-box" style="background:#d4edda;border-color:#28a745">
+<h2>✅ Resumen</h2>
+<ul>
+<li><strong>Punto:</strong> Ubicación exacta, sin tamaño (A, B, C)</li>
+<li><strong>Línea:</strong> Infinita en ambas direcciones ↔️ (AB o l)</li>
+<li><strong>Rayo:</strong> Punto inicial, infinita en una dirección → (AB)</li>
+<li><strong>Segmento:</strong> Dos puntos finales, longitud medible (AB)</li>
+</ul>
+<p><strong>💡 Regla de oro:</strong> Solo los segmentos se pueden medir con regla.</p>
+</div>
+
+<a href="App_PuntoLineaRayoSegmento.html" class="practice-link">🎮 Juego Interactivo</a>
+<a href="Worksheet_PuntoLineaRayoSegmento.html" class="practice-link" style="background:#28a745">📄 Hoja de Trabajo</a>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Punto, Línea, Rayo, Segmento</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#3498db 0%,#2980b9 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.question{font-size:24px;font-weight:bold;color:#2c3e50;margin:30px 0;text-align:center}.visual-area{background:#f8f9fa;border:3px solid#3498db;padding:30px;margin:20px 0;border-radius:10px;min-height:120px;display:flex;align-items:center;justify-content:center}.choices{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}.choice-btn{padding:20px;font-size:18px;background:#ecf0f1;color:#2c3e50;border:3px solid#bdc3c7;border-radius:10px;cursor:pointer;font-weight:bold;transition:all .3s}.choice-btn:hover{background:#3498db;color:#fff;border-color:#2980b9;transform:scale(1.05)}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
+</style>
+</head>
+<body>
+<h1>🎮 Identifica: Punto, Línea, Rayo, Segmento</h1>
+<div class="game-container">
+<div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div>
+<div class="question">¿Qué elemento geométrico ves?</div>
+<div class="visual-area" id="visualArea">
+<svg id="svgCanvas" width="400" height="150"></svg>
+</div>
+<div class="choices">
+<button class="choice-btn" onclick="checkAnswer('punto')">📍 Punto</button>
+<button class="choice-btn" onclick="checkAnswer('linea')">↔️ Línea</button>
+<button class="choice-btn" onclick="checkAnswer('rayo')">→ Rayo</button>
+<button class="choice-btn" onclick="checkAnswer('segmento')">━ Segmento</button>
+</div>
+<div id="feedback"></div>
+</div>
+
+<script>
+let correct=0,incorrect=0,streak=0;
+let currentType='';
+
+function gen(){
+document.getElementById('feedback').innerHTML='';
+const svg=document.getElementById('svgCanvas');
+svg.innerHTML='';
+const types=['punto','linea','rayo','segmento'];
+currentType=types[Math.floor(Math.random()*types.length)];
+
+if(currentType==='punto'){
+const cx=200;
+const cy=75;
+svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="5" fill="#e74c3c"/>
+<text x="${cx}" y="${cy+25}" text-anchor="middle" font-size="18" fill="#2c3e50">A</text>`;
+}else if(currentType==='linea'){
+svg.innerHTML=`<defs>
+<marker id="arr1" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#2ecc71"/>
+</marker>
+<marker id="arr2" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M9,0 L9,6 L0,3 z" fill="#2ecc71"/>
+</marker>
+</defs>
+<line x1="30" y1="75" x2="370" y2="75" stroke="#2ecc71" stroke-width="3" marker-start="url(#arr2)" marker-end="url(#arr1)"/>
+<circle cx="150" cy="75" r="4" fill="#e74c3c"/>
+<circle cx="250" cy="75" r="4" fill="#e74c3c"/>
+<text x="150" y="100" text-anchor="middle" font-size="16">A</text>
+<text x="250" y="100" text-anchor="middle" font-size="16">B</text>`;
+}else if(currentType==='rayo'){
+svg.innerHTML=`<defs>
+<marker id="arr3" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#9b59b6"/>
+</marker>
+</defs>
+<line x1="80" y1="75" x2="370" y2="75" stroke="#9b59b6" stroke-width="3" marker-end="url(#arr3)"/>
+<circle cx="80" cy="75" r="5" fill="#e74c3c"/>
+<circle cx="250" cy="75" r="4" fill="#e74c3c"/>
+<text x="80" y="100" text-anchor="middle" font-size="16">A</text>
+<text x="250" y="100" text-anchor="middle" font-size="16">B</text>`;
+}else{
+svg.innerHTML=`<line x1="80" y1="75" x2="320" y2="75" stroke="#e67e22" stroke-width="4"/>
+<circle cx="80" cy="75" r="5" fill="#e74c3c"/>
+<circle cx="320" cy="75" r="5" fill="#e74c3c"/>
+<text x="80" y="100" text-anchor="middle" font-size="16">A</text>
+<text x="320" y="100" text-anchor="middle" font-size="16">B</text>
+<text x="200" y="60" text-anchor="middle" font-size="14" fill="#e67e22">${Math.floor(Math.random()*8+3)} cm</text>`;
+}
+}
+
+function checkAnswer(selected){
+const fb=document.getElementById('feedback');
+if(selected===currentType){
+correct++;streak++;
+const names={punto:'Punto',linea:'Línea',rayo:'Rayo',segmento:'Segmento'};
+fb.innerHTML=`<div class="feedback correct">✅ ¡Correcto! Es un ${names[currentType]}</div>`;
+}else{
+incorrect++;streak=0;
+const names={punto:'Punto',linea:'Línea',rayo:'Rayo',segmento:'Segmento'};
+fb.innerHTML=`<div class="feedback incorrect">❌ Incorrecto. Era un ${names[currentType]}</div>`;
+}
+document.getElementById('correct').textContent=correct;
+document.getElementById('incorrect').textContent=incorrect;
+document.getElementById('streak').textContent=streak;
+setTimeout(gen,2500);
+}
+
+gen();
+</script>
+</body>
+</html>
