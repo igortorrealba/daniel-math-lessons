@@ -81,13 +81,13 @@
 ---
 
 ## MÓDULO 4: UŁAMKI DZIESIĘTNE (Fracciones Decimales/Decimales)
-**Estado General:** 2/4 lecciones en HTML ✅
+**Estado General:** 4/4 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
 | 29 | Conexión Fracciones-Decimales (Związek ułamków zwykłych i dziesiętnych) | ✅ HTML | Lesson, App, Worksheet |
-| 30 | Comparación de Decimales (Porównywanie ułamków dziesiętnych) | ⬜ POR CREAR | - |
-| 31 | Operaciones con Decimales ×÷ por 10, 100, 1000 (Mnożenie i dzielenie) | ⬜ POR CREAR | - |
+| 30 | Comparación de Decimales (Porównywanie ułamków dziesiętnych) | ✅ HTML | Lesson, App, Worksheet |
+| 31 | Operaciones con Decimales ×÷ por 10, 100, 1000 (Mnożenie i dzielenie) | ✅ HTML | Lesson, App, Worksheet |
 | 32 | Problemas de Palabras con Decimales (Zadania tekstowe) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
@@ -146,15 +146,15 @@
 ---
 
 ## MÓDULO 9: MIARY (Mediciones)
-**Estado General:** 3/5 lecciones en HTML ✅
+**Estado General:** 5/5 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
 | 49 | Longitud y Distancia: mm, cm, m, km (Długość i odległość) | ✅ HTML | Lesson, App, Worksheet |
 | 50 | Masa y Capacidad: g, kg, mL, L (Masa i pojemność) | ✅ HTML | Lesson, App, Worksheet |
 | 51 | Tiempo: Reloj y Tiempo Transcurrido (Czas) | ✅ HTML | Lesson, App, Worksheet |
-| 52 | Escala (Skala) | ⬜ POR CREAR | - |
-| 53 | Velocidad, Distancia y Tiempo (Prędkość, droga, czas) | ⬜ POR CREAR | - |
+| 52 | Escala (Skala) | ✅ HTML | Lesson, App, Worksheet |
+| 53 | Velocidad, Distancia y Tiempo (Prędkość, droga, czas) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 33 | 60% |
+| ✅ **Lecciones en HTML (Completas)** | 37 | 67% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 22 | 40% |
+| ⬜ **Lecciones por crear** | 18 | 33% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -186,14 +186,14 @@
 | 1. Números Naturales | 8 ✅ | 0 | 0 | 8 |
 | 2. Operaciones | 10 ✅ | 0 | 0 | 10 |
 | 3. Fracciones Comunes | 8 ✅ | 0 | 0 | 8 |
-| 4. Decimales | 2 | 0 | 2 | 4 |
+| 4. Decimales | 4 ✅ | 0 | 0 | 4 |
 | 5. Geometría Básica | 0 | 0 | 6 | 6 |
 | 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
 | 7. Círculos | 0 | 0 | 2 | 2 |
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
-| 9. Mediciones | 3 | 0 | 2 | 5 |
+| 9. Mediciones | 5 ✅ | 0 | 0 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **33** | **0** | **22** | **55** |
+| **TOTALES** | **37** | **0** | **18** | **55** |
 
 ---
 

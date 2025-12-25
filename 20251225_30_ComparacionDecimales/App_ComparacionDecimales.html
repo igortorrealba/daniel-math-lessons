@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Comparación de Decimales</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#3498db 0%,#2980b9 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.fractions{display:flex;gap:40px;align-items:center;justify-content:center;margin:30px 0}.number{font-size:52px;font-weight:bold;color:#3498db}.answer-buttons{display:flex;gap:15px;justify-content:center;margin:30px 0;flex-wrap:wrap}.symbol-btn{padding:20px 40px;font-size:48px;background:#ecf0f1;border:3px solid#bdc3c7;border-radius:12px;cursor:pointer;font-weight:bold;transition:all .3s;min-width:100px}.symbol-btn:hover{background:#3498db;color:#fff;border-color:#2980b9;transform:scale(1.1)}.feedback{text-align:center;font-size:20px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
+</style>
+</head>
+<body>
+<h1>🎮 Compara Decimales</h1>
+<div class="game-container">
+<div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div>
+<div style="text-align:center;font-size:22px;color:#2c3e50;margin:20px 0;font-weight:bold">Compara los decimales:</div>
+<div class="fractions">
+<span class="number" id="num1"></span>
+<span style="font-size:40px;color:#95a5a6">?</span>
+<span class="number" id="num2"></span>
+</div>
+<div class="answer-buttons">
+<button class="symbol-btn" onclick="checkAnswer('<')">&lt;</button>
+<button class="symbol-btn" onclick="checkAnswer('=')">=</button>
+<button class="symbol-btn" onclick="checkAnswer('>')"> &gt;</button>
+</div>
+<div id="feedback"></div>
+</div>
+
+<script>
+let correct=0,incorrect=0,streak=0,n1=0,n2=0,ans='';
+
+function gen(){
+document.getElementById('feedback').innerHTML='';
+const type=Math.floor(Math.random()*3);
+if(type===0){
+n1=(Math.floor(Math.random()*90)+10)/10;
+n2=(Math.floor(Math.random()*90)+10)/10;
+}else if(type===1){
+n1=(Math.floor(Math.random()*900)+100)/100;
+n2=(Math.floor(Math.random()*900)+100)/100;
+}else{
+n1=(Math.floor(Math.random()*9000)+1000)/1000;
+n2=(Math.floor(Math.random()*9000)+1000)/1000;
+}
+if(n1<n2)ans='<';
+else if(n1>n2)ans='>';
+else ans='=';
+document.getElementById('num1').textContent=n1;
+document.getElementById('num2').textContent=n2;
+}
+
+function checkAnswer(ua){
+const fb=document.getElementById('feedback');
+if(ua===ans){
+correct++;streak++;
+fb.innerHTML='<div class="feedback correct">✅ ¡Correcto! '+n1+' '+ans+' '+n2+'</div>';
+}else{
+incorrect++;streak=0;
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+n1+' '+ans+' '+n2+'</div>';
+}
+document.getElementById('correct').textContent=correct;
+document.getElementById('incorrect').textContent=incorrect;
+document.getElementById('streak').textContent=streak;
+setTimeout(gen,2500);
+}
+
+gen();
+</script>
+</body>
+</html>

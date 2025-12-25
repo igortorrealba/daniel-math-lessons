@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lección 30: Comparación de Decimales</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:20px;background:#f5f5f5}h1{color:#2c3e50;text-align:center;border-bottom:3px solid#3498db;padding-bottom:10px}h2{color:#2980b9;margin-top:30px}.concept-box{background:#fff;border-left:4px solid#3498db;padding:20px;margin:20px 0;border-radius:5px}.example{background:#ebf5fb;border-left:4px solid#3498db;padding:15px;margin:15px 0;border-radius:5px}.step-box{background:#fff;border:2px solid#3498db;padding:15px;margin:15px 0;border-radius:8px}.math-work{background:#f8f9fa;border-left:3px solid#3498db;padding:15px;margin:10px 0;font-family:monospace;font-size:18px}.practice-link{display:block;text-align:center;margin:30px 0;padding:15px;background:#3498db;color:#fff;text-decoration:none;border-radius:5px;font-size:18px;font-weight:bold}.practice-link:hover{background:#2980b9}table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff}th{background:#3498db;color:#fff;padding:12px}td{border:1px solid#ddd;padding:12px;text-align:center}
+</style>
+</head>
+<body>
+<h1>⚖️ Lección 30: Comparación de Decimales<br>(Porównywanie ułamków dziesiętnych)</h1>
+
+<div class="concept-box">
+<h2>📌 Método para Comparar Decimales</h2>
+<ol>
+<li><strong>Compara la parte entera</strong> (antes del punto decimal)</li>
+<li>Si son iguales, <strong>compara décimas</strong> (primer dígito después del punto)</li>
+<li>Si son iguales, <strong>compara centésimas</strong> (segundo dígito)</li>
+<li>Si son iguales, <strong>compara milésimas</strong>, y así sucesivamente</li>
+</ol>
+</div>
+
+<h2>Ejemplos Paso a Paso</h2>
+
+<div class="example">
+<h3>Ejemplo 1: Comparar 3.45 y 3.7</h3>
+<div class="step-box">
+<p><strong>Paso 1:</strong> Parte entera: 3 = 3 (iguales)</p>
+<p><strong>Paso 2:</strong> Décimas: 4 vs 7</p>
+<p>Como 4 < 7 → <strong>3.45 < 3.7</strong></p>
+</div>
+</div>
+
+<div class="example">
+<h3>Ejemplo 2: Comparar 5.28 y 5.3</h3>
+<div class="math-work">
+Alinear por el punto decimal:
+  5.28
+  5.30  (agregar 0 para comparar)
+
+Parte entera: 5 = 5
+Décimas: 2 vs 3
+2 < 3 → 5.28 < 5.3
+</div>
+</div>
+
+<div class="example">
+<h3>Ejemplo 3: Comparar 0.5 y 0.50</h3>
+<div class="math-work">
+0.5 = 0.50
+Son iguales → 0.5 = 0.50
+</div>
+<p><strong>Regla:</strong> Agregar ceros a la derecha no cambia el valor</p>
+</div>
+
+<h2>Truco Visual: Alinear el Punto</h2>
+
+<div class="concept-box">
+<p>Escribe los números alineados por el punto decimal y completa con ceros:</p>
+<div class="example">
+<h4>Comparar: 2.6, 2.58, 2.603</h4>
+<div class="math-work">
+  2.600
+  2.580
+  2.603
+
+Parte entera: todas 2
+Décimas: 6 = 5? No, 6 > 5
+Entonces 2.6 es el mayor
+
+Orden: 2.58 < 2.6 = 2.600 < 2.603
+</div>
+</div>
+</div>
+
+<h2>Comparación con Símbolos</h2>
+
+<table>
+<tr><th>Símbolo</th><th>Significado</th><th>Ejemplo</th></tr>
+<tr><td><strong><</strong></td><td>Menor que</td><td>1.2 < 1.5</td></tr>
+<tr><td><strong>></strong></td><td>Mayor que</td><td>3.8 > 3.75</td></tr>
+<tr><td><strong>=</strong></td><td>Igual a</td><td>0.5 = 0.50</td></tr>
+</table>
+
+<h2>Errores Comunes</h2>
+
+<div class="example" style="background:#fadbd8;border-color:#e74c3c">
+<h3>❌ ERROR: Comparar como números enteros</h3>
+<p><strong>Incorrecto:</strong> 0.9 < 0.12 (porque 9 < 12) ✗</p>
+<p><strong>Correcto:</strong> 0.90 > 0.12 (porque 90 > 12 centésimas) ✓</p>
+</div>
+
+<div class="concept-box" style="background:#d4edda;border-color:#28a745">
+<h2>✅ Resumen</h2>
+<ul>
+<li>Compara dígito por dígito de izquierda a derecha</li>
+<li>Empieza con la parte entera</li>
+<li>Alinea por el punto decimal</li>
+<li>Agrega ceros para igualar decimales</li>
+<li>El primer dígito diferente determina el orden</li>
+</ul>
+</div>
+
+<a href="App_ComparacionDecimales.html" class="practice-link">🎮 Juego Interactivo</a>
+<a href="Worksheet_ComparacionDecimales.html" class="practice-link" style="background:#4caf50">📄 Hoja de Trabajo</a>
+
+</body>
+</html>
