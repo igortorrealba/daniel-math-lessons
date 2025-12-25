@@ -32,7 +32,7 @@
 ---
 
 ## MÓDULO 2: DZIAŁANIA (Operaciones Aritméticas)
-**Estado General:** 4/10 lecciones en HTML ✅
+**Estado General:** 10/10 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 ### SUMA Y RESTA
 | # | Lección | Estado | Archivos |
@@ -40,22 +40,22 @@
 | 09 | Suma y Resta Mental (Dodawanie i odejmowanie w pamięci) | ✅ HTML | Lesson, App, Worksheet |
 | 10 | Suma Escrita (Dodawanie pisemne) | ✅ HTML | Lesson, App, Worksheet |
 | 11 | Resta Escrita (Odejmowanie pisemne) | ✅ HTML | Lesson, App, Worksheet |
-| 12 | Estimación de Sumas y Diferencias (Szacowanie) | ⬜ POR CREAR | - |
+| 12 | Estimación de Sumas y Diferencias (Szacowanie) | ✅ HTML | Lesson, App, Worksheet |
 
 ### MULTIPLICACIÓN
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 13 | Tablas de Multiplicar (1-12) (Tabliczka mnożenia) | ⬜ POR CREAR | - |
-| 14 | Multiplicación 1 dígito × 2 dígitos (Mnożenie) | ⬜ POR CREAR | - |
-| 15 | Métodos de Multiplicación: Box y Lattice (Metody mnożenia) | ⬜ POR CREAR | - |
-| 16 | Propiedades de Multiplicación (Właściwości mnożenia) | ⬜ POR CREAR | - |
+| 13 | Tablas de Multiplicar (1-12) (Tabliczka mnożenia) | ✅ HTML | Lesson, App, Worksheet |
+| 14 | Multiplicación 1 dígito × 2 dígitos (Mnożenie) | ✅ HTML | Lesson, App, Worksheet |
+| 15 | Métodos de Multiplicación: Box y Lattice (Metody mnożenia) | ✅ HTML | Lesson, App, Worksheet |
+| 16 | Propiedades de Multiplicación (Właściwości mnożenia) | ✅ HTML | Lesson, App, Worksheet |
 
 ### DIVISIÓN
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
 | 17 | División Básica (Dzielenie podstawowe) | ✅ HTML | Lesson, App, Worksheet |
-| 18 | División Larga/Escrita (Dzielenie pisemne) | ⬜ POR CREAR | - |
-| 19 | División con Residuo (Dzielenie z resztą) | ⬜ POR CREAR | - |
+| 18 | División Larga/Escrita (Dzielenie pisemne) | ✅ HTML | Lesson, App, Worksheet |
+| 19 | División con Residuo (Dzielenie z resztą) | ✅ HTML | Lesson, App, Worksheet |
 
 ### POTENCIAS
 | # | Lección | Estado | Archivos |
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 18 | 33% |
+| ✅ **Lecciones en HTML (Completas)** | 25 | 45% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 37 | 67% |
+| ⬜ **Lecciones por crear** | 30 | 55% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -184,7 +184,7 @@
 | Módulo | Completo (HTML) | Disponible (MD) | Por Crear | Total |
 |--------|-----------------|-----------------|-----------|-------|
 | 1. Números Naturales | 8 ✅ | 0 | 0 | 8 |
-| 2. Operaciones | 4 | 0 | 6 | 10 |
+| 2. Operaciones | 10 ✅ | 0 | 0 | 10 |
 | 3. Fracciones Comunes | 0 | 0 | 8 | 8 |
 | 4. Decimales | 2 | 0 | 2 | 4 |
 | 5. Geometría Básica | 0 | 0 | 6 | 6 |
@@ -193,7 +193,7 @@
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
 | 9. Mediciones | 3 | 0 | 2 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **18** | **0** | **37** | **55** |
+| **TOTALES** | **25** | **0** | **30** | **55** |
 
 ---
 
