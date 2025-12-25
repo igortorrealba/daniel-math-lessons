@@ -7,7 +7,37 @@ pre{background:#f5f5f5;padding:15px;border-radius:8px;overflow-x:auto;font-size:
 .tip{background:#fff9c4;padding:12px;border-radius:8px;margin:15px 0;border-left:4px solid #fbc02d}
 .nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px}
 .nav-buttons a{background:#42a5f5;color:white;padding:12px 24px;text-decoration:none;border-radius:8px}
-</style></head><body><div class="header"><h1>✖️ Lección 14: Multiplicación 1×2 Dígitos</h1><div>Mnożenie jednocyfrowe × dwucyfrowe</div></div>
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .home-button {
+                display: none;
+            }
+        }
+    </style></head><body><a href="../index.html" class="home-button">ð  Inicio</a><div class="header"><h1>✖️ Lección 14: Multiplicación 1×2 Dígitos</h1><div>Mnożenie jednocyfrowe × dwucyfrowe</div></div>
 <div class="section"><h2>Método: Multiplicación por Partes</h2><p>Cuando multiplicamos un número de 1 dígito por uno de 2 dígitos, multiplicamos primero las unidades, luego las decenas.</p>
 <div class="example"><strong>Ejemplo 1: 4 × 23</strong><pre>    23
   ×  4

@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Área Triángulos</title><style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#e74c3c,#c0392b);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px}.score{font-size:20px;text-align:center;margin:15px 0}.question{font-size:22px;font-weight:bold;text-align:center;margin:20px 0}.answer-input{width:120px;margin:20px auto;padding:15px;font-size:24px;text-align:center;border:3px solid#e74c3c;border-radius:8px;display:block}.btn{display:block;margin:15px auto;padding:15px 40px;font-size:18px;background:#e74c3c;color:#fff;border:none;border-radius:10px;cursor:pointer}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}</style></head><body><h1>🎮 Área de Triángulos</h1><div class="game-container"><div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div><div class="question" id="question"></div><input type="number" id="answerInput" class="answer-input" placeholder="cm²"><button class="btn" onclick="check()">Verificar</button><div id="feedback"></div></div><script>let correct=0,incorrect=0,streak=0,ans,b,h;function gen(){document.getElementById('feedback').innerHTML='';document.getElementById('answerInput').value='';b=Math.floor(Math.random()*10+4);h=Math.floor(Math.random()*10+4);ans=(b*h)/2;document.getElementById('question').textContent=`Base = ${b} cm, Altura = ${h} cm`;document.getElementById('answerInput').focus();}function check(){const ua=parseFloat(document.getElementById('answerInput').value);if(isNaN(ua)){document.getElementById('feedback').innerHTML='<div class="feedback incorrect">⚠️ Ingresa un número</div>';return;}if(ua===ans){correct++;streak++;document.getElementById('feedback').innerHTML=`<div class="feedback correct">✅ ¡Correcto! A = (${b}×${h})/2 = ${ans} cm²</div>`;}else{incorrect++;streak=0;document.getElementById('feedback').innerHTML=`<div class="feedback incorrect">❌ Incorrecto. A = (${b}×${h})/2 = ${ans} cm²</div>`;}document.getElementById('correct').textContent=correct;document.getElementById('incorrect').textContent=incorrect;document.getElementById('streak').textContent=streak;setTimeout(gen,2500);}document.getElementById('answerInput').addEventListener('keypress',e=>{if(e.key==='Enter')check()});gen();</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Área Triángulos</title><style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#e74c3c,#c0392b);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px}.score{font-size:20px;text-align:center;margin:15px 0}.question{font-size:22px;font-weight:bold;text-align:center;margin:20px 0}.answer-input{width:120px;margin:20px auto;padding:15px;font-size:24px;text-align:center;border:3px solid#e74c3c;border-radius:8px;display:block}.btn{display:block;margin:15px auto;padding:15px 40px;font-size:18px;background:#e74c3c;color:#fff;border:none;border-radius:10px;cursor:pointer}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .home-button {
+                display: none;
+            }
+        }
+    </style></head><body><a href="../index.html" class="home-button">ð  Inicio</a><h1>🎮 Área de Triángulos</h1><div class="game-container"><div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div><div class="question" id="question"></div><input type="number" id="answerInput" class="answer-input" placeholder="cm²"><button class="btn" onclick="check()">Verificar</button><div id="feedback"></div></div><script>let correct=0,incorrect=0,streak=0,ans,b,h;function gen(){document.getElementById('feedback').innerHTML='';document.getElementById('answerInput').value='';b=Math.floor(Math.random()*10+4);h=Math.floor(Math.random()*10+4);ans=(b*h)/2;document.getElementById('question').textContent=`Base = ${b} cm, Altura = ${h} cm`;document.getElementById('answerInput').focus();}function check(){const ua=parseFloat(document.getElementById('answerInput').value);if(isNaN(ua)){document.getElementById('feedback').innerHTML='<div class="feedback incorrect">⚠️ Ingresa un número</div>';return;}if(ua===ans){correct++;streak++;document.getElementById('feedback').innerHTML=`<div class="feedback correct">✅ ¡Correcto! A = (${b}×${h})/2 = ${ans} cm²</div>`;}else{incorrect++;streak=0;document.getElementById('feedback').innerHTML=`<div class="feedback incorrect">❌ Incorrecto. A = (${b}×${h})/2 = ${ans} cm²</div>`;}document.getElementById('correct').textContent=correct;document.getElementById('incorrect').textContent=incorrect;document.getElementById('streak').textContent=streak;setTimeout(gen,2500);}document.getElementById('answerInput').addEventListener('keypress',e=>{if(e.key==='Enter')check()});gen();</script></body></html>

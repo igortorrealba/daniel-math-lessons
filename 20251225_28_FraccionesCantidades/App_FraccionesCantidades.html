@@ -6,9 +6,40 @@
 <title>Juego: Fracciones de Cantidades</title>
 <style>
 body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#e67e22 0%,#d35400 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.problem{font-size:36px;font-weight:bold;color:#e67e22;margin:30px 0;text-align:center}.answer-input{width:120px;margin:5px;padding:12px;font-size:22px;text-align:center;border:3px solid#e67e22;border-radius:8px}.btn{display:block;margin:15px auto;padding:15px 40px;font-size:18px;background:#e67e22;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:bold}.btn:hover{background:#d35400;transform:scale(1.05)}.feedback{text-align:center;font-size:18px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}
-</style>
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .home-button {
+                display: none;
+            }
+        }
+    </style>
 </head>
-<body>
+<body><a href="../index.html" class="home-button">ð  Inicio</a>
+    <a href="../index.html" class="home-button">ð  Inicio</a>
 <h1>🎮 Fracciones de Cantidades</h1>
 <div class="game-container">
 <div class="score">✅ <span id="correct">0</span> | ❌ <span id="incorrect">0</span> | 🏆 <span id="streak">0</span></div>

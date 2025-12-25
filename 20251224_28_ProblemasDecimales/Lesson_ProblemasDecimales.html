@@ -17,9 +17,40 @@ h1{margin:0;font-size:2.2em}.subtitle{margin-top:10px;font-size:1.2em;opacity:0.
 .nav-buttons{display:flex;gap:15px;justify-content:center;margin-top:30px}
 .nav-buttons a{background:#00acc1;color:white;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:bold;transition:background 0.3s}
 .nav-buttons a:hover{background:#00838f}
-</style>
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .home-button {
+                display: none;
+            }
+        }
+    </style>
 </head>
-<body>
+<body><a href="../index.html" class="home-button">ð  Inicio</a>
+    <a href="../index.html" class="home-button">ð  Inicio</a>
 <div class="header">
 <h1>💰 Lección 28: Problemas con Decimales</h1>
 <div class="subtitle">Zadania tekstowe z ułamkami dziesiętnymi</div>

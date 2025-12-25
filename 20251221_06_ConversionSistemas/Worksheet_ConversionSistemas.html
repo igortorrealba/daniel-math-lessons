@@ -1,1 +1,31 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Hoja - Conversión</title><style>@media print{.no-print{display:none}}body{font-family:Arial;max-width:800px;margin:0 auto;padding:40px}h1{text-align:center;font-size:28pt}.problem{margin:20px 0;padding:15px 0;border-bottom:1px dashed #ccc}button{background:#667eea;color:white;border:none;padding:10px 20px;border-radius:5px;margin:5px;cursor:pointer}</style></head><body><h1>📝 Conversión de Sistemas</h1><p style="text-align:center">Konwersja systemów</p><div class="no-print" style="text-align:center"><button onclick="window.print()">🖨️ Imprimir</button><button onclick="showAnswers()">👁️ Mostrar</button></div><h2>Binario a Decimal</h2><div class="problem">1. 101 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>5</strong></div></div><div class="problem">2. 1010 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>10</strong></div></div><h2>Decimal a Binario</h2><div class="problem">3. 7 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>111</strong></div></div><div class="problem">4. 15 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>1111</strong></div></div><script>function showAnswers(){document.querySelectorAll('.answer').forEach(e=>e.style.display='block')}</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Hoja - Conversión</title><style>@media print{.no-print{display:none}}body{font-family:Arial;max-width:800px;margin:0 auto;padding:40px}h1{text-align:center;font-size:28pt}.problem{margin:20px 0;padding:15px 0;border-bottom:1px dashed #ccc}button{background:#667eea;color:white;border:none;padding:10px 20px;border-radius:5px;margin:5px;cursor:pointer}
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @media print {
+            .home-button {
+                display: none;
+            }
+        }
+    </style></head><body><a href="../index.html" class="home-button">ð  Inicio</a><h1>📝 Conversión de Sistemas</h1><p style="text-align:center">Konwersja systemów</p><div class="no-print" style="text-align:center"><button onclick="window.print()">🖨️ Imprimir</button><button onclick="showAnswers()">👁️ Mostrar</button></div><h2>Binario a Decimal</h2><div class="problem">1. 101 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>5</strong></div></div><div class="problem">2. 1010 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>10</strong></div></div><h2>Decimal a Binario</h2><div class="problem">3. 7 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>111</strong></div></div><div class="problem">4. 15 → <span style="border-bottom:2px solid black;display:inline-block;min-width:100px"></span><div class="answer" style="display:none;color:#667eea">✓ <strong>1111</strong></div></div><script>function showAnswers(){document.querySelectorAll('.answer').forEach(e=>e.style.display='block')}</script></body></html>
