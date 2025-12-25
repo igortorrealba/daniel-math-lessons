@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Juego: Fracciones Equivalentes</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(135deg,#9b59b6 0%,#8e44ad 100%);min-height:100vh}h1{color:#fff;text-align:center}.game-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}.score{font-size:20px;color:#2c3e50;margin:15px 0;text-align:center}.mode-select{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap}.mode-btn{padding:12px 20px;font-size:16px;background:#ecf0f1;border:2px solid#bdc3c7;border-radius:8px;cursor:pointer;font-weight:bold;transition:all .3s}.mode-btn.active{background:#9b59b6;color:#fff;border-color:#8e44ad}.question-area{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:30px 0}.question{font-size:24px;color:#2c3e50;text-align:center;margin:20px 0;font-weight:bold}.fraction-display{font-size:48px;font-weight:bold;color:#9b59b6;margin:20px 0}.answer-group{margin:20px 0;text-align:center}.answer-input{width:100px;margin:5px;padding:12px;font-size:22px;text-align:center;border:3px solid#9b59b6;border-radius:8px}.btn{display:block;margin:15px auto;padding:15px 40px;font-size:18px;background:#9b59b6;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:bold;transition:all .3s}.btn:hover{background:#8e44ad;transform:scale(1.05)}.feedback{text-align:center;font-size:20px;margin:20px 0;padding:15px;border-radius:10px;font-weight:bold}.correct{background:#d4edda;color:#155724}.incorrect{background:#f8d7da;color:#721c24}.hint{font-size:14px;color:#666;margin:10px 0}
+</style>
+</head>
+<body>
+<h1>🎮 Juego: Fracciones Equivalentes</h1>
+<div class="game-container">
+<div class="score">
+<div>✅ Correctas: <span id="correct">0</span> | ❌ Incorrectas: <span id="incorrect">0</span> | 🏆 Racha: <span id="streak">0</span></div>
+</div>
+
+<div class="mode-select">
+<button class="mode-btn active" onclick="setMode('multiply')">Ampliar (×)</button>
+<button class="mode-btn" onclick="setMode('simplify')">Simplificar (÷)</button>
+<button class="mode-btn" onclick="setMode('complete')">Completar</button>
+</div>
+
+<div class="question-area" id="questionArea"></div>
+
+<div id="answerArea"></div>
+
+<button class="btn" onclick="checkAnswer()">Verificar Respuesta</button>
+
+<div id="feedback"></div>
+</div>
+
+<script>
+let correctCount=0,incorrectCount=0,streak=0;
+let currentMode='multiply';
+let num1=0,den1=0,num2=0,den2=0,multiplier=0;
+
+function setMode(mode){
+currentMode=mode;
+document.querySelectorAll('.mode-btn').forEach(btn=>btn.classList.remove('active'));
+event.target.classList.add('active');
+generateProblem();
+}
+
+function gcd(a,b){
+return b===0?a:gcd(b,a%b);
+}
+
+function generateProblem(){
+document.getElementById('feedback').innerHTML='';
+if(currentMode==='multiply'){
+generateMultiplyProblem();
+}else if(currentMode==='simplify'){
+generateSimplifyProblem();
+}else{
+generateCompleteProblem();
+}
+}
+
+function generateMultiplyProblem(){
+den1=Math.floor(Math.random()*8)+2;
+num1=Math.floor(Math.random()*(den1-1))+1;
+multiplier=Math.floor(Math.random()*5)+2;
+num2=num1*multiplier;
+den2=den1*multiplier;
+document.getElementById('questionArea').innerHTML='<div class="question">Amplía la fracción multiplicando por '+multiplier+':</div><div class="fraction-display">'+num1+'/'+den1+' = ?</div><div class="hint">(Multiplica numerador y denominador por '+multiplier+')</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><input type="number" id="numInput" class="answer-input" placeholder="Numerador" min="1"> / <input type="number" id="denInput" class="answer-input" placeholder="Denominador" min="1"></div>';
+document.getElementById('numInput').focus();
+}
+
+function generateSimplifyProblem(){
+den1=Math.floor(Math.random()*8)+2;
+num1=Math.floor(Math.random()*(den1-1))+1;
+multiplier=Math.floor(Math.random()*5)+2;
+num2=num1*multiplier;
+den2=den1*multiplier;
+const g=gcd(num2,den2);
+document.getElementById('questionArea').innerHTML='<div class="question">Simplifica la fracción:</div><div class="fraction-display">'+num2+'/'+den2+' = ?</div><div class="hint">(Encuentra el divisor común y simplifica)</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><input type="number" id="numInput" class="answer-input" placeholder="Numerador" min="1"> / <input type="number" id="denInput" class="answer-input" placeholder="Denominador" min="1"></div>';
+document.getElementById('numInput').focus();
+}
+
+function generateCompleteProblem(){
+den1=Math.floor(Math.random()*8)+2;
+num1=Math.floor(Math.random()*(den1-1))+1;
+multiplier=Math.floor(Math.random()*5)+2;
+den2=den1*multiplier;
+num2=num1*multiplier;
+const missing=Math.random()<0.5?'num':'den';
+if(missing==='num'){
+document.getElementById('questionArea').innerHTML='<div class="question">Completa la fracción equivalente:</div><div class="fraction-display">'+num1+'/'+den1+' = ?/'+den2+'</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><div class="hint">Numerador:</div><input type="number" id="answerInput" class="answer-input" min="1"></div>';
+}else{
+document.getElementById('questionArea').innerHTML='<div class="question">Completa la fracción equivalente:</div><div class="fraction-display">'+num1+'/'+den1+' = '+num2+'/?</div>';
+document.getElementById('answerArea').innerHTML='<div class="answer-group"><div class="hint">Denominador:</div><input type="number" id="answerInput" class="answer-input" min="1"></div>';
+}
+document.getElementById('answerInput').focus();
+}
+
+function checkAnswer(){
+const fb=document.getElementById('feedback');
+let correct=false;
+if(currentMode==='multiply'){
+const userNum=parseInt(document.getElementById('numInput').value);
+const userDen=parseInt(document.getElementById('denInput').value);
+if(isNaN(userNum)||isNaN(userDen)){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Completa ambos campos</div>';
+return;
+}
+correct=(userNum===num2&&userDen===den2);
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Correcto! '+num1+'/'+den1+' = '+num2+'/'+den2+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+num1+'/'+den1+' × '+multiplier+' = '+num2+'/'+den2+'</div>';
+}
+}else if(currentMode==='simplify'){
+const userNum=parseInt(document.getElementById('numInput').value);
+const userDen=parseInt(document.getElementById('denInput').value);
+if(isNaN(userNum)||isNaN(userDen)){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Completa ambos campos</div>';
+return;
+}
+const g=gcd(num2,den2);
+const simplified=gcd(userNum,userDen)===1;
+const equivalent=(userNum*den2===userDen*num2);
+correct=simplified&&equivalent;
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Excelente! '+num2+'/'+den2+' = '+userNum+'/'+userDen+' (simplificado)</div>';
+}else if(!equivalent){
+fb.innerHTML='<div class="feedback incorrect">❌ No es equivalente. Respuesta: '+num1+'/'+den1+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Puedes simplificar más. Respuesta: '+num1+'/'+den1+'</div>';
+}
+}else{
+const userAnswer=parseInt(document.getElementById('answerInput').value);
+if(isNaN(userAnswer)){
+fb.innerHTML='<div class="feedback incorrect">⚠️ Ingresa un número</div>';
+return;
+}
+const questionText=document.getElementById('questionArea').textContent;
+if(questionText.includes('?/')){
+correct=(userAnswer===num2);
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Correcto! '+num1+'/'+den1+' = '+num2+'/'+den2+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+num1+'/'+den1+' = '+num2+'/'+den2+'</div>';
+}
+}else{
+correct=(userAnswer===den2);
+if(correct){
+fb.innerHTML='<div class="feedback correct">✅ ¡Correcto! '+num1+'/'+den1+' = '+num2+'/'+den2+'</div>';
+}else{
+fb.innerHTML='<div class="feedback incorrect">❌ Incorrecto. '+num1+'/'+den1+' = '+num2+'/'+den2+'</div>';
+}
+}
+}
+if(correct){
+correctCount++;
+streak++;
+}else{
+incorrectCount++;
+streak=0;
+}
+updateScore();
+setTimeout(generateProblem,2500);
+}
+
+function updateScore(){
+document.getElementById('correct').textContent=correctCount;
+document.getElementById('incorrect').textContent=incorrectCount;
+document.getElementById('streak').textContent=streak;
+}
+
+generateProblem();
+</script>
+</body>
+</html>
