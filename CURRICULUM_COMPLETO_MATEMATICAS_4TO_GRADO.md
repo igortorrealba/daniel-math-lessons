@@ -135,13 +135,13 @@
 ---
 
 ## MÓDULO 8: BRYŁY (Sólidos 3D)
-**Estado General:** 0/3 lecciones ⬜
+**Estado General:** 3/3 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 46 | Prismas y Cubos: Caras, Aristas, Vértices (Prostopadłościany i sześciany) | ⬜ POR CREAR | - |
-| 47 | Redes de Sólidos (Siatki brył) | ⬜ POR CREAR | - |
-| 48 | Área de Superficie (Pole powierzchni) | ⬜ POR CREAR | - |
+| 46 | Prismas y Cubos: Caras, Aristas, Vértices (Prostopadłościany i sześciany) | ✅ HTML | Lesson, App, Worksheet |
+| 47 | Redes de Sólidos (Siatki brył) | ✅ HTML | Lesson, App, Worksheet |
+| 48 | Área de Superficie (Pole powierzchni) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -159,12 +159,12 @@
 ---
 
 ## MÓDULO 10: PROCENTY I ZASTOSOWANIA (Porcentajes y Aplicaciones)
-**Estado General:** 0/2 lecciones ⬜
+**Estado General:** 2/2 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 54 | Porcentajes Básicos: 100%, 50%, 25%, 10%, 1% (Procenty podstawowe) | ⬜ POR CREAR | - |
-| 55 | Problemas con Descuentos y Dinero (Problemy z pieniędzmi) | ⬜ POR CREAR | - |
+| 54 | Introducción a Porcentajes (Wprowadzenie do procentów) | ✅ HTML | Lesson, App, Worksheet |
+| 55 | Calcular Porcentajes (Obliczanie procentów) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 50 | 91% |
+| ✅ **Lecciones en HTML (Completas)** | 55 | 100% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 5 | 9% |
+| ⬜ **Lecciones por crear** | 0 | 0% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -190,10 +190,10 @@
 | 5. Geometría Básica | 6 ✅ | 0 | 0 | 6 |
 | 6. Perímetros y Áreas | 5 ✅ | 0 | 0 | 5 |
 | 7. Círculos | 2 ✅ | 0 | 0 | 2 |
-| 8. Sólidos 3D | 0 | 0 | 3 | 3 |
+| 8. Sólidos 3D | 3 ✅ | 0 | 0 | 3 |
 | 9. Mediciones | 5 ✅ | 0 | 0 | 5 |
-| 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **50** | **0** | **5** | **55** |
+| 10. Porcentajes | 2 ✅ | 0 | 0 | 2 |
+| **TOTALES** | **55** | **0** | **0** | **55** |
 
 ---
 
