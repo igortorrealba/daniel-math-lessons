@@ -65,18 +65,18 @@
 ---
 
 ## MÓDULO 3: UŁAMKI ZWYKŁE (Fracciones Comunes)
-**Estado General:** 0/8 lecciones ⬜
+**Estado General:** 8/8 lecciones en HTML ✅ **MÓDULO COMPLETADO**
 
 | # | Lección | Estado | Archivos |
 |---|---------|--------|----------|
-| 21 | Introducción a Fracciones (Wprowadzenie do ułamków) | ⬜ POR CREAR | - |
-| 22 | Fracciones Propias, Impropias y Mixtas (Ułamki właściwe, niewłaściwe, mieszane) | ⬜ POR CREAR | - |
-| 23 | Fracciones Equivalentes y Simplificación (Ułamki równoważne, skracanie) | ⬜ POR CREAR | - |
-| 24 | Comparación de Fracciones (Porównywanie ułamków) | ⬜ POR CREAR | - |
-| 25 | Suma y Resta de Fracciones - Mismo Denominador (Dodawanie i odejmowanie) | ⬜ POR CREAR | - |
-| 26 | Suma y Resta de Fracciones - Diferente Denominador (Różne mianowniki) | ⬜ POR CREAR | - |
-| 27 | Multiplicación de Fracciones (Mnożenie ułamków) | ⬜ POR CREAR | - |
-| 28 | Fracciones de Cantidades (Ułamki liczb) | ⬜ POR CREAR | - |
+| 21 | Introducción a Fracciones (Wprowadzenie do ułamków) | ✅ HTML | Lesson, App, Worksheet |
+| 22 | Fracciones Propias, Impropias y Mixtas (Ułamki właściwe, niewłaściwe, mieszane) | ✅ HTML | Lesson, App, Worksheet |
+| 23 | Fracciones Equivalentes y Simplificación (Ułamki równoważne, skracanie) | ✅ HTML | Lesson, App, Worksheet |
+| 24 | Comparación de Fracciones (Porównywanie ułamków) | ✅ HTML | Lesson, App, Worksheet |
+| 25 | Suma y Resta de Fracciones - Mismo Denominador (Dodawanie i odejmowanie) | ✅ HTML | Lesson, App, Worksheet |
+| 26 | Suma y Resta de Fracciones - Diferente Denominador (Różne mianowniki) | ✅ HTML | Lesson, App, Worksheet |
+| 27 | Multiplicación de Fracciones (Mnożenie ułamków) | ✅ HTML | Lesson, App, Worksheet |
+| 28 | Fracciones de Cantidades (Ułamki liczb) | ✅ HTML | Lesson, App, Worksheet |
 
 ---
 
@@ -174,9 +174,9 @@
 
 | Categoría | Cantidad | Porcentaje |
 |-----------|----------|------------|
-| ✅ **Lecciones en HTML (Completas)** | 25 | 45% |
+| ✅ **Lecciones en HTML (Completas)** | 33 | 60% |
 | 📝 **Lecciones en MD (Por convertir)** | 0 | 0% |
-| ⬜ **Lecciones por crear** | 30 | 55% |
+| ⬜ **Lecciones por crear** | 22 | 40% |
 | **TOTAL** | **55** | **100%** |
 
 ### 📈 PROGRESO POR MÓDULO
@@ -185,7 +185,7 @@
 |--------|-----------------|-----------------|-----------|-------|
 | 1. Números Naturales | 8 ✅ | 0 | 0 | 8 |
 | 2. Operaciones | 10 ✅ | 0 | 0 | 10 |
-| 3. Fracciones Comunes | 0 | 0 | 8 | 8 |
+| 3. Fracciones Comunes | 8 ✅ | 0 | 0 | 8 |
 | 4. Decimales | 2 | 0 | 2 | 4 |
 | 5. Geometría Básica | 0 | 0 | 6 | 6 |
 | 6. Perímetros y Áreas | 0 | 0 | 5 | 5 |
@@ -193,7 +193,7 @@
 | 8. Sólidos 3D | 0 | 0 | 3 | 3 |
 | 9. Mediciones | 3 | 0 | 2 | 5 |
 | 10. Porcentajes | 0 | 0 | 2 | 2 |
-| **TOTALES** | **25** | **0** | **30** | **55** |
+| **TOTALES** | **33** | **0** | **22** | **55** |
 
 ---
 
